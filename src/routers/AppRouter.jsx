@@ -1,20 +1,42 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { Navbar } from "../components/Ui/Navbar";
-import ContactForm from "../routes/ContactForm";
-import FAQ from "../routes/FAQ";
+import { Navbar } from "../components/Ui/NavbarLogout";
 
-import Home from "../routes/Home";
-import Login from "../routes/Login";
-import NotFound from "../routes/NotFound";
-import ReadsCreate from "../routes/ReadsCreate";
-import ReadsDetail from "../routes/ReadsDetail";
-import ReadsDisplay from "../routes/ReadsDisplay";
-import SocialPayment from "../routes/SocialPayment";
-import UserInfoUpdate from "../routes/UserInfoUpdate";
-import UserProfile from "../routes/UserProfile";
+import ContactForm from "../pages/ContactForm";
+import FAQ from "../pages/FAQ";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import NotFound from "../pages/NotFound";
+import ReadsCreate from "../pages/ReadsCreate";
+import ReadsDetail from "../pages/ReadsDetail";
+import ReadsDisplay from "../pages/ReadsDisplay";
+import SocialPayment from "../pages/SocialPayment";
+import UserInfoUpdate from "../pages/UserInfoUpdate";
+import UserProfile from "../pages/UserProfile";
 
 
 export default function AppRouter() {
+    const [user, setUser] = useState(null);
+
+    function authenticate() {
+        setUser(true);
+        console.log(user);
+    }
+
+    function logout() {
+        setUser(false);
+        console.log(user);
+    }
+
+    useEffect(() => {
+        const u = localStorage.getItem('user');
+        u && JSON.parse(u) ? setUser(true) : setUser(false);
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("user", user);
+    }, [user]);
+
     return (
         <BrowserRouter>
             <Navbar />
@@ -24,20 +46,31 @@ export default function AppRouter() {
 
                 <Route path="contact" element={<ContactForm />} />
                 <Route path="faq" element={<FAQ />} />
-                <Route path="login" element={<Login />} />
+
                 <Route path="display" element={<ReadsDisplay />} />
 
                 <Route path="display/detail" element={<ReadsDetail />} />
 
+                {!user && (
+
+                    <Route path="login" element={<Login authenticate={authenticate} />} />
+                )}
+
                 {/* sin acceso */}
                 <Route path="create" element={<ReadsCreate />} />
                 <Route path="socialpayment" element={<SocialPayment />} />
-                <Route path="userprofile" element={<UserProfile />} />
-                <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
+                {user && (
+                    <>
+                        <Route path="userprofile" element={<UserProfile logout={logout} />} />
+                        <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
+                    </>
+                )}
+
 
 
 
                 <Route path='*' element={<NotFound />} />
+
             </Routes>
         </BrowserRouter >
     )

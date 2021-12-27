@@ -1,7 +1,7 @@
 import { NavLink, Outlet, Link } from 'react-router-dom'
 
 
-export default function UserProfile() {
+export default function UserProfile({ logout }) {
     return (
         <div>
             <h2>Perfil del usuario</h2>
@@ -11,6 +11,8 @@ export default function UserProfile() {
             >
                 <button>Modifica info</button>
             </NavLink>
+            <Link to='/'> Home</Link>
+            <button onClick={logout}>Logout</button>
         </div>
     )
 }
