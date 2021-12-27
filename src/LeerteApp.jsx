@@ -1,9 +1,10 @@
+import AppRouter from "./routers/AppRouter";
 
 
 export default function LeerteApp() {
     return (
         <div>
-            <h2>App</h2>
+            <AppRouter></AppRouter>
         </div>
     )
 }
