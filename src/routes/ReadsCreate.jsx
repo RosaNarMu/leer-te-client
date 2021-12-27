@@ -1,9 +1,9 @@
 
 
-export default function readsCreate() {
+export default function ReadsCreate() {
     return (
         <div>
-            <h2>create</h2>
+            <h2>Comienza a escribir</h2>
         </div>
     )
 }
