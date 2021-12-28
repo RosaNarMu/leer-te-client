@@ -14,17 +14,19 @@ export const Navbar = ({ user, logout }) => {
             <nav className="bar" >
 
                 <NavLink
-                    className='link'
+                    className='link '
                     to="/"
                 >
-                    <img src="https://cireasesores.com/wp-content/uploads/2017/01/default_logo.png" alt="logo" />
+                    {/*  <div className='logo'></div> */}
+                    <img src="../../assets/LOGO.png" alt="logo" />
+
                 </NavLink>
 
                 <NavLink
                     className='link'
                     to="/display"
                 >
-                    <button>¡A leer!</button>
+                    <button className='btn'>¡A leer!</button>
                 </NavLink>
 
                 {user && (
@@ -32,7 +34,7 @@ export const Navbar = ({ user, logout }) => {
                         className='link'
                         to="/create"
                     >
-                        <button>¡A escribir!</button>
+                        <button className='btn'>¡A escribir!</button>
                     </NavLink>
                 )}
 
@@ -41,14 +43,14 @@ export const Navbar = ({ user, logout }) => {
                     className='link'
                     to="/contact"
                 >
-                    <button>Contacto</button>
+                    <button className='btn'>Contacto</button>
                 </NavLink>
 
                 <NavLink
                     className='link'
                     to="/faq"
                 >
-                    <button>FAQ</button>
+                    <button className='btn'>FAQ</button>
                 </NavLink>
 
                 {!user && (
@@ -56,7 +58,7 @@ export const Navbar = ({ user, logout }) => {
                         className='link'
                         to="/login"
                     >
-                        <button>Tu cuenta</button>
+                        <button className='btn'>Tu cuenta</button>
                     </NavLink>
                 )}
 
@@ -67,10 +69,10 @@ export const Navbar = ({ user, logout }) => {
                             className='link'
                             to="/userprofile"
                         >
-                            <button>Tu cuenta</button>
+                            <button className='btn'>Tu cuenta</button>
                         </NavLink>
 
-                        <button onClick={exit}>Logout</button>
+                        <button className='btn' onClick={exit}>Logout</button>
                     </>
                 )}
 

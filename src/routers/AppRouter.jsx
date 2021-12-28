@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, useNavigate, Link, Navigate } from "react-router-dom";
-import { Navbar } from "../components/Ui/NavbarLogout";
+import { Navbar } from "../components/Ui/Navbar";
 
 import ContactForm from "../pages/ContactForm";
 import FAQ from "../pages/FAQ";
