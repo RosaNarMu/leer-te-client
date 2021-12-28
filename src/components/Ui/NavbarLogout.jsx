@@ -1,7 +1,14 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 
 
-export const Navbar = () => {
+export const Navbar = ({ user, logout }) => {
+    const navigate = useNavigate();
+    function exit() {
+
+        logout();
+        navigate('/login');
+
+    }
     return (
         <>
             <nav className="bar" >
@@ -20,6 +27,16 @@ export const Navbar = () => {
                     <button>¡A leer!</button>
                 </NavLink>
 
+                {user && (
+                    <NavLink
+                        className='link'
+                        to="/create"
+                    >
+                        <button>¡A escribir!</button>
+                    </NavLink>
+                )}
+
+
                 <NavLink
                     className='link'
                     to="/contact"
@@ -34,19 +51,29 @@ export const Navbar = () => {
                     <button>FAQ</button>
                 </NavLink>
 
-                <NavLink
-                    className='link'
-                    to="/login"
-                >
-                    <button>Login</button>
-                </NavLink>
+                {!user && (
+                    <NavLink
+                        className='link'
+                        to="/login"
+                    >
+                        <button>Tu cuenta</button>
+                    </NavLink>
+                )}
 
-                <NavLink
-                    className='link'
-                    to="/login"
-                >
-                    <button>Signup</button>
-                </NavLink>
+
+                {user && (
+                    <>
+                        <NavLink
+                            className='link'
+                            to="/userprofile"
+                        >
+                            <button>Tu cuenta</button>
+                        </NavLink>
+
+                        <button onClick={exit}>Logout</button>
+                    </>
+                )}
+
             </nav>
 
             <section>

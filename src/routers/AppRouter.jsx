@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate, Link, Navigate } from "react-router-dom";
 import { Navbar } from "../components/Ui/NavbarLogout";
 
 import ContactForm from "../pages/ContactForm";
@@ -18,6 +18,8 @@ import UserProfile from "../pages/UserProfile";
 export default function AppRouter() {
     const [user, setUser] = useState(null);
 
+
+
     function authenticate() {
         setUser(true);
         console.log(user);
@@ -26,6 +28,7 @@ export default function AppRouter() {
     function logout() {
         setUser(false);
         console.log(user);
+
     }
 
     useEffect(() => {
@@ -39,7 +42,7 @@ export default function AppRouter() {
 
     return (
         <BrowserRouter>
-            <Navbar />
+            <Navbar user={user} logout={logout} />
             <Routes>
                 <Route path="/" element={<Home />} />
 
@@ -56,16 +59,18 @@ export default function AppRouter() {
                     <Route path="login" element={<Login authenticate={authenticate} />} />
                 )}
 
-                {/* sin acceso */}
-                <Route path="create" element={<ReadsCreate />} />
-                <Route path="socialpayment" element={<SocialPayment />} />
+
                 {user && (
                     <>
                         <Route path="userprofile" element={<UserProfile logout={logout} />} />
                         <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
+                        <Route path="create" element={<ReadsCreate />} />
                     </>
                 )}
 
+                {/* sin acceso */}
+
+                <Route path="socialpayment" element={<SocialPayment />} />
 
 
 
