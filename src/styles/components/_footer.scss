@@ -3,6 +3,10 @@
     padding: 2em;
     text-align: center;
     color: $off-white;
-    position:relative;
-    margin-bottom: 0;
+    position:absolute;
+    bottom: 0px;
+    width: 100vw;
+
+    display:flex;
+    justify-content: space-evenly;
 }

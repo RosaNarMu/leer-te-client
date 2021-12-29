@@ -4,6 +4,8 @@ import HorizontalList from '../components/HorizontalList/HorizontalList'
 
 
 export default function Home({ user }) {
+
+    const listName = '¡Novedades!';
     return (
         <>
             <main className='home-div-main'>
@@ -59,7 +61,7 @@ export default function Home({ user }) {
 
             </main >
             <section>
-                <HorizontalList></HorizontalList>
+                <HorizontalList listName={listName}></HorizontalList>
             </section>
         </>
     )
