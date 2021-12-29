@@ -24,3 +24,5 @@ yarn-error.log*
 
 /src/etc
 
+db.json
+

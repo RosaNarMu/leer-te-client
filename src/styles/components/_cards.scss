@@ -1,0 +1,109 @@
+
+.cards-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4rem;
+    padding: 4rem;
+    margin: 0 auto;
+    width: max-content;
+  }
+  
+  .card {
+    /* font-family: 'Heebo'; */
+    --bg-filter-opacity: 0.5;
+   /*  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img); */
+    height: 20em;
+    width: 15em;
+    font-size: 1.5em;
+    color: darken(gray,20%);
+    border-radius: 1em;
+    padding: 1em;
+    /*margin: 2em;*/
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+   /*  box-shadow: 0 0 5em -1em black; */
+    transition: all, 0.5s;
+    position: relative;
+    overflow: hidden;
+    border: 10px solid #ccc;
+    text-decoration: none;
+  }
+  
+  .card:hover {
+    transform: rotate(0);
+  }
+  
+  .card h1 {
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.2em;
+  }
+  
+  .card p {
+    font-size: 0.75em;
+  /*   font-family: 'Open Sans'; */
+    margin-top: 0.5em;
+    line-height: 2em;
+  }
+  
+  .card .tags {
+    display: flex;
+  }
+  
+  .tag {
+    border-color: $primary;
+  }
+  
+  .card .tags .tag {
+    font-size: 0.75em;
+    background: $cool-grey;
+    border-radius: 0.3rem;
+    padding: 0 0.5em;
+    margin-right: 0.5em;
+    line-height: 1.5em;
+    transition: all, 0.5s;
+  }
+  
+  .card:hover .tags .tag {
+    background: $primary;
+    
+    /* color: white; */
+  }
+
+  .card:before, .card:after {
+    content: '';
+    transform: scale(0);
+    transform-origin: top left;
+    border-radius: 50%;
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    z-index: -5;
+    transition: all, 0.5s;
+    transition-timing-function: ease-in-out;
+  }
+  
+  .card:before {
+    background: #ddd;
+    width: 250%;
+    height: 250%;
+  }
+  
+  .card:after {
+    background: $primary;
+    width: 200%;
+    height: 200%;
+  }
+  
+  .card:hover {
+    color: darken($dark-accent, 30%);
+  }
+  
+  .card:hover:before, .card:hover:after {
+    transform: scale(1);
+  }
+  
