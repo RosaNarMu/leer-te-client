@@ -1,0 +1,41 @@
+.reads-display-searchForm{
+    display:flex;
+    align-items: center;
+    background-color: $cool-grey;
+    width: 100%;
+    
+    padding: 1.5rem;
+    justify-content: center;
+
+    .reads-display-searchInput{
+     height: 2rem;
+
+     width: 25vw;
+    }
+
+}
+
+.reads-display-center-main{
+    display: flex;
+
+
+
+    
+}
+
+
+.reads-display-radio-main{
+    background-color: $primary;
+    flex-grow: 1;
+}
+
+.reads-display-cards{
+    background-color: blueviolet;
+    flex-wrap: initial;
+    margin-right: 0px;
+    display: flex;
+    justify-content: initial;
+    flex-grow: 2;
+    padding: 3rem;
+}
+
