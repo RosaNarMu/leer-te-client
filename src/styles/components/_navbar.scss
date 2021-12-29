@@ -1,18 +1,30 @@
-.bar {
+.navbar-main {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: $primary;
     align-items: center;
     height: 100px;
-}
+    padding: 30px;
+    .navbar-center, .navbar-end{
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        /* flex-grow: 1; */
+    }
+    .navbar-center{
+        flex-grow: 1;
+    }
 
-.link{
-    color: white;
-    text-align: center;
-    text-decoration: none;
+    
+    .link{
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        
+    }
+    .active{
+        background: lawngreen;
+    }
     
 }
 
-.active{
-    color: purple;
-}
