@@ -5,6 +5,8 @@
     align-items: center;
     height: 100px;
     padding: 30px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.164);
+    /* flex-wrap: wrap; */
     .navbar-center, .navbar-end{
         display: flex;
         justify-content: space-around;
@@ -13,17 +15,6 @@
     }
     .navbar-center{
         flex-grow: 1;
-    }
-
-    
-    .link{
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        
-    }
-    .active{
-        background: lawngreen;
     }
     
 }

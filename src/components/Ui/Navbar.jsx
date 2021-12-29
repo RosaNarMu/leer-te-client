@@ -100,11 +100,12 @@ export const Navbar = ({ user, logout }) => {
                             </>
                         )}
                     </ul>
+                    <section>
+                        <Outlet></Outlet>
+                    </section>
                 </nav>
             </header>
-            <section>
-                <Outlet></Outlet>
-            </section>
+
         </>
     )
 }

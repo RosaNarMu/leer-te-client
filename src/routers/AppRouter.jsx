@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, useNavigate, Link, Navigate } from "react-router-dom";
+import Footer from "../components/Ui/Footer";
 import { Navbar } from "../components/Ui/Navbar";
 
 import ContactForm from "../pages/ContactForm";
@@ -77,6 +78,7 @@ export default function AppRouter() {
                 <Route path='*' element={<NotFound />} />
 
             </Routes>
+            <Footer></Footer>
         </BrowserRouter >
     )
 }

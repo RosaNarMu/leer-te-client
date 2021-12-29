@@ -36,9 +36,6 @@
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
 }
 
 .btn:hover {
@@ -48,6 +45,6 @@
 
 .btn:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  background-color: #ccc;
-  border-color: #CCC;
+  background-color: $cool-grey;
+  border-color: $cool-grey;
 }
