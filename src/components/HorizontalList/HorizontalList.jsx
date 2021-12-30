@@ -30,7 +30,7 @@ export default function HorizontalList({ listName }) {
             {
 
                 bookList && bookList.map(({ id, title, author, genre }, index) => (
-                    <Card id={id} title={title} author={author} gente={genre}></Card>
+                    <Card id={id} title={title} author={author} genre={genre}></Card>
                     /* <div className="card-grid-space"
                         key={id}
                     >
