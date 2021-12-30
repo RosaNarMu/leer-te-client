@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Card from "./Card";
 
 
-export default function HorizontalList({ listName }) {
+export default function HorizontalList({ listName, user }) {
 
     const [bookList, setBookList] = useState([])
 
@@ -30,7 +30,7 @@ export default function HorizontalList({ listName }) {
             {
 
                 bookList && bookList.map(({ id, title, author, genre }, index) => (
-                    <Card id={id} title={title} author={author} genre={genre}></Card>
+                    <Card id={id} title={title} author={author} genre={genre} user={user}></Card>
                     /* <div className="card-grid-space"
                         key={id}
                     >

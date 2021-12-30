@@ -61,7 +61,7 @@ export default function Home({ user }) {
 
             </main >
             <section>
-                <HorizontalList listName={listName}></HorizontalList>
+                <HorizontalList listName={listName} user={user}></HorizontalList>
             </section>
         </>
     )

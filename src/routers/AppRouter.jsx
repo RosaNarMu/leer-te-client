@@ -51,7 +51,7 @@ export default function AppRouter() {
                 <Route path="contact" element={<ContactForm />} />
                 <Route path="faq" element={<FAQ />} />
 
-                <Route path="display" element={<ReadsDisplay />} />
+                <Route path="display" element={<ReadsDisplay user={user} />} />
 
                 <Route path="display/detail" element={<ReadsDetail />} />
 
@@ -71,7 +71,7 @@ export default function AppRouter() {
 
                 {/* sin acceso */}
 
-                <Route path="socialpayment" element={<SocialPayment />} />
+                <Route path="socialpayment" element={<SocialPayment user={user} />} />
 
 
 

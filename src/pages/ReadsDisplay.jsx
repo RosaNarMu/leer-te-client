@@ -3,7 +3,7 @@ import Card from "../components/HorizontalList/Card";
 import { useEffect, useState } from "react"
 import { NavLink, Outlet, Link } from 'react-router-dom'
 
-export default function ReadsDisplay() {
+export default function ReadsDisplay({ user }) {
 
     const [readsDisplay, setReadsDisplay] = useState([])
 
@@ -73,7 +73,7 @@ export default function ReadsDisplay() {
                     {
 
                         readsDisplay && readsDisplay.map(({ id, title, author, genre }, index) => (
-                            <Card id={id} title={title} author={author} genre={genre}></Card>
+                            <Card id={id} title={title} author={author} genre={genre} user={user}></Card>
 
                         ))}
                 </div>
