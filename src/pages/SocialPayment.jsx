@@ -15,8 +15,13 @@ export default function SocialPayment({ user }) {
                 <section className='socialPayment-div-left'>
                     <h2>Vas a acceder a: </h2>
                     <Card id={id} title={title} author={author} genre={genre} user={user}></Card>
+
+
                 </section>
                 <section className='socialPayment-div-right'>
+
+
+
                     <span>¿En qué consiste el pago social?</span>
                     <p>
                         Para acceder a esta lectura sólo tienes que postear en Twitter o Facebook,

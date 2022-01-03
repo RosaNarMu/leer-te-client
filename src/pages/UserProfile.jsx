@@ -6,7 +6,9 @@ export default function UserProfile({ logout }) {
     function exit() {
 
         logout();
-        navigate('/login');
+        navigate('/login', {
+            replace: true
+        });
 
     }
 

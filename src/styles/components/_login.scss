@@ -5,6 +5,7 @@ height: 80%;
 }
 .login-div-main{
     display: flex;
+    height: 70vh;
     
 
     .login-div-left-login, .login-div-right-register{
@@ -47,7 +48,7 @@ height: 80%;
 
       span{
           color: grayscale($color: #3b3838);
-          font-size: 50px;
+          font-size: 40px;
           /* display: block;
           justify-content: center; */
       }

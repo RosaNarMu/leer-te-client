@@ -1,0 +1,27 @@
+.commentsBox-main{
+    background-color: $cool-grey;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 80vw;
+
+    transition: all, 0.5s; 
+
+
+
+    .commentsBox-main-username{
+        font-size: large;
+        font-weight: bold ;
+    }
+
+    .commentsBox-main-comment{
+        font-size: large;
+        font-style: italic;
+    }
+}
+
+.commentsBox-main:hover{
+    background-color: lavender;
+}

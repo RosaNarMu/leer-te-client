@@ -5,7 +5,10 @@ export default function Login({ authenticate }) {
     function login() {
 
         authenticate();
-        navigate('/userprofile');
+        navigate('/userprofile', {
+            replace: true
+        });
+
 
     }
 

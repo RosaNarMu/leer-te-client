@@ -1,0 +1,86 @@
+.readsDisplay-div-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.readsDisplay-div-main {
+    display: flex;
+    height: 70vh;
+    flex-wrap: wrap;
+
+    .readsDisplay-div-left,  .readsDisplay-div-right {
+        background-color: $off-white;
+  
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        padding: 1.5rem;
+
+
+        border: 5px, solid, pink
+
+    }
+}
+
+.readsDisplay-div-left{
+    background-color: $off-white;
+    width: 30vw;
+    padding: 3rem;
+    font-size: large;
+    gap: 1.5rem;
+
+    ul{
+        font-style: italic;
+    }
+}
+
+.readsDisplay-div-right{
+    background-color: $off-white;
+    width: 70vw;
+    padding: 3rem;
+    flex-wrap: wrap;
+    font-size: larger;
+}
+
+.readsDisplay-div-bottom{
+    display: flex;
+    flex-direction: column;
+    /* flex-grow: 1; */
+    background-color:$primary;
+    /* bottom: 0px; */
+    /* height: 20%; */
+    text-align: center;
+   justify-content: space-evenly;
+   padding: 2em;
+   align-items: center;
+}
+
+.readsDisplay-div-comment-input{
+    align-items: center;
+    margin: 1rem;
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+
+    span{
+      background-color: $cool-grey;
+    padding: 1rem;
+   
+    border-radius: 5px;
+    transition: all, 0.5s;  
+    }
+
+    span:hover{
+         background-color: $primary;
+    }
+
+    textarea{
+        width: 80vw;
+        margin: 1.5rem
+    }
+    
+}
+

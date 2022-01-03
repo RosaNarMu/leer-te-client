@@ -66,12 +66,13 @@ export default function AppRouter() {
                         <Route path="userprofile" element={<UserProfile logout={logout} />} />
                         <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
                         <Route path="create" element={<ReadsCreate />} />
+                        <Route path="socialpayment" element={<SocialPayment user={user} />} />
                     </>
                 )}
 
-                {/* sin acceso */}
 
-                <Route path="socialpayment" element={<SocialPayment user={user} />} />
+
+
 
 
 

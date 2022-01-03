@@ -1,11 +1,12 @@
 .socialPayment-div-wrapper{
     display: flex;
     flex-direction: column;
-    height: 80%;
+    
 }
 
 .socialPayment-div-main{
     display: flex;
+    height: 80vh;
     
 
 .socialPayment-div-left, .socialPayment-div-right{
@@ -20,6 +21,7 @@
     
     .card {
         margin: 1.5rem;
+        height: 20em;
         box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.096);
         .btn{
             display: none;

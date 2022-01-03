@@ -6,7 +6,9 @@ export const Navbar = ({ user, logout }) => {
     function exit() {
 
         logout();
-        navigate('/login');
+        navigate('/login', {
+            replace: true
+        });
 
     }
     return (
