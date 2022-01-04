@@ -15,7 +15,7 @@ export default function ReadsCreate() {
     }
 
     return (
-        <wrapper className='readsCreate-div-wrapper'>
+        <section className='readsCreate-div-wrapper'>
 
 
 
@@ -41,10 +41,10 @@ export default function ReadsCreate() {
                     </select>
                 </section>
 
-                <textarea /* ref={ref} */ maxlength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras' />
+                <textarea /* ref={ref} */ maxLength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras' />
                 <button className='btn' type="submit" >Enviar</button>
 
             </form>
-        </wrapper>
+        </section>
     )
 }

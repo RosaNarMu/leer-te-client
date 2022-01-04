@@ -1,0 +1,31 @@
+.userProfile-div-wrapper{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 1.5rem;
+
+    span{
+        border-style: none;
+            border-radius: 5px;
+            background-color: $cool-grey;
+            padding: 1rem;
+    }
+
+
+    .userProfile-div-head{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: large;
+        margin: 1.5rem;
+    }
+
+    .userProfile-div-listWrap{
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
