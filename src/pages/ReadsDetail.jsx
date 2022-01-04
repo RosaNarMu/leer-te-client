@@ -41,11 +41,11 @@ export default function ReadsDetail() {
 
             <section className='readsDisplay-div-bottom'>
 
-                <div className='readsDisplay-div-comment-input'>
+                <form /* onSubmit={ } */ className='readsDisplay-div-comment-input'>
                     <span >¡Opina!</span>
                     <textarea /* ref={ref} */ maxlength="50" type='text' className='input' />
                     <button className='btn' type="submit" >Enviar comentario</button>
-                </div>
+                </form>
 
                 <hr></hr>
                 <CommentsBox id={id} user={user} comment={comment}></CommentsBox>
