@@ -18,4 +18,51 @@
     }
     
 }
+/* #openMenu {
+    display: none;
+}
 
+.openMenuIcon {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    padding-right: 1rem;
+}
+
+.openMenu:checked ~ .linkPosition {
+    display: block;
+}
+
+@media (min-width: 992px) {
+    ul {
+        margin-left:10rem;
+        margin-right:10rem;
+    }
+    
+    .navbar-main {
+        
+        width: 100%;
+        
+        display:flex;
+        align-items: center;
+        position: relative;
+        
+        padding-right: 2rem;
+    }
+
+    .linkPosition {
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid var(--vivid-dark-green);
+        border-left: 1px solid var(--cream);
+        position: static;
+        width: 100%;
+        height: 3rem;
+        padding: 0;
+    }
+
+    .openMenuIcon {
+        display: none;
+    }
+ }
+ */

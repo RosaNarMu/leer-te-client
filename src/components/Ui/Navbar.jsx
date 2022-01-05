@@ -14,7 +14,7 @@ export const Navbar = ({ user, logout }) => {
     return (
         <>
             <header>
-                <nav className="navbar-main" >
+                <nav className="navbar-main " >
                     <ul>
                         <li>
                             <NavLink
@@ -28,6 +28,11 @@ export const Navbar = ({ user, logout }) => {
 
                         </li>
                     </ul>
+
+                    {/*  <label className="openMenuIcon" htmlFor="openMenu">
+                        <i className="fas fa-bars"></i>
+                    </label>
+                    <input className="openMenu" type="checkbox" id="openMenu" /> */}
 
                     <ul className='navbar-center'>
                         <li>
