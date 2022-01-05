@@ -1,7 +1,7 @@
 import ReadsDetail from "./ReadsDetail";
 import Card from "../components/HorizontalList/Card";
 import { useEffect, useState } from "react"
-import { NavLink, Outlet, Link } from 'react-router-dom'
+import { NavLink, Outlet, Link, useSearchParams } from 'react-router-dom'
 
 export default function ReadsDisplay({ user }) {
 
@@ -19,15 +19,23 @@ export default function ReadsDisplay({ user }) {
         fetchData();
     }, [])
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
     function emptyFunction(params) {
         console.log('cambio de radio');
     }
+
+    function handleFilter(e) {
+        setSearchParams({ filter: e.target.value })
+    }
+
+    const filter = searchParams.get('filter') || '';
 
     return (
         <>
             <section className='reads-display-searchForm-block'>
                 <form className='reads-display-searchForm' action="">
-                    <input className='reads-display-searchInput input' type="text" placeholder='Busca tu próxima lectura' key='searchInput' />
+                    <input className='reads-display-searchInput input' type="text" value={filter} onChange={handleFilter} placeholder='Busca tu próxima lectura' key='searchInput' />
                 </form>
             </section>
             <main className='reads-display-center-main'>
@@ -70,12 +78,20 @@ export default function ReadsDisplay({ user }) {
                 </div>
 
                 <div className='reads-display-cards'>
-                    {
+                    {readsDisplay.filter((reading) => {
+                        if (!filter) {
+                            return true;
+                        }
 
-                        readsDisplay && readsDisplay.map(({ id, title, author, genre }, index) => (
-                            <Card id={id} title={title} author={author} genre={genre} user={user}></Card>
+                        const title = reading.title.toLowerCase();
 
-                        ))}
+                        return title.includes(filter.toLowerCase());
+                    })
+
+                        /* readsDisplay && readsDisplay */.map(({ id, title, author, genre }, index) => (
+                        <Card id={id} title={title} author={author} genre={genre} user={user}></Card>
+
+                    ))}
                 </div>
 
             </main>
