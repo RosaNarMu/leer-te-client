@@ -53,7 +53,7 @@ export default function AppRouter() {
 
                 <Route path="display" element={<ReadsDisplay user={user} />} />
 
-                <Route path="display/detail" element={<ReadsDetail />} />
+                <Route path="display/detail/:detailId" element={<ReadsDetail />} />
 
                 {!user && (
 
