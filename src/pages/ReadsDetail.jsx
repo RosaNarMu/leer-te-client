@@ -2,6 +2,7 @@ import { useParams } from 'react-router'
 import { useEffect, useState } from "react"
 import CommentsBox from '../components/readsDetail/CommentsBox'
 import { useFetch } from '../hook/useFetch';
+import { useUrl } from '../hook/useUrl';
 
 
 export default function ReadsDetail() {
@@ -9,13 +10,15 @@ export default function ReadsDetail() {
     //ALGO NO DEJA DE FUNCIONAR EN EL FETCH CUANDO PONGO LA PARTE DEL FIND A FUNCIONAR
 
 
-    const [readingSelectedDisplay, setReadingSelectedDisplay] = useState([]);
+    /* const [readingSelectedDisplay, setReadingSelectedDisplay] = useState([]); */
 
     const { detailId } = useParams();
 
     console.log(detailId);
 
-    useFetch('http://localhost:3000/profile', setReadingSelectedDisplay)
+    const reading = useUrl(detailId);
+
+    /*  useFetch('http://localhost:3000/profile', setReadingSelectedDisplay) */
 
 
     /* useEffect(() => {
@@ -36,9 +39,9 @@ export default function ReadsDetail() {
      }
   */
 
-    console.log(readingSelectedDisplay.favorites);
+    /* console.log(readingSelectedDisplay.favorites);
 
-    const reading = readingSelectedDisplay.favorites.find(({ id }) => id == detailId)
+    const reading = readingSelectedDisplay.favorites.find(({ id }) => id == detailId) */
 
     /*  const reading = readingSelectedDisplay.favorites.find(reading => reading.id == detailId);
  
