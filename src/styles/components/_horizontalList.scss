@@ -4,6 +4,7 @@
     align-items: center;
     padding: 2rem;
     background-color: lighten($primary, 20%);
+    flex-wrap: wrap;
 }
 
 .horizontal-display-title{
