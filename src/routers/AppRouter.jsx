@@ -9,7 +9,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import ReadsCreate from "../pages/ReadsCreate";
-import ReadsDetail from "../pages/ReadsDetail";
+import ReadsDetail from "../pages/ReadsDetailFav";
 import ReadsDisplay from "../pages/ReadsDisplay";
 import SocialPayment from "../pages/SocialPayment";
 import UserInfoUpdate from "../pages/UserInfoUpdate";

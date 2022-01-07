@@ -2,10 +2,10 @@ import { useParams } from 'react-router'
 import { useEffect, useState } from "react"
 import CommentsBox from '../components/readsDetail/CommentsBox'
 import { useFetch } from '../hook/useFetch';
-import { useUrl } from '../hook/useUrl';
+import { useUrl, useUrlFav } from '../hook/useUrlFav';
 
 
-export default function ReadsDetail() {
+export default function ReadsDetailFav() {
 
     //ALGO NO DEJA DE FUNCIONAR EN EL FETCH CUANDO PONGO LA PARTE DEL FIND A FUNCIONAR
 
@@ -14,10 +14,18 @@ export default function ReadsDetail() {
 
     const { detailId } = useParams();
 
-    console.log(detailId);
+    const numberDetailId = parseInt(detailId)
 
-    const reading = useUrl(detailId);
+    console.log(typeof (detailId));
 
+    console.log(typeof (numberDetailId));
+
+    const reading = useUrlFav(numberDetailId);
+
+    console.log(reading);
+
+
+    const comments = reading.comments;
     /*  useFetch('http://localhost:3000/profile', setReadingSelectedDisplay) */
 
 
@@ -71,9 +79,9 @@ export default function ReadsDetail() {
 
                 <section className='readsDisplay-div-left'>
                     <ul>
-                        <li>{` Título: ${title}`}</li>
-                        <li>{` Autor: ${author}`}</li>
-                        <li>{`Género: ${genre}`}</li>
+                        <li>{` Título: ${reading.title}`}</li>
+                        <li>{` Autor: ${reading.author}`}</li>
+                        <li>{`Género: ${reading.genre}`}</li>
                     </ul>
 
                     <button className='btn'>Añade a favoritos</button>
@@ -85,7 +93,7 @@ export default function ReadsDetail() {
 
                 <section className='readsDisplay-div-right'>
 
-                    <span>{text}</span>
+                    <span>{reading.text}</span>
 
                 </section>
 
@@ -101,11 +109,29 @@ export default function ReadsDetail() {
                 </form>
 
                 <hr></hr>
-                <CommentsBox id={idex} user={user} comment={comment}></CommentsBox>
-                <CommentsBox id={idex} user={user} comment={comment}></CommentsBox>
+                {
+
+
+                    comments && comments.map(({ commentId, userComenter, body }, index) => (
+
+                        <CommentsBox key={commentId} id={commentId} user={userComenter} comment={body}></CommentsBox>
+
+
+                    ))}
+                { }
+
             </section>
 
 
         </main>
     )
 }
+
+/* {
+
+
+    list && list.map(({ id, title, author, genre }, index) => (
+
+        <CardProfile id={id} title={title} author={author} genre={genre} user={user} listName={listName}></CardProfile>
+
+    ))} */

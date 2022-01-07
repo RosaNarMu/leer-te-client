@@ -1,0 +1,45 @@
+export const favorites = [
+
+    {
+        "id": 1,
+        "title": "El diario de Olivia",
+        "author": "Iván",
+        "genre": "terror",
+        "text": "Lorem fistrum torpedo pecador al ataquerl me cago en tus muelas. Quietooor mamaar pecador por la gloria de mi madre a peich quietooor. Ese que llega pecador tiene musho peligro diodeno llevame al sircoo ese pedazo de mamaar pecador a peich hasta luego Lucas diodenoo. Jarl te va a hasé pupitaa tiene musho peligro ese hombree apetecan pupita al ataquerl se calle ustée quietooor de la pradera ese que llega. Está la cosa muy malar sexuarl benemeritaar por la gloria de mi madre torpedo qué dise usteer papaar papaar pupita pupita hasta luego Lucas hasta luego Lucas. Qué dise usteer a wan hasta luego Lucas ahorarr al ataquerl la caidita tiene musho peligro amatomaa. De la pradera hasta luego Lucas te va a hasé pupitaa ese pedazo de a gramenawer. Benemeritaar pecador me cago en tus muelas amatomaa por la gloria de mi madre ese que llega. Papaar papaar me cago en tus muelas no puedor jarl diodenoo no te digo trigo por no llamarte Rodrigor está la cosa muy malar sexuarl hasta luego Lucas te va a hasé pupitaa. Hasta luego Lucas diodenoo hasta luego Lucas pupita. Apetecan de la pradera ese pedazo de ese pedazo de al ataquerl.",
+        "comments": [
+            {
+                "commentId": 1,
+                "userComenter": "UserName",
+                "body": "some comment",
+                "postId": 1
+            },
+            {
+                "commentId": 2,
+                "userComenter": "UserName2",
+                "body": "some comment2",
+                "postId": 2
+            },
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Magia encadenada",
+        "author": "Nahikari",
+        "genre": "fantasía",
+        "text": "Lorem fistrum torpedo pecador al ataquerl me cago en tus muelas. Quietooor mamaar pecador por la gloria de mi madre a peich quietooor. Ese que llega pecador tiene musho peligro diodeno llevame al sircoo ese pedazo de mamaar pecador a peich hasta luego Lucas diodenoo. Jarl te va a hasé pupitaa tiene musho peligro ese hombree apetecan pupita al ataquerl se calle ustée quietooor de la pradera ese que llega. Está la cosa muy malar sexuarl benemeritaar por la gloria de mi madre torpedo qué dise usteer papaar papaar pupita pupita hasta luego Lucas hasta luego Lucas. Qué dise usteer a wan hasta luego Lucas ahorarr al ataquerl la caidita tiene musho peligro amatomaa. De la pradera hasta luego Lucas te va a hasé pupitaa ese pedazo de a gramenawer. Benemeritaar pecador me cago en tus muelas amatomaa por la gloria de mi madre ese que llega. Papaar papaar me cago en tus muelas no puedor jarl diodenoo no te digo trigo por no llamarte Rodrigor está la cosa muy malar sexuarl hasta luego Lucas te va a hasé pupitaa. Hasta luego Lucas diodenoo hasta luego Lucas pupita. Apetecan de la pradera ese pedazo de ese pedazo de al ataquerl.",
+        "comments": [
+            {
+                "commentId": 1,
+                "userComenter": "UserName",
+                "body": "some comment",
+                "postId": 1
+            },
+            {
+                "commentId": 2,
+                "userComenter": "UserName2",
+                "body": "some comment2",
+                "postId": 2
+            }
+        ]
+    }
+]

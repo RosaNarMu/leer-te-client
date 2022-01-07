@@ -1,4 +1,4 @@
-import ReadsDetail from "./ReadsDetail";
+import ReadsDetail from "./ReadsDetailFav";
 import Card from "../components/HorizontalList/Card";
 import { useEffect, useState } from "react"
 import { NavLink, Outlet, Link, useSearchParams } from 'react-router-dom'
