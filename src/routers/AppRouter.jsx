@@ -9,7 +9,9 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import ReadsCreate from "../pages/ReadsCreate";
+import ReadsDetailFav from "../pages/ReadsDetailFav";
 import ReadsDetail from "../pages/ReadsDetailFav";
+import ReadsDetailUnlocked from "../pages/ReadsDetailUnlocked";
 import ReadsDisplay from "../pages/ReadsDisplay";
 import SocialPayment from "../pages/SocialPayment";
 import UserInfoUpdate from "../pages/UserInfoUpdate";
@@ -53,7 +55,8 @@ export default function AppRouter() {
 
                 <Route path="display" element={<ReadsDisplay user={user} />} />
 
-                <Route path="display/detail/:detailId" element={<ReadsDetail />} />
+                <Route path="display/detailFav/:detailId" element={<ReadsDetailFav />} />
+                <Route path="display/detailUnlocked/:detailId" element={<ReadsDetailUnlocked />} />
 
                 {!user && (
 

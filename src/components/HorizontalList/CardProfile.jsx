@@ -19,7 +19,7 @@ export default function CardProfile({ id, title, author, genre, user, listName }
 
                         <NavLink
                             className=''
-                            to={`/display/detail/${id}`}
+                            to={`/display/detailFav/${id}`}
                         >
                             <button className='btn'> Accede a la lectura</button>
                         </NavLink>
@@ -33,7 +33,7 @@ export default function CardProfile({ id, title, author, genre, user, listName }
 
                         <NavLink
                             className=''
-                            to={`/display/detail/${id}`}
+                            to={`/display/detailUnlocked/${id}`}
                         >
                             <button className='btn'> Accede a la lectura</button>
                         </NavLink>

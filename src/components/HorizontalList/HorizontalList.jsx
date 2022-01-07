@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useFetch } from "../../hook/useFetch";
 import Card from "./Card";
 
 
@@ -18,7 +19,12 @@ export default function HorizontalList({ listName, user }) {
         fetchData();
     }, [])
 
+    /* useFetch('http://localhost:3000/readings-published', setBookList); */
 
+    /* setBookList((element) => element.slice(-4)) */
+
+    /* setBookList(bookList.slice(-4))
+ */
 
 
     return (

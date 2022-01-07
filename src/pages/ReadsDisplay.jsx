@@ -2,22 +2,25 @@ import ReadsDetail from "./ReadsDetailFav";
 import Card from "../components/HorizontalList/Card";
 import { useEffect, useState } from "react"
 import { NavLink, Outlet, Link, useSearchParams } from 'react-router-dom'
+import { useFetch } from "../hook/useFetch";
 
 export default function ReadsDisplay({ user }) {
 
     const [readsDisplay, setReadsDisplay] = useState([])
 
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('http://localhost:3000/readings-published')
-            const data = await response.json();
-            setReadsDisplay(data);
-            console.log(data);
-        }
+    /*  useEffect(() => {
+         async function fetchData() {
+             const response = await fetch('http://localhost:3000/readings-published')
+             const data = await response.json();
+             setReadsDisplay(data);
+             console.log(data);
+         }
+ 
+         fetchData();
+     }, []) */
 
-        fetchData();
-    }, [])
+    useFetch('http://localhost:3000/readings-published', setReadsDisplay);
 
     const [searchParams, setSearchParams] = useSearchParams();
 

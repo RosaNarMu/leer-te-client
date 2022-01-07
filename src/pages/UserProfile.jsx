@@ -1,6 +1,7 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import HorizontalListProfile from '../components/HorizontalList/HorizontalListProfile.jsx';
+import { useFetch } from '../hook/useFetch.jsx';
 
 
 export default function UserProfile({ logout }) {
@@ -23,7 +24,7 @@ export default function UserProfile({ logout }) {
     const [profileInfoDisplay, setProfileInfoDisplay] = useState([]);
 
 
-    useEffect(() => {
+    /* useEffect(() => {
         async function fetchData() {
             const response = await fetch('http://localhost:3000/profile')
             const data = await response.json();
@@ -32,7 +33,9 @@ export default function UserProfile({ logout }) {
         }
 
         fetchData();
-    }, []);
+    }, []); */
+
+    useFetch('http://localhost:3000/profile', setProfileInfoDisplay);
 
     const firstList = profileInfoDisplay.favorites;
     const secondList = profileInfoDisplay.readingsUnlocked;
