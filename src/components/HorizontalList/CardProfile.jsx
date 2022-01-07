@@ -41,24 +41,34 @@ export default function CardProfile({ id, title, author, genre, user, listName }
 
                     )}
                     {listName.includes('Publicaciones') && (
+                        <>
+                            <button className='btn delete-btn' title="Elimina la publicación"> <i class="fas fa-trash-alt"></i> </button>
 
-                        <NavLink
-                            className=''
-                            to="/create"
-                        >
-                            <button className='btn'> Accede al editor </button>
-                        </NavLink>
+                            <NavLink
+                                className=''
+                                to="/create"
+                            >
+                                <button className='btn'> Accede al editor </button>
+                            </NavLink>
 
+
+                        </>
                     )}
 
                     {listName.includes('Borradores') && (
 
-                        <NavLink
-                            className=''
-                            to="/create"
-                        >
-                            <button className='btn'> Accede al editor </button>
-                        </NavLink>
+                        <>
+                            <button className='btn delete-btn' title="Elimina la publicación"> <i class="fas fa-trash-alt"></i> </button>
+
+                            <NavLink
+                                className=''
+                                to="/create"
+                            >
+                                <button className='btn '> Accede al editor </button>
+                            </NavLink>
+
+
+                        </>
 
                     )}
 
