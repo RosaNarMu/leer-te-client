@@ -30,6 +30,7 @@
 
 .reads-display-radio-main{
     background-color: $off-white;
+    flex-wrap: wrap;
     width: 20vw;
     padding: 3rem;
     
@@ -120,3 +121,21 @@
     }
 }
 
+@media only screen and (max-width: 1010px) {
+  .reads-display-center-main{
+        flex-direction: column;
+        height: unset;
+        
+    } 
+
+    .reads-display-radio-main, .reads-display-cards{
+      display: flex;
+      align-items: center;
+      width: 100vw;
+
+      
+    }
+
+
+    
+  }

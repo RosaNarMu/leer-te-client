@@ -29,3 +29,9 @@
         gap: 1.5rem;
     }
 }
+
+@media only screen and (max-width: 500px) {
+    .userProfile-div-head {
+    gap: 1rem;
+}
+}

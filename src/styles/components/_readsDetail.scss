@@ -6,8 +6,9 @@
 
 .readsDisplay-div-main {
     display: flex;
-    height: 70vh;
+    /* height: 70vh; */
     flex-wrap: wrap;
+    padding: 2rem;
 
     .readsDisplay-div-left,  .readsDisplay-div-right {
         background-color: $off-white;
@@ -84,3 +85,16 @@
     
 }
 
+@media only screen and (max-width: 1265px) {
+    .readsDisplay-div-main {
+          flex-direction: column;
+          height: unset;
+          
+      } 
+      
+
+      .readsDisplay-div-left, .readsDisplay-div-right{
+          width: 100%;
+      }
+    
+    }

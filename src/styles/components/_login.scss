@@ -11,7 +11,7 @@ height: 80%;
     .login-div-left-login, .login-div-right-register{
 
         background-color: whitesmoke;
-        width: 50vw;
+        width: 100vw;
         
         display: flex;
         justify-content: center;
@@ -55,3 +55,11 @@ height: 80%;
   }
 
 
+  @media only screen and (max-width: 1010px) {
+    .login-div-main {
+          flex-direction: column;
+          height: unset;
+          
+      } 
+      
+    }
