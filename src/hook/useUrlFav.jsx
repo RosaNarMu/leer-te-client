@@ -4,12 +4,14 @@ import { readings } from "../data/readings";
 import { favorites } from "../data/favorites";
 
 export function useUrlFav(id = '') {
-    /* 
-        const [readingSelectedDisplay, setReadingSelectedDisplay] = useState([]);
-    
-        useFetch('http://localhost:3000/profile', setReadingSelectedDisplay); */
 
-    console.log(favorites);
+    const [readingSelectedDisplay, setReadingSelectedDisplay] = useState([]);
 
-    return favorites.find(reading => reading.id === id);
+    useFetch('http://localhost:3000/profile', setReadingSelectedDisplay);
+
+    /* console.log(favorites); */
+
+    console.log(readingSelectedDisplay);
+
+    return readingSelectedDisplay?.find(reading => reading.id === id);
 }

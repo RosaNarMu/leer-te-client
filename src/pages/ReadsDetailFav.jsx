@@ -10,53 +10,84 @@ export default function ReadsDetailFav() {
     //ALGO NO DEJA DE FUNCIONAR EN EL FETCH CUANDO PONGO LA PARTE DEL FIND A FUNCIONAR
 
 
-    /* const [readingSelectedDisplay, setReadingSelectedDisplay] = useState([]); */
+    const [readingSelectedDisplay, setReadingSelectedDisplay] = useState([]);
+
+    const [reading, setReading] = useState();
 
     const { detailId } = useParams();
 
-    const numberDetailId = parseInt(detailId)
+    const numberDetailId = parseInt(detailId);
 
-    console.log(typeof (detailId));
+    /*  const reading = useUrlFav(numberDetailId); */
 
-    console.log(typeof (numberDetailId));
-
-    const reading = useUrlFav(numberDetailId);
-
-    console.log(reading);
+    /* console.log(reading); */
 
 
-    const comments = reading.comments;
+    /* const comments = reading.comments; */
     /*  useFetch('http://localhost:3000/profile', setReadingSelectedDisplay) */
 
 
-    /* useEffect(() => {
+    useEffect(() => {
+        /* fetch('./data.json', {
+            method: 'GET',
+            headers: {
+
+                'Content-Type': 'application/json',
+
+                'Accept': 'application/json'
+
+            }
+        }
+        )
+            .then(response => response.json())
+            .then(data => console.log(data)) */
         async function fetchData() {
-            const response = await fetch('http://localhost:3000/profile')
+
+            const response = await fetch('http://localhost:3000/profile', {
+
+                headers: {
+
+                    'Content-Type': 'application/json',
+
+                    'Accept': 'application/json'
+
+                }
+            })
             const data = await response.json();
-            setReadingSelectedDisplay(data);
-            console.log(data);
+
+            setReadingSelectedDisplay(data.favorites);
+
         }
 
         fetchData();
-    }, []); */
+    }, []);
 
-
+    console.log("FISTRO PECADOORRR", readingSelectedDisplay);
 
     /*  const getReadingById = (id = '') => {
          return readingSelectedDisplay.find(reading => reading.id === id);
      }
-  */
+    */
 
     /* console.log(readingSelectedDisplay.favorites);
 
     const reading = readingSelectedDisplay.favorites.find(({ id }) => id == detailId) */
 
-    /*  const reading = readingSelectedDisplay.favorites.find(reading => reading.id == detailId);
- 
-     console.log(reading.title); */
+
+
+    useEffect(() => {
+        setReading(/* (prev) => [...prev, */ readingSelectedDisplay/* .filter(read => read.id === numberDetailId) */)
+
+    }, [numberDetailId])
+
+
+
+    /* const reading = readingSelectedDisplay.filter(read => read.id === numberDetailId); */
+
+    console.log(reading);
 
     /* const array1 = [5, 12, 8, 130, 44];
-
+     
     const found = array1.find(element => element > 10); */
 
     const title = 'Título de ejemplo'
@@ -79,9 +110,9 @@ export default function ReadsDetailFav() {
 
                 <section className='readsDisplay-div-left'>
                     <ul>
-                        <li>{` Título: ${reading.title}`}</li>
-                        <li>{` Autor: ${reading.author}`}</li>
-                        <li>{`Género: ${reading.genre}`}</li>
+                        <li>{` Título: ${title}`}</li>
+                        <li>{` Autor: ${author}`}</li>
+                        <li>{`Género: ${genre}`}</li>
                     </ul>
 
                     <button className='btn'>Añade a favoritos</button>
@@ -93,7 +124,7 @@ export default function ReadsDetailFav() {
 
                 <section className='readsDisplay-div-right'>
 
-                    <span>{reading.text}</span>
+                    <span>{text}</span>
 
                 </section>
 
@@ -111,14 +142,14 @@ export default function ReadsDetailFav() {
                 <hr></hr>
                 {
 
-
-                    comments && comments.map(({ commentId, userComenter, body }, index) => (
+                    <CommentsBox key={idex} id={idex} user={user} comment={comment}></CommentsBox>
+                   /*  comments && comments.map(({ commentId, userComenter, body }, index) => (
 
                         <CommentsBox key={commentId} id={commentId} user={userComenter} comment={body}></CommentsBox>
 
 
-                    ))}
-                { }
+                    )) */}
+
 
             </section>
 

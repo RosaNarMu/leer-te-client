@@ -5,5 +5,5 @@ export function useFetch(URL, setState, responseField) {
         fetch(URL)
             .then(response => response.json())
             .then(data => setState(responseField ? data[responseField] : data))
-    }, [URL, setState, responseField])
+    }, [/* URL, setState, responseField */])
 }
