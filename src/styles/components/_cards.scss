@@ -8,6 +8,7 @@
     padding: 4rem;
     margin: 0 auto;
     width: max-content;
+    
   }
   
   .card {
@@ -25,12 +26,13 @@
     align-items: flex-end;
     background-size: cover;
     background-position: center;
-   /*  box-shadow: 0 0 5em -1em black; */
     transition: all, 0.5s;
     position: relative;
     overflow: hidden;
     border: 10px solid #ccc;
     text-decoration: none;
+
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.356);
    
   }
   

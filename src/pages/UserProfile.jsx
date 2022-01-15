@@ -2,6 +2,7 @@ import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import HorizontalListProfile from '../components/HorizontalList/HorizontalListProfile.jsx';
 import { useFetch } from '../hook/useFetch.jsx';
+import ScrollUp from '../components/Ui/ScrollUp.jsx';
 
 
 export default function UserProfile({ logout }) {
@@ -66,6 +67,7 @@ export default function UserProfile({ logout }) {
             </section>
 
 
+            <ScrollUp></ScrollUp>
         </section>
     )
 }

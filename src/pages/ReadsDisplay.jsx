@@ -3,6 +3,7 @@ import Card from "../components/HorizontalList/Card";
 import { useEffect, useState } from "react"
 import { NavLink, Outlet, Link, useSearchParams } from 'react-router-dom'
 import { useFetch } from "../hook/useFetch";
+import ScrollUp from "../components/Ui/ScrollUp";
 
 export default function ReadsDisplay({ user }) {
 
@@ -143,6 +144,8 @@ export default function ReadsDisplay({ user }) {
 
                     ))}
                 </div>
+
+                <ScrollUp></ScrollUp>
 
             </main>
 
