@@ -19,9 +19,10 @@ export default function Home({ user }) {
 
                         to="/display"
                     >
-                        <button className='home-div-button btn'> ¡Explora!<i class="fab fa-readme"></i></button>
-                    </NavLink>
+                        <button className='home-div-button btn'> ¡Explora!<i class="fab fa-readme button-icon"></i></button>
 
+                    </NavLink>
+                    <i class="fab fa-readme background-icon fa-10x"></i>
                 </div>
                 <div className='home-div-title'>
                     <h2>¿Qué te apetece hoy?</h2>
@@ -36,7 +37,7 @@ export default function Home({ user }) {
                             className=''
                             to="/create"
                         >
-                            <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt"></i></button>
+                            <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt button-icon"></i></button>
                         </NavLink>
 
                     ) : (
@@ -44,7 +45,7 @@ export default function Home({ user }) {
                             className=''
                             to="/login"
                         >
-                            <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt"></i></button>
+                            <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt button-icon"></i></button>
                         </NavLink>
                     )}
 
@@ -56,7 +57,7 @@ export default function Home({ user }) {
                     <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt"></i></button>
                 </NavLink> */}
 
-
+                    <i class="fas fa-feather-alt background-icon fa-10x"></i>
                 </div>
 
             </main >

@@ -5,8 +5,13 @@
     background-color: $primary;
     align-items: center;
     /* height: 100px; */
-    padding: 30px;
+    padding: 16px;
+    padding-left: 15%;
+    padding-right: 15%;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.164);
+    /* gap:16px; */
+
+    border-bottom: 5px solid $dark-accent;
 
     /* position: sticky; */
     
@@ -14,11 +19,13 @@
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 16px;
         /* flex-grow: 1; */
     }
     .navbar-center{
         flex-grow: 1;
+        justify-content: start;
+        margin-left: 47%;
     }
     
 }

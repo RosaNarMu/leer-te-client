@@ -1,3 +1,9 @@
 .input {
 border:1px dotted $cool-grey;
+border-radius: 25px;
+padding: 1px;
+}
+
+.input:focus{
+border: 5px solid $dark-accent;
 }
