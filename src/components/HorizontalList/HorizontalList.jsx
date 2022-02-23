@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useFetch } from "../../hook/useFetch";
 import Card from "./Card";
+import { STORY_URL } from "../../config/config";
 
 
 export default function HorizontalList({ listName, user }) {
@@ -8,12 +9,20 @@ export default function HorizontalList({ listName, user }) {
     const [bookList, setBookList] = useState([])
 
 
+
+
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:3000/readings-published')
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            const response = await fetch(STORY_URL + 'data', {
+                method: 'GET',
+                headers: headers
+            })
             const data = await response.json();
             setBookList(data.slice(-4));
-            console.log(data);
+
         }
 
         fetchData();
@@ -26,7 +35,7 @@ export default function HorizontalList({ listName, user }) {
     /* setBookList(bookList.slice(-4))
  */
 
-
+    console.log(bookList);
     return (
         <section className='horizontal-display-main'>
 

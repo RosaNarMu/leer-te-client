@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
@@ -23,6 +24,8 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/etc
+
+/src/config
 
 db.json
 
