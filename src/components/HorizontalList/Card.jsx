@@ -1,6 +1,6 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
-export default function Card({ id, title, author, genre, user }) {
+export default function Card({ id, title, User, genre, user }) {
     return (
 
         <div className="card-grid-space"
@@ -9,7 +9,7 @@ export default function Card({ id, title, author, genre, user }) {
             <a className="card" >
                 <div>
                     <h1>{title}</h1>
-                    <h3>{author}</h3>
+                    <h3>{User}</h3>
 
 
                     <div className="tags">

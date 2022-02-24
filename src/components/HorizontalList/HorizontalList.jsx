@@ -44,8 +44,8 @@ export default function HorizontalList({ listName, user }) {
             <div className='horizontal-display-title'>{listName}</div>
             {
 
-                bookList && bookList.map(({ id, title, author, genre }, index) => (
-                    <Card id={id} title={title} author={author} genre={genre} user={user}></Card>
+                bookList && bookList.map(({ id, title, User, genre }, index) => (
+                    <Card id={id} title={title} User={User} genre={genre} user={user}></Card>
                     /* <div className="card-grid-space"
                         key={id}
                     >

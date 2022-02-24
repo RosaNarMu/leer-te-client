@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 export default function Login({ authenticate }) {
     const navigate = useNavigate();
@@ -12,21 +13,59 @@ export default function Login({ authenticate }) {
 
     }
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [token, setToken] = useState({});
+
+    function validateForm() {
+        return email.length > 0 && password.length > 0;
+    }
+
+    function handleLogin(event) {
+        async function fetchData() {
+            const loginResponse = await fetch('http://localhost/leer-te-server/public/index.php/api/login_check', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: '{"username":"' + email + '","password":"' + password + '"}'
+            })
+            const token = await loginResponse.json();
+            setToken(token.token);
+
+            console.log(token);
+        }
+        fetchData();
+        event.preventDefault();
+
+        console.log(token.length > 1);
+
+        if (token.length > 1) {
+            authenticate();
+            navigate('/userprofile', {
+                replace: true
+            });
+        }
+    }
+
+
     return (
         <div className='login-div-wrapper'>
             <main className='login-div-main'>
                 <div className='login-div-left-login'>
-                    <form onSubmit={login} className='login-div-left-login-form'>
+                    <form onSubmit={handleLogin} className='login-div-left-login-form'>
                         <h2>Inicia sesión</h2>
                         <div>
                             <label >Email</label>
-                            <input /* ref={ref} */ type='text' className='input' />
+                            <input /* ref={ref} */ type='email' className='input' value={email}
+                                onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div>
                             <label >Contraseña</label>
-                            <input /* ref={ref} */ type='password' className='input' />
+                            <input /* ref={ref} */ type='password' className='input' value={password}
+                                onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <button className='btn' type="submit" >¡A leer!</button>
+                        <button className='btn' type="submit" disabled={!validateForm()}>¡A leer!</button>
                     </form>
                 </div>
                 <div className='login-div-right-register'>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { NavLink, Outlet, Link, useSearchParams } from 'react-router-dom'
 import { useFetch } from "../hook/useFetch";
 import ScrollUp from "../components/Ui/ScrollUp";
+import { STORY_URL } from "../config/config";
 
 export default function ReadsDisplay({ user }) {
 
@@ -21,7 +22,7 @@ export default function ReadsDisplay({ user }) {
          fetchData();
      }, []) */
 
-    useFetch('http://localhost:3000/readings-published', setReadsDisplay);
+    useFetch(STORY_URL + 'data', setReadsDisplay);
 
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -34,7 +35,7 @@ export default function ReadsDisplay({ user }) {
     };
 
     function handleRadioFantasy(e) {
-        setSearchParams({ filter: 'fantasía' })
+        setSearchParams({ filter: 'fantasia' })
     };
 
     function handleRadioHorror(e) {
@@ -46,7 +47,7 @@ export default function ReadsDisplay({ user }) {
     };
 
     function handleRadioSciFy(e) {
-        setSearchParams({ filter: 'ciencia ficción' })
+        setSearchParams({ filter: 'ciencia ficcion' })
     };
 
     function handleRadioMistery(e) {
@@ -54,7 +55,7 @@ export default function ReadsDisplay({ user }) {
     };
 
     function handleRadioNoFic(e) {
-        setSearchParams({ filter: 'no ficción' })
+        setSearchParams({ filter: 'no ficcion' })
     };
 
     const filter = searchParams.get('filter') || '';
@@ -139,8 +140,8 @@ export default function ReadsDisplay({ user }) {
 
                     })
 
-                        /* readsDisplay && readsDisplay */.map(({ id, title, author, genre }, index) => (
-                        <Card id={id} title={title} author={author} genre={genre} user={user}></Card>
+                        /* readsDisplay && readsDisplay */.map(({ id, title, User, genre }, index) => (
+                        <Card id={id} title={title} User={User} genre={genre} user={user}></Card>
 
                     ))}
                 </div>
