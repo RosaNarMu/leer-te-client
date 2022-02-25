@@ -9,6 +9,8 @@ export const Navbar = ({ logout }) => {
 
     const user = localStorage.Authenticated;
 
+    console.log(typeof (user));
+
     function exit() {
 
         logout();

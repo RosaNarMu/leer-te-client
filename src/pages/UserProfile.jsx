@@ -18,7 +18,8 @@ export default function UserProfile({ logout }) {
 
     }
 
-    const user = true;
+    const user = localStorage.Authenticated;
+
     const favorites = 'Tus Favoritos';
     const readingsUnlocked = 'Lecturas desbloqueadas';
     const publications = 'Publicaciones';
@@ -61,6 +62,11 @@ export default function UserProfile({ logout }) {
     const thirdList = profileInfoDisplay.publications;
     const fourthList = profileInfoDisplay.drafts;
 
+    console.log(profileInfoDisplay);
+
+    const renderName = profileInfoDisplay[0];
+
+    console.log(renderName);
 
     return (
         <section className='userProfile-div-wrapper'>
@@ -68,13 +74,13 @@ export default function UserProfile({ logout }) {
             {/*  bookList && bookList.map(({ id, title, User, genre }, index) => ( */}
 
             <section className='userProfile-div-head'>
-                {
-                    profileInfoDisplay.map(({ userLogin }, id) => (
+                {/* {
+                    [profileInfoDisplay].map(({ userLogin }, id) => (
 
                         <span key={id}>¡Bienvenido, {userLogin}!</span>
                     ))
-                }
-                {/* <span>¡Bienvenido, {profileInfoDisplay.userLogin}!</span> */}
+                } */}
+                {/* <span>¡Bienvenido, {renderName.userLogin}!</span> */}
 
                 <NavLink
                     className='link'

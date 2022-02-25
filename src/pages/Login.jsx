@@ -41,9 +41,9 @@ export default function Login({ authenticate }) {
             console.log(token);
             if (loginResponse.ok) {
                 /* authenticate(); */
-                /*  navigate('/userprofile', {
-                     replace: true
-                 }); */
+                navigate('/userprofile', {
+                    replace: true
+                });
 
                 localStorage.setItem('UserToken', token.token);
                 localStorage.setItem('Authenticated', true)

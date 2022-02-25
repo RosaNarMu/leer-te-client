@@ -19,7 +19,8 @@ import UserProfile from "../pages/UserProfile";
 
 
 export default function AppRouter() {
-    const [user, setUser] = useState(null);
+
+
 
 
 
@@ -29,20 +30,25 @@ export default function AppRouter() {
     } */
 
     function logout() {
-        window.localStorage.clear();
-        console.log(user);
+        window.localStorage.removeItem('UserToken');
+        window.localStorage.setItem('Authenticated', false);
 
     }
 
-    /* useEffect(() => {
-        const u = localStorage.getItem('user');
-        u && JSON.parse(u) ? setUser(true) : setUser(false);
-    }, [])
+    const user = localStorage.Authenticated;
+
+    console.log(typeof (user));
 
     useEffect(() => {
-        localStorage.setItem("user", user);
+        const u = localStorage.getItem('Authenticated');
+        u && JSON.parse(u) ? window.localStorage.setItem('Authenticated', true) : window.localStorage.setItem('Authenticated', false);
+    }, [user])
+
+    useEffect(() => {
+        localStorage.setItem("Authenticated", user);
     }, [user]);
- */
+
+
     return (
         <BrowserRouter>
             <Navbar logout={logout} />
@@ -58,13 +64,13 @@ export default function AppRouter() {
                 <Route path="display/detailFav/:detailId" element={<ReadsDetailFav />} />
                 <Route path="display/detailUnlocked/:detailId" element={<ReadsDetailUnlocked />} />
 
-                {!user && (
+                {user === 'false' && (
 
                     <Route path="login" element={<Login /* authenticate={authenticate} */ />} />
                 )}
 
 
-                {user && (
+                {user === 'true' && (
                     <>
                         <Route path="userprofile" element={<UserProfile logout={logout} />} />
                         <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
