@@ -1,13 +1,13 @@
 import AppRouter from "./routers/AppRouter";
-import { UseContext } from "./UseContext";
+import { UseContextGeneralProvider } from "./UseContext";
 
 
 export default function LeerteApp() {
     return (
         <div>
-            <UseContext.Provider>
+            <UseContextGeneralProvider>
                 <AppRouter></AppRouter>
-            </UseContext.Provider>
+            </UseContextGeneralProvider>
         </div>
     )
 }

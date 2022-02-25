@@ -1,14 +1,20 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { useContext } from 'react';
+import UseContextGeneral from '../../UseContext';
 
 
 export const Navbar = ({ user, logout }) => {
     const navigate = useNavigate();
+    const { token, setToken } = useContext(UseContextGeneral);
     function exit() {
 
         logout();
         navigate('/login', {
             replace: true
         });
+        const noToken = {}
+        setToken({});
+        console.log(token);
 
     }
     return (

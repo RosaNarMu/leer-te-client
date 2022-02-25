@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UseContextGeneral from "../UseContext";
 
 export default function Login({ authenticate }) {
     const navigate = useNavigate();
@@ -15,13 +16,17 @@ export default function Login({ authenticate }) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [token, setToken] = useState({});
+
+    const { token, setToken } = useContext(UseContextGeneral);
+
+    /* const [token, setToken] = useState({}); */
 
     function validateForm() {
         return email.length > 0 && password.length > 0;
     }
 
     function handleLogin(event) {
+
         async function fetchData() {
             const loginResponse = await fetch('http://localhost/leer-te-server/public/index.php/api/login_check', {
                 method: 'POST',
@@ -34,18 +39,24 @@ export default function Login({ authenticate }) {
             setToken(token.token);
 
             console.log(token);
+            if (loginResponse.ok) {
+                authenticate();
+                navigate('/userprofile', {
+                    replace: true
+                });
+            }
         }
         fetchData();
         event.preventDefault();
 
         console.log(token.length > 1);
 
-        if (token.length > 1) {
-            authenticate();
-            navigate('/userprofile', {
-                replace: true
-            });
-        }
+        /*  if (token.length > 1) {
+             authenticate();
+             navigate('/userprofile', {
+                 replace: true
+             });
+         } */
     }
 
 
