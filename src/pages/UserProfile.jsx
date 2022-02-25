@@ -1,8 +1,10 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import HorizontalListProfile from '../components/HorizontalList/HorizontalListProfile.jsx';
 import { useFetch } from '../hook/useFetch.jsx';
 import ScrollUp from '../components/Ui/ScrollUp.jsx';
+import UseContextGeneral from '../UseContext.js';
+import { USER_DATA } from '../config/config.js';
 
 
 export default function UserProfile({ logout }) {
@@ -22,21 +24,37 @@ export default function UserProfile({ logout }) {
     const publications = 'Publicaciones';
     const drafts = 'Borradores';
 
-    const [profileInfoDisplay, setProfileInfoDisplay] = useState([]);
+    /* const { token, setToken } = useContext(UseContextGeneral); */
 
+    const [profileInfoDisplay, setProfileInfoDisplay] = useState({});
 
-    /* useEffect(() => {
+    const token = localStorage.getItem('UserToken');
+    console.log(token);
+
+    useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:3000/profile')
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            };
+            const response = await fetch(USER_DATA, {
+                method: 'GET',
+                headers: headers
+            })
+
+            /* const token = await loginResponse.json();
+            setToken(token.token); */
             const data = await response.json();
-            setProfileInfoDisplay(data);
             console.log(data);
+            setProfileInfoDisplay(data);
         }
 
         fetchData();
-    }, []); */
+    }, []);
 
-    useFetch('http://localhost:3000/profile', setProfileInfoDisplay);
+    /* useFetch('http://localhost:3000/profile', setProfileInfoDisplay); */
+
+
 
     const firstList = profileInfoDisplay.favorites;
     const secondList = profileInfoDisplay.readingsUnlocked;
@@ -47,8 +65,17 @@ export default function UserProfile({ logout }) {
     return (
         <section className='userProfile-div-wrapper'>
 
+            {/*  bookList && bookList.map(({ id, title, User, genre }, index) => ( */}
+
             <section className='userProfile-div-head'>
-                <span>¡Bienvenido, {profileInfoDisplay.username}!</span>
+                {
+                    profileInfoDisplay.map(({ userLogin }, id) => (
+
+                        <span key={id}>¡Bienvenido, {userLogin}!</span>
+                    ))
+                }
+                {/* <span>¡Bienvenido, {profileInfoDisplay.userLogin}!</span> */}
+
                 <NavLink
                     className='link'
                     to="informationupdate"

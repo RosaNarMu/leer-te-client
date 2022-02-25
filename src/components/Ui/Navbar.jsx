@@ -12,9 +12,7 @@ export const Navbar = ({ user, logout }) => {
         navigate('/login', {
             replace: true
         });
-        const noToken = {}
-        setToken({});
-        console.log(token);
+
 
     }
     return (

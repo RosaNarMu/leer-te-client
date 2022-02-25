@@ -6,10 +6,10 @@ export default function Login({ authenticate }) {
     const navigate = useNavigate();
     function login() {
 
-        authenticate();
+        /* authenticate();
         navigate('/userprofile', {
             replace: true
-        });
+        }); */
 
 
     }
@@ -40,10 +40,13 @@ export default function Login({ authenticate }) {
 
             console.log(token);
             if (loginResponse.ok) {
-                authenticate();
-                navigate('/userprofile', {
-                    replace: true
-                });
+                /* authenticate(); */
+                /*  navigate('/userprofile', {
+                     replace: true
+                 }); */
+
+                localStorage.setItem('UserToken', token.token);
+                localStorage.setItem('Authenticated', true)
             }
         }
         fetchData();

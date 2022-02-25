@@ -3,9 +3,11 @@ import HorizontalList from '../components/HorizontalList/HorizontalList'
 
 
 
-export default function Home({ user }) {
+export default function Home() {
 
     const listName = '¡Novedades!';
+
+    const user = localStorage.Authenticated;
     return (
         <>
             <main className='home-div-main'>

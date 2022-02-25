@@ -23,18 +23,18 @@ export default function AppRouter() {
 
 
 
-    function authenticate() {
+    /* function authenticate() {
         setUser(true);
         console.log(user);
-    }
+    } */
 
     function logout() {
-        setUser(false);
+        window.localStorage.clear();
         console.log(user);
 
     }
 
-    useEffect(() => {
+    /* useEffect(() => {
         const u = localStorage.getItem('user');
         u && JSON.parse(u) ? setUser(true) : setUser(false);
     }, [])
@@ -42,7 +42,7 @@ export default function AppRouter() {
     useEffect(() => {
         localStorage.setItem("user", user);
     }, [user]);
-
+ */
     return (
         <BrowserRouter>
             <Navbar user={user} logout={logout} />
@@ -60,7 +60,7 @@ export default function AppRouter() {
 
                 {!user && (
 
-                    <Route path="login" element={<Login authenticate={authenticate} />} />
+                    <Route path="login" element={<Login /* authenticate={authenticate} */ />} />
                 )}
 
 
