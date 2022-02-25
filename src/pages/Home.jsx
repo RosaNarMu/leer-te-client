@@ -8,6 +8,7 @@ export default function Home() {
     const listName = '¡Novedades!';
 
     const user = localStorage.Authenticated;
+
     return (
         <>
             <main className='home-div-main'>

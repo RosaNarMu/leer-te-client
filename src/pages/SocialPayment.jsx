@@ -1,11 +1,13 @@
 import React from 'react'
 import Card from '../components/HorizontalList/Card'
 
-export default function SocialPayment({ user }) {
+export default function SocialPayment() {
     const id = 'id';
     const title = 'Título ejemplo';
     const author = 'User';
     const genre = 'género';
+
+    const user = localStorage.Authenticated;
 
 
     return (

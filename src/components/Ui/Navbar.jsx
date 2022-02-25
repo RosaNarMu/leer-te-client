@@ -3,9 +3,12 @@ import { useContext } from 'react';
 import UseContextGeneral from '../../UseContext';
 
 
-export const Navbar = ({ user, logout }) => {
+export const Navbar = ({ logout }) => {
     const navigate = useNavigate();
     const { token, setToken } = useContext(UseContextGeneral);
+
+    const user = localStorage.Authenticated;
+
     function exit() {
 
         logout();

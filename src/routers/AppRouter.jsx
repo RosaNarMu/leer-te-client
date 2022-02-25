@@ -45,15 +45,15 @@ export default function AppRouter() {
  */
     return (
         <BrowserRouter>
-            <Navbar user={user} logout={logout} />
+            <Navbar logout={logout} />
             <Routes>
-                <Route path="/" element={<Home user={user} />} />
+                <Route path="/" element={<Home />} />
 
 
                 <Route path="contact" element={<ContactForm />} />
                 <Route path="faq" element={<FAQ />} />
 
-                <Route path="display" element={<ReadsDisplay user={user} />} />
+                <Route path="display" element={<ReadsDisplay />} />
 
                 <Route path="display/detailFav/:detailId" element={<ReadsDetailFav />} />
                 <Route path="display/detailUnlocked/:detailId" element={<ReadsDetailUnlocked />} />
@@ -69,7 +69,7 @@ export default function AppRouter() {
                         <Route path="userprofile" element={<UserProfile logout={logout} />} />
                         <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
                         <Route path="create" element={<ReadsCreate />} />
-                        <Route path="socialpayment" element={<SocialPayment user={user} />} />
+                        <Route path="socialpayment" element={<SocialPayment />} />
                     </>
                 )}
 

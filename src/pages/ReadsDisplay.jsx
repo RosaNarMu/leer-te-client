@@ -6,9 +6,11 @@ import { useFetch } from "../hook/useFetch";
 import ScrollUp from "../components/Ui/ScrollUp";
 import { STORY_URL } from "../config/config";
 
-export default function ReadsDisplay({ user }) {
+export default function ReadsDisplay() {
 
     const [readsDisplay, setReadsDisplay] = useState([])
+
+    const user = localStorage.Authenticated;
 
 
     /*  useEffect(() => {
