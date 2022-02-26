@@ -9,25 +9,25 @@ import { USER_DATA } from '../config/config.js';
 
 export default function UserProfile({ logout }) {
     const navigate = useNavigate();
-    function exit() {
+    /* function exit() {
 
         logout();
         navigate('/login', {
             replace: true
         });
 
-    }
+    } */
 
-    const user = localStorage.Authenticated;
+    /*  const user = localStorage.Authenticated; */
 
     const favorites = 'Tus Favoritos';
     const readingsUnlocked = 'Lecturas desbloqueadas';
     const publications = 'Publicaciones';
     const drafts = 'Borradores';
 
-    /* const { token, setToken } = useContext(UseContextGeneral); */
+    const { user, setToken } = useContext(UseContextGeneral);
 
-    const [profileInfoDisplay, setProfileInfoDisplay] = useState({});
+    const [profileInfoDisplay, setProfileInfoDisplay] = useState([]);
 
     const token = localStorage.getItem('UserToken');
     console.log(token);
@@ -46,8 +46,8 @@ export default function UserProfile({ logout }) {
             /* const token = await loginResponse.json();
             setToken(token.token); */
             const data = await response.json();
-            console.log(data);
             setProfileInfoDisplay(data);
+            console.log(data);
         }
 
         fetchData();
@@ -64,9 +64,9 @@ export default function UserProfile({ logout }) {
 
     console.log(profileInfoDisplay);
 
-    const renderName = profileInfoDisplay[0];
+    /* const renderName = profileInfoDisplay[0]; */
 
-    console.log(renderName);
+    /* console.log(renderName); */
 
     return (
         <section className='userProfile-div-wrapper'>
@@ -74,13 +74,14 @@ export default function UserProfile({ logout }) {
             {/*  bookList && bookList.map(({ id, title, User, genre }, index) => ( */}
 
             <section className='userProfile-div-head'>
-                {/* {
-                    [profileInfoDisplay].map(({ userLogin }, id) => (
-
+                {
+                    profileInfoDisplay && profileInfoDisplay.map(({ userLogin }, id) => (
+                        console.log({ userLogin }),
                         <span key={id}>¡Bienvenido, {userLogin}!</span>
                     ))
-                } */}
-                {/* <span>¡Bienvenido, {renderName.userLogin}!</span> */}
+                }
+
+                {/* {profileInfoDisplay[0].userLogin && <span>¡Bienvenido, {profileInfoDisplay[0].userLogin && profileInfoDisplay[0].userLogin}!</span>} */}
 
                 <NavLink
                     className='link'
@@ -101,6 +102,6 @@ export default function UserProfile({ logout }) {
 
 
             <ScrollUp></ScrollUp>
-        </section>
+        </section >
     )
 }

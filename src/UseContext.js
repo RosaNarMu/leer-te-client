@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from 'react';
 
 const UseContextGeneral = createContext({
     token: {},
-    user: null,
+    user: false,
     authenticate: () => { },
     logout: () => { }
 });
@@ -15,7 +15,7 @@ export default UseContextGeneral;
 
 export function UseContextGeneralProvider({ children }) {
     const [token, setToken] = useState({});
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(false);
 
 
 
