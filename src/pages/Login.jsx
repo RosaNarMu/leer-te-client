@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { useState, useContext } from "react";
 import UseContextGeneral from "../UseContext";
+import { LOGIN, REGISTER } from "../config/config";
 
 export default function Login() {
 
@@ -41,7 +42,7 @@ export default function Login() {
     function submitLogin(event) {
 
         async function fetchData() {
-            const loginResponse = await fetch('http://localhost/leer-te-server/public/index.php/api/login_check', {
+            const loginResponse = await fetch(LOGIN, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -76,7 +77,7 @@ export default function Login() {
     function submitRegister(event) {
 
         async function fetchData() {
-            const registerResponse = await fetch('http://localhost/leer-te-server/public/index.php/user/add', {
+            const registerResponse = await fetch(REGISTER, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
