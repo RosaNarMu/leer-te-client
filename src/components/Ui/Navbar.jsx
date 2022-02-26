@@ -18,6 +18,7 @@ export const Navbar = ({ logout }) => {
         navigate('/login', {
             replace: true
         });
+        window.localStorage.removeItem('UserToken');
 
 
     }

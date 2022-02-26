@@ -20,15 +20,25 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const [emailReg, setEmailReg] = useState("");
+    const [nickNameReg, setNickNameReg] = useState("");
+    const [passwordReg, setPasswordReg] = useState("")
+
     const { token, setToken } = useContext(UseContextGeneral);
 
     /* const [token, setToken] = useState({}); */
 
-    function validateForm() {
+    function validateFormLog() {
         return email.length > 0 && password.length > 0;
     }
 
-    function handleLogin(event) {
+    function validateFormReg() {
+
+        return emailReg.length > 0 && passwordReg.length > 0 && nickNameReg.length > 0;
+
+    }
+
+    function submitLogin(event) {
 
         async function fetchData() {
             const loginResponse = await fetch('http://localhost/leer-te-server/public/index.php/api/login_check', {
@@ -44,7 +54,7 @@ export default function Login() {
             console.log(token);
             if (loginResponse.ok) {
                 authenticate();
-                navigate('/userprofile', {
+                navigate('/', {
                     replace: true
                 });
 
@@ -55,8 +65,6 @@ export default function Login() {
         fetchData();
         event.preventDefault();
 
-        console.log(token.length > 1);
-
         /*  if (token.length > 1) {
              authenticate();
              navigate('/userprofile', {
@@ -65,12 +73,39 @@ export default function Login() {
          } */
     }
 
+    function submitRegister(event) {
+
+        async function fetchData() {
+            const registerResponse = await fetch('http://localhost/leer-te-server/public/index.php/user/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: '{"nickName":"' + nickNameReg + '","email":"' + emailReg + '","password":"' + passwordReg + '"}'
+            })
+            const data = await registerResponse.json();
+            console.log(data);
+            console.log("lgooin");
+
+            if (registerResponse.ok) {
+                setEmailReg('');
+                setNickNameReg('');
+                setPasswordReg('');
+                navigate('/login', {
+                    replace: true
+                });
+            }
+        }
+        fetchData();
+        event.preventDefault();
+    }
+
 
     return (
         <div className='login-div-wrapper'>
             <main className='login-div-main'>
                 <div className='login-div-left-login'>
-                    <form onSubmit={handleLogin} className='login-div-left-login-form'>
+                    <form onSubmit={submitLogin} className='login-div-left-login-form'>
                         <h2>Inicia sesión</h2>
                         <div>
                             <label >Email</label>
@@ -82,25 +117,28 @@ export default function Login() {
                             <input /* ref={ref} */ type='password' className='input' value={password}
                                 onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <button className='btn' type="submit" disabled={!validateForm()}>¡A leer!</button>
+                        <button className='btn' type="submit" disabled={!validateFormLog()}>¡A leer!</button>
                     </form>
                 </div>
                 <div className='login-div-right-register'>
-                    <form onSubmit={login} className='login-div-right-register-form'>
+                    <form onSubmit={submitRegister} className='login-div-right-register-form'>
                         <h2>Regístrate</h2>
                         <div>
                             <label >Email</label>
-                            <input /* ref={ref} */ type='text' className='input' />
+                            <input /* ref={ref} */ type='email' className='input' value={emailReg}
+                                onChange={(e) => setEmailReg(e.target.value)} />
                         </div>
                         <div>
                             <label >Nombre de usuario</label>
-                            <input /* ref={ref} */ type='text' className='input' />
+                            <input /* ref={ref} */ type='text' className='input' value={nickNameReg}
+                                onChange={(e) => setNickNameReg(e.target.value)} />
                         </div>
                         <div>
                             <label >Contraseña</label>
-                            <input /* ref={ref} */ type='password' className='input' />
+                            <input /* ref={ref} */ type='password' className='input' value={passwordReg}
+                                onChange={(e) => setPasswordReg(e.target.value)} />
                         </div>
-                        <button className='btn' type="submit" >¡Comienza tu aventura!</button>
+                        <button className='btn' type="submit" disabled={!validateFormReg()}>¡Comienza tu aventura!</button>
                     </form>
                 </div>
 
