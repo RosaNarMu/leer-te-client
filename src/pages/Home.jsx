@@ -1,5 +1,7 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
+import { useContext } from 'react';
 import HorizontalList from '../components/HorizontalList/HorizontalList'
+import UseContextGeneral from '../UseContext';
 
 
 
@@ -7,7 +9,7 @@ export default function Home() {
 
     const listName = '¡Novedades!';
 
-    const user = localStorage.Authenticated;
+    const { user, setUser } = useContext(UseContextGeneral);
 
     return (
         <>

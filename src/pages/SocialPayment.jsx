@@ -1,4 +1,5 @@
-import React from 'react'
+import { useContext } from 'react';
+import UseContextGeneral from '../UseContext';
 import Card from '../components/HorizontalList/Card'
 
 export default function SocialPayment() {
@@ -7,7 +8,7 @@ export default function SocialPayment() {
     const author = 'User';
     const genre = 'género';
 
-    const user = localStorage.Authenticated;
+    const { user, setUser } = useContext(UseContextGeneral);
 
 
     return (

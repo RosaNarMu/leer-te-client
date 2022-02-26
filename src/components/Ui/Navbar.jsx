@@ -5,9 +5,10 @@ import UseContextGeneral from '../../UseContext';
 
 export const Navbar = ({ logout }) => {
     const navigate = useNavigate();
-    const { token, setToken } = useContext(UseContextGeneral);
 
-    const user = localStorage.Authenticated;
+    const { user, setUser } = useContext(UseContextGeneral);
+
+
 
     console.log(typeof (user));
 

@@ -2,7 +2,10 @@ import { useNavigate } from "react-router";
 import { useState, useContext } from "react";
 import UseContextGeneral from "../UseContext";
 
-export default function Login({ authenticate }) {
+export default function Login() {
+
+    const { authenticate } = useContext(UseContextGeneral);
+
     const navigate = useNavigate();
     function login() {
 
@@ -40,13 +43,13 @@ export default function Login({ authenticate }) {
 
             console.log(token);
             if (loginResponse.ok) {
-                /* authenticate(); */
+                authenticate();
                 navigate('/userprofile', {
                     replace: true
                 });
 
                 localStorage.setItem('UserToken', token.token);
-                localStorage.setItem('Authenticated', true)
+
             }
         }
         fetchData();

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { BrowserRouter, Route, Routes, useNavigate, Link, Navigate } from "react-router-dom";
 import Footer from "../components/Ui/Footer";
 import { Navbar } from "../components/Ui/Navbar";
@@ -16,38 +16,24 @@ import ReadsDisplay from "../pages/ReadsDisplay";
 import SocialPayment from "../pages/SocialPayment";
 import UserInfoUpdate from "../pages/UserInfoUpdate";
 import UserProfile from "../pages/UserProfile";
+import UseContextGeneral from "../UseContext";
 
 
 export default function AppRouter() {
 
+    const { user, setUser, logout } = useContext(UseContextGeneral);
 
 
 
-
-    /* function authenticate() {
-        setUser(true);
-        console.log(user);
-    } */
-
-    function logout() {
-        window.localStorage.removeItem('UserToken');
-        window.localStorage.setItem('Authenticated', false);
-
-    }
-
-    const user = localStorage.Authenticated;
-
-    console.log(typeof (user));
 
     useEffect(() => {
-        const u = localStorage.getItem('Authenticated');
-        u && JSON.parse(u) ? window.localStorage.setItem('Authenticated', true) : window.localStorage.setItem('Authenticated', false);
-    }, [user])
+        const u = localStorage.getItem('user');
+        u && JSON.parse(u) ? setUser(true) : setUser(false);
+    }, [])
 
     useEffect(() => {
-        localStorage.setItem("Authenticated", user);
+        localStorage.setItem("user", user);
     }, [user]);
-
 
     return (
         <BrowserRouter>
@@ -64,13 +50,13 @@ export default function AppRouter() {
                 <Route path="display/detailFav/:detailId" element={<ReadsDetailFav />} />
                 <Route path="display/detailUnlocked/:detailId" element={<ReadsDetailUnlocked />} />
 
-                {user === 'false' && (
+                {!user && (
 
                     <Route path="login" element={<Login /* authenticate={authenticate} */ />} />
                 )}
 
 
-                {user === 'true' && (
+                {user && (
                     <>
                         <Route path="userprofile" element={<UserProfile logout={logout} />} />
                         <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />

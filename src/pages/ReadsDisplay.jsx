@@ -1,16 +1,18 @@
 import ReadsDetail from "./ReadsDetailFav";
 import Card from "../components/HorizontalList/Card";
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { NavLink, Outlet, Link, useSearchParams } from 'react-router-dom'
 import { useFetch } from "../hook/useFetch";
 import ScrollUp from "../components/Ui/ScrollUp";
 import { STORY_URL } from "../config/config";
+import UseContextGeneral from "../UseContext";
+
 
 export default function ReadsDisplay() {
 
     const [readsDisplay, setReadsDisplay] = useState([])
 
-    const user = localStorage.Authenticated;
+    const { user, setUser } = useContext(UseContextGeneral);
 
 
     /*  useEffect(() => {
