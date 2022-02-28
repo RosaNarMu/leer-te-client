@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function CommentsBox({ id, user, }) {
+export default function CommentsBox({ idStory, user, }) {
     const [comment, setComment] = useState([])
 
     useEffect(() => {
@@ -10,7 +10,7 @@ export default function CommentsBox({ id, user, }) {
                 'Content-Type': 'application/json'
             };
 
-            const response = await fetch(`http://localhost/leer-te-server/public/index.php/comment/detail/${id}`, {
+            const response = await fetch(`http://localhost/leer-te-server/public/index.php/comment/detail/${idStory}`, {
                 method: 'GET',
                 headers: headers
             })
