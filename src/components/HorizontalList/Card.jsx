@@ -15,7 +15,7 @@ export default function Card({ id, title, User, genre, user }) {
                     <div className="tags">
                         <div className="tag">Género: {genre}</div>
                     </div>
-                    {user ? (
+                    {/* {user ? (
 
                         <NavLink
                             className=''
@@ -31,7 +31,14 @@ export default function Card({ id, title, User, genre, user }) {
                         >
                             <button className='btn'> Accede a tu cuenta </button>
                         </NavLink>
-                    )}
+                    )} */}
+
+                    <NavLink
+                        className=''
+                        to={`/display/detailFav/${id}`}
+                    >
+                        <button className='btn'> Accede a la lectura</button>
+                    </NavLink>
 
 
                 </div>

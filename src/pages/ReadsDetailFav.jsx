@@ -10,13 +10,15 @@ export default function ReadsDetailFav() {
     //ALGO NO DEJA DE FUNCIONAR EN EL FETCH CUANDO PONGO LA PARTE DEL FIND A FUNCIONAR
 
 
-    const [readingSelectedDisplay, setReadingSelectedDisplay] = useState([]);
+    const [readingSelectedDisplay, setReadingSelectedDisplay] = useState({});
 
     const [reading, setReading] = useState();
 
     const { detailId } = useParams();
 
     const numberDetailId = parseInt(detailId);
+
+    console.log(numberDetailId);
 
     /*  const reading = useUrlFav(numberDetailId); */
 
@@ -42,20 +44,17 @@ export default function ReadsDetailFav() {
             .then(response => response.json())
             .then(data => console.log(data)) */
         async function fetchData() {
+            const headers = {
+                'Content-Type': 'application/json'
+            };
 
-            const response = await fetch('http://localhost:3000/profile', {
-
-                headers: {
-
-                    'Content-Type': 'application/json',
-
-                    'Accept': 'application/json'
-
-                }
+            const response = await fetch(`http://localhost/leer-te-server/public/index.php/story/detail/${numberDetailId}`, {
+                method: 'GET',
+                headers: headers
             })
             const data = await response.json();
 
-            setReadingSelectedDisplay(data.favorites);
+            setReadingSelectedDisplay(data);
 
         }
 
@@ -110,9 +109,9 @@ export default function ReadsDetailFav() {
 
                 <section className='readsDisplay-div-left'>
                     <ul>
-                        <li>{` Título: ${title}`}</li>
-                        <li>{` Autor: ${author}`}</li>
-                        <li>{`Género: ${genre}`}</li>
+                        <li>{` Título: ${readingSelectedDisplay.title}`}</li>
+                        <li>{` Autor: ${readingSelectedDisplay.User}`}</li>
+                        <li>{`Género: ${readingSelectedDisplay.genre}`}</li>
                     </ul>
 
                     <button className='btn'>Añade a favoritos</button>
@@ -124,7 +123,7 @@ export default function ReadsDetailFav() {
 
                 <section className='readsDisplay-div-right'>
 
-                    <span>{text}</span>
+                    <span>{readingSelectedDisplay.content}</span>
 
                 </section>
 
@@ -142,7 +141,7 @@ export default function ReadsDetailFav() {
                 <hr></hr>
                 {
 
-                    <CommentsBox key={idex} id={idex} user={user} comment={comment}></CommentsBox>
+                    <CommentsBox key={readingSelectedDisplay.id} id={readingSelectedDisplay.id} user={user} comment={comment}></CommentsBox>
                    /*  comments && comments.map(({ commentId, userComenter, body }, index) => (
 
                         <CommentsBox key={commentId} id={commentId} user={userComenter} comment={body}></CommentsBox>
