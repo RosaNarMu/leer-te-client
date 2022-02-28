@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function CommentsBox({ idStory, user, }) {
+export default function CommentsBox({ idStory, }) {
     const [comment, setComment] = useState([])
 
     useEffect(() => {
