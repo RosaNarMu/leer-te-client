@@ -25,8 +25,6 @@ export default function ReadsDetailFav() {
 
     const numberDetailId = parseInt(detailId);
 
-    console.log(numberDetailId);
-
     const token = localStorage.getItem('UserToken');
 
     /*  const reading = useUrlFav(numberDetailId); */
@@ -157,21 +155,71 @@ export default function ReadsDetailFav() {
 
     console.log(checkFavorites);
 
-
     let userCoincidence = 0;
+
+    let deletedFavorite = 0;
 
     for (let i = 0; i < checkFavorites.length; i++) {
 
         if (checkFavorites[i].Story === numberDetailId) {
+
             userCoincidence++
+            deletedFavorite = checkFavorites[i].id;
         }
 
     }
 
-    console.log(userCoincidence);
 
+    function submitFavorite(event) {
 
+        async function fetchData() {
+            const commentResponse = await fetch("http://localhost/leer-te-server/public/index.php/favorites/add", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ story: numberDetailId })
+                /* '{"title":"' + title + '","content":"' + content + '","genre":"' + genre + '" ,"published":"' + published + '"}' */
+            })
+            const data = await commentResponse.json();
+            console.log(data);
+            /* console.log("lgooin"); */
 
+            if (commentResponse.ok) {
+
+                /* navigate('/userprofile', {
+
+                }); */
+            }
+        }
+        fetchData();
+        event.preventDefault();
+    }
+
+    function deleteFavorite(e) {
+
+        async function fetchData() {
+            const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/favorites/delete/${deletedFavorite}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const data = await commentResponse.json();
+            console.log(data);
+            /*console.log("lgooin"); */
+
+            if (commentResponse.ok) {
+
+                /* navigate('/userprofile', {
+
+                }); */
+            }
+        }
+        fetchData();
+        e.preventDefault();
+    }
 
 
     return (
@@ -189,12 +237,12 @@ export default function ReadsDetailFav() {
 
                     {
                         userCoincidence === 0 && user && (
-                            <button className='btn'>Añade a favoritos</button>
+                            <button className='btn' onClick={(e) => submitFavorite(e)}>Añade a favoritos</button>
                         )}
 
                     {
                         userCoincidence > 0 && user && (
-                            <button className='btn'>Elimina de favoritos</button>
+                            <button className='btn' onClick={(e) => deleteFavorite(e)}>Elimina de favoritos</button>
                         )}
 
                     {!user && (

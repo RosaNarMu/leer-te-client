@@ -60,8 +60,8 @@ export default function CommentsBox({ idStory, }) {
                         <span className='commentsBox-main-username'>{`${User} dice:`}</span>
                         <span className='commentsBox-main-comment'>"{content}"</span>
 
-                        {console.log(UserIdLogin)}
-                        {console.log(UserIdComment)}
+                        {/*  {console.log(UserIdLogin)}
+                        {console.log(UserIdComment)} */}
 
                         {UserIdLogin == UserIdComment && (
 
