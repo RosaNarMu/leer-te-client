@@ -26,6 +26,30 @@ export default function CommentsBox({ idStory, }) {
         fetchData();
     }, []);
 
+    function deleteComment(e, id) {
+
+        async function fetchData() {
+            const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/comment/delete/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            const data = await commentResponse.json();
+            console.log(data);
+            console.log("lgooin");
+
+            if (commentResponse.ok) {
+
+                /* navigate('/userprofile', {
+
+                }); */
+            }
+        }
+        fetchData();
+        e.preventDefault();
+    }
+
     console.log(comment);
 
     return (
@@ -41,7 +65,7 @@ export default function CommentsBox({ idStory, }) {
 
                         {UserIdLogin == UserIdComment && (
 
-                            < button > Elimina tu comentario</button>
+                            < button onClick={(e) => deleteComment(e, id)}> Elimina tu comentario</button>
                         )}
 
                     </div >
