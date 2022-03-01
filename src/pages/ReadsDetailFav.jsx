@@ -142,7 +142,7 @@ export default function ReadsDetailFav() {
                 'Authorization': 'Bearer ' + token
             };
 
-            const response = await fetch(`http://localhost/leer-te-server/public/index.php/favorites/data/check/${numberDetailId}`, {
+            const response = await fetch(`http://localhost/leer-te-server/public/index.php/favorites/data/check`, {
                 method: 'GET',
                 headers: headers
             })
@@ -162,7 +162,7 @@ export default function ReadsDetailFav() {
 
     for (let i = 0; i < checkFavorites.length; i++) {
 
-        if (checkFavorites[i].User === checkFavorites[i].UserIdLogin) {
+        if (checkFavorites[i].Story === numberDetailId) {
             userCoincidence++
         }
 
