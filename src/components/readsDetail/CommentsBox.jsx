@@ -36,8 +36,8 @@ export default function CommentsBox({ idStory, }) {
                 }
             })
             const data = await commentResponse.json();
-            console.log(data);
-            console.log("lgooin");
+            /* console.log(data);
+            console.log("lgooin"); */
 
             if (commentResponse.ok) {
 
@@ -50,7 +50,7 @@ export default function CommentsBox({ idStory, }) {
         e.preventDefault();
     }
 
-    console.log(comment);
+    /* console.log(comment); */
 
     return (
         <>

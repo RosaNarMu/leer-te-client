@@ -19,6 +19,8 @@ export default function ReadsDetailFav() {
 
     const [commentScore, setCommentScore] = useState("");
 
+    const [checkFavorites, setCheckFavorites] = useState([]);
+
     const { detailId } = useParams();
 
     const numberDetailId = parseInt(detailId);
@@ -68,7 +70,7 @@ export default function ReadsDetailFav() {
         fetchData();
     }, []);
 
-    console.log("FISTRO PECADOORRR", readingSelectedDisplay);
+    /*     console.log("FISTRO PECADOORRR", readingSelectedDisplay); */
 
     /*  const getReadingById = (id = '') => {
          return readingSelectedDisplay.find(reading => reading.id === id);
@@ -90,7 +92,7 @@ export default function ReadsDetailFav() {
 
     /* const reading = readingSelectedDisplay.filter(read => read.id === numberDetailId); */
 
-    console.log(reading);
+    /* console.log(reading); */
 
     /* const array1 = [5, 12, 8, 130, 44];
      
@@ -118,8 +120,8 @@ export default function ReadsDetailFav() {
                 /* '{"title":"' + title + '","content":"' + content + '","genre":"' + genre + '" ,"published":"' + published + '"}' */
             })
             const data = await commentResponse.json();
-            console.log(data);
-            console.log("lgooin");
+            /*  console.log(data);
+             console.log("lgooin"); */
 
             if (commentResponse.ok) {
 
@@ -131,6 +133,42 @@ export default function ReadsDetailFav() {
         fetchData();
         event.preventDefault();
     }
+
+    useEffect(() => {
+
+        async function fetchData() {
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            };
+
+            const response = await fetch(`http://localhost/leer-te-server/public/index.php/favorites/data/check/${numberDetailId}`, {
+                method: 'GET',
+                headers: headers
+            })
+            const data = await response.json();
+
+            setCheckFavorites(data);
+
+        }
+
+        fetchData();
+    }, []);
+
+    console.log(checkFavorites);
+
+
+    let userCoincidence = 0;
+
+    for (let i = 0; i < checkFavorites.length; i++) {
+
+        if (checkFavorites[i].User === checkFavorites[i].UserIdLogin) {
+            userCoincidence++
+        }
+
+    }
+
+    console.log(userCoincidence);
 
 
 
@@ -149,9 +187,20 @@ export default function ReadsDetailFav() {
                         <li>{`Género: ${readingSelectedDisplay.genre}`}</li>
                     </ul>
 
-                    <button className='btn'>Añade a favoritos</button>
+                    {
+                        userCoincidence === 0 && user && (
+                            <button className='btn'>Añade a favoritos</button>
+                        )}
 
-                    <button className='btn'>Descarga en pdf para leer más tarde</button>
+                    {
+                        userCoincidence > 0 && user && (
+                            <button className='btn'>Elimina de favoritos</button>
+                        )}
+
+                    {!user && (
+                        <span >Ingresa en tu cuenta para añadir este relato a tus favoritos</span>
+                    )}
+
 
 
                 </section>
