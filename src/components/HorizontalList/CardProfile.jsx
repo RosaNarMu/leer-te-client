@@ -1,6 +1,6 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
-export default function CardProfile({ id, title, author, genre, user, listName }) {
+export default function CardProfile({ id, title, author, genre, listName }) {
     return (
 
         <div className="card-grid-space"
@@ -27,19 +27,7 @@ export default function CardProfile({ id, title, author, genre, user, listName }
 
                     )}
 
-                    {listName.includes('Lecturas desbloqueadas') && (
 
-
-
-                        <NavLink
-                            className=''
-                            to={`/display/detailUnlocked/${id}`}
-                        >
-                            <button className='btn'> Accede a la lectura</button>
-                        </NavLink>
-
-
-                    )}
                     {listName.includes('Publicaciones') && (
                         <>
                             <button className='btn delete-btn' title="Elimina la publicación"> <i class="fas fa-trash-alt"></i> </button>

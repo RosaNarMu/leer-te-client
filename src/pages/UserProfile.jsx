@@ -21,16 +21,22 @@ export default function UserProfile({ logout }) {
     /*  const user = localStorage.Authenticated; */
 
     const favorites = 'Tus Favoritos';
-    const readingsUnlocked = 'Lecturas desbloqueadas';
+
     const publications = 'Publicaciones';
     const drafts = 'Borradores';
 
-    const { user, setToken } = useContext(UseContextGeneral);
+    /* const { user, setToken } = useContext(UseContextGeneral); */
 
     const [profileInfoDisplay, setProfileInfoDisplay] = useState([]);
 
+    const [favoritesList, setFavoritesList] = useState([]);
+
+    const [publishedList, setPublishedList] = useState([]);
+
+    const [draftsList, setDraftsList] = useState([]);
+
     const token = localStorage.getItem('UserToken');
-    console.log(token);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -43,11 +49,10 @@ export default function UserProfile({ logout }) {
                 headers: headers
             })
 
-            /* const token = await loginResponse.json();
-            setToken(token.token); */
+
             const data = await response.json();
             setProfileInfoDisplay(data);
-            console.log(data);
+
         }
 
         fetchData();
@@ -55,18 +60,76 @@ export default function UserProfile({ logout }) {
 
     /* useFetch('http://localhost:3000/profile', setProfileInfoDisplay); */
 
+    useEffect(() => {
+        async function fetchData() {
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            };
+            const response = await fetch("http://localhost/leer-te-server/public/index.php/favorites/data", {
+                method: 'GET',
+                headers: headers
+            })
+
+            /* const token = await loginResponse.json();
+            setToken(token.token); */
+            const data = await response.json();
+            setFavoritesList(data);
+            console.log(data);
+        }
+
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        async function fetchData() {
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            };
+            const response = await fetch("http://localhost/leer-te-server/public/index.php/story/publishedFromUser", {
+                method: 'GET',
+                headers: headers
+            })
+
+            /* const token = await loginResponse.json();
+            setToken(token.token); */
+            const data = await response.json();
+            setPublishedList(data);
+            console.log(data);
+        }
+
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        async function fetchData() {
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            };
+            const response = await fetch("http://localhost/leer-te-server/public/index.php/story/draftsFromUser", {
+                method: 'GET',
+                headers: headers
+            })
+
+            /* const token = await loginResponse.json();
+            setToken(token.token); */
+            const data = await response.json();
+            setDraftsList(data);
+            console.log(data);
+        }
+
+        fetchData();
+    }, []);
+
 
 
     const firstList = profileInfoDisplay.favorites;
-    const secondList = profileInfoDisplay.readingsUnlocked;
-    const thirdList = profileInfoDisplay.publications;
-    const fourthList = profileInfoDisplay.drafts;
 
-    console.log(profileInfoDisplay);
+    const secondList = profileInfoDisplay.publications;
+    const thirdList = profileInfoDisplay.drafts;
 
-    /* const renderName = profileInfoDisplay[0]; */
-
-    /* console.log(renderName); */
 
     return (
         <section className='userProfile-div-wrapper'>
@@ -76,7 +139,6 @@ export default function UserProfile({ logout }) {
             <section className='userProfile-div-head'>
                 {
                     profileInfoDisplay && profileInfoDisplay.map(({ userLogin }, id) => (
-                        console.log({ userLogin }),
                         <span key={id}>¡Bienvenido, {userLogin}!</span>
                     ))
                 }
@@ -93,10 +155,11 @@ export default function UserProfile({ logout }) {
 
             <section className='userProfile-div-listWrap'>
 
-                <HorizontalListProfile listName={favorites} user={user} list={firstList}></HorizontalListProfile>
-                <HorizontalListProfile listName={readingsUnlocked} user={user} list={secondList}></HorizontalListProfile>
-                <HorizontalListProfile listName={publications} user={user} list={thirdList}></HorizontalListProfile>
-                <HorizontalListProfile listName={drafts} user={user} list={fourthList}></HorizontalListProfile>
+                <HorizontalListProfile listName={favorites} list={favoritesList}></HorizontalListProfile>
+
+                <HorizontalListProfile listName={publications} list={publishedList}></HorizontalListProfile>
+
+                <HorizontalListProfile listName={drafts} list={draftsList}></HorizontalListProfile>
 
             </section>
 

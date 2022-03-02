@@ -3,7 +3,7 @@ import Card from "./Card";
 import CardProfile from "./CardProfile";
 
 
-export default function HorizontalListProfile({ listName, user, list }) {
+export default function HorizontalListProfile({ listName, list }) {
 
 
 
@@ -18,9 +18,9 @@ export default function HorizontalListProfile({ listName, user, list }) {
             {
 
 
-                list && list.map(({ id, title, author, genre }, index) => (
+                list && list.map(({ id, StoryTitle, StoryAuthor, StoryGenre }, index) => (
 
-                    <CardProfile id={id} title={title} author={author} genre={genre} user={user} listName={listName}></CardProfile>
+                    <CardProfile id={id} title={StoryTitle} author={StoryAuthor} genre={StoryGenre} listName={listName}></CardProfile>
 
                 ))}
         </section>
