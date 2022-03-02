@@ -1,5 +1,32 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
+
+//delete y put van aquí
+
+function deleteStory(e, idStory) {
+
+    async function fetchData() {
+        const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/story/delete/${idStory}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const data = await commentResponse.json();
+        console.log(data);
+        /*console.log("lgooin"); */
+
+        if (commentResponse.ok) {
+
+            /* navigate('/userprofile', {
+
+            }); */
+        }
+    }
+    fetchData();
+    e.preventDefault();
+}
+
 export default function CardProfile({ id, title, author, genre, listName }) {
     return (
 
@@ -30,7 +57,9 @@ export default function CardProfile({ id, title, author, genre, listName }) {
 
                     {listName.includes('Publicaciones') && (
                         <>
-                            <button className='btn delete-btn' title="Elimina la publicación"> <i class="fas fa-trash-alt"></i> </button>
+                            <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación" >
+                                <i class="fas fa-trash-alt" ></i>
+                            </button>
 
                             <NavLink
                                 className=''
@@ -46,7 +75,9 @@ export default function CardProfile({ id, title, author, genre, listName }) {
                     {listName.includes('Borradores') && (
 
                         <>
-                            <button className='btn delete-btn' title="Elimina la publicación"> <i class="fas fa-trash-alt"></i> </button>
+                            <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
 
                             <NavLink
                                 className=''
