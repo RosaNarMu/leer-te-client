@@ -12,10 +12,6 @@ export default function ReadsUpdate() {
         });
     }
 
-    const [title, setTitle] = useState("");
-    const [genre, setGenre] = useState("");
-    const [content, setContent] = useState("");
-    const [published, setPublished] = useState(Boolean);
 
     const token = localStorage.getItem('UserToken');
 
@@ -50,7 +46,7 @@ export default function ReadsUpdate() {
             })
             const data = await response.json();
 
-            console.log(data);
+
 
             setNewTitle(data.title);
             setNewGenre(data.genre);
@@ -76,8 +72,7 @@ export default function ReadsUpdate() {
 
             })
             const data = await storyResponse.json();
-            console.log(data);
-            console.log("lgooin");
+
 
             if (storyResponse.ok) {
 
@@ -91,10 +86,6 @@ export default function ReadsUpdate() {
     }
 
 
-    console.log(newTitle);
-    console.log(newGenre);
-    console.log(newContent);
-    console.log(newPublished);
 
 
 

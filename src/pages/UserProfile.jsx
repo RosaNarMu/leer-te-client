@@ -7,7 +7,7 @@ import UseContextGeneral from '../UseContext.js';
 import { USER_DATA } from '../config/config.js';
 
 
-export default function UserProfile({ logout }) {
+export default function UserProfile() {
     const navigate = useNavigate();
     /* function exit() {
 

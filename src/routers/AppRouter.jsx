@@ -59,7 +59,7 @@ export default function AppRouter() {
 
                 {user && (
                     <>
-                        <Route path="userprofile" element={<UserProfile logout={logout} />} />
+                        <Route path="userprofile" element={<UserProfile />} />
                         <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
                         <Route path="create" element={<ReadsCreate />} />
                         <Route path="update/:detailId" element={<ReadsUpdate />} />
