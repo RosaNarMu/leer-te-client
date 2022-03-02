@@ -1,6 +1,11 @@
 import React from 'react'
 
 export default function UserInfoUpdate() {
+
+    /* PUT */
+
+    /* DELETE */
+
     return (
         <section className='userInfoUpdate-div-wrapper'>
             <h2>¿Ha cambiado algo en tu perfil? ¡Actualiza la información aquí!</h2>
@@ -36,15 +41,14 @@ export default function UserInfoUpdate() {
                     </section>
                 </section>
 
-
                 <section className='userInfoUpdate-bottom-form'>
+
                     <button className='btn' type="submit" >Enviar</button>
                 </section>
 
-
-
-
             </form>
+
+            <button className='btn'>Eliminar usuario</button>
 
             <div className='userInfoUpdate-div-bottom'>
                 <span>"La mayor aventura es la que nos espera. Hoy y mañana aún no se han dicho. Las posibilidades, los cambios son todos vuestros por hacer. El molde de su vida en sus manos está para romper." (El Hobbit, J.R.R. Tolkien)</span>

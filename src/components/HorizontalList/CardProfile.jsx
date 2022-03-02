@@ -1,8 +1,6 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
 
-//delete y put van aquí
-
 function deleteStory(e, idStory) {
 
     async function fetchData() {
@@ -63,7 +61,7 @@ export default function CardProfile({ id, title, author, genre, listName }) {
 
                             <NavLink
                                 className=''
-                                to="/create"
+                                to={`/update/${id}`}
                             >
                                 <button className='btn'> Accede al editor </button>
                             </NavLink>
@@ -81,7 +79,7 @@ export default function CardProfile({ id, title, author, genre, listName }) {
 
                             <NavLink
                                 className=''
-                                to="/create"
+                                to={`/update/${id}`}
                             >
                                 <button className='btn '> Accede al editor </button>
                             </NavLink>

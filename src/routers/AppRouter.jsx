@@ -13,6 +13,7 @@ import ReadsDetailFav from "../pages/ReadsDetailFav";
 import ReadsDetail from "../pages/ReadsDetailFav";
 import ReadsDetailUnlocked from "../pages/ReadsDetailUnlocked";
 import ReadsDisplay from "../pages/ReadsDisplay";
+import ReadsUpdate from "../pages/ReadsUpdate";
 import SocialPayment from "../pages/SocialPayment";
 import UserInfoUpdate from "../pages/UserInfoUpdate";
 import UserProfile from "../pages/UserProfile";
@@ -61,6 +62,7 @@ export default function AppRouter() {
                         <Route path="userprofile" element={<UserProfile logout={logout} />} />
                         <Route path="userprofile/informationupdate" element={<UserInfoUpdate />} />
                         <Route path="create" element={<ReadsCreate />} />
+                        <Route path="update/:detailId" element={<ReadsUpdate />} />
                         <Route path="socialpayment" element={<SocialPayment />} />
                     </>
                 )}
