@@ -27,11 +27,13 @@ export default function Login() {
 
     const { token, setToken } = useContext(UseContextGeneral);
 
-    /* const [token, setToken] = useState({}); */
+    let checkLogin = false;
 
     function validateFormLog() {
         return email.length > 0 && password.length > 0;
     }
+
+
 
     function validateFormReg() {
 
@@ -41,16 +43,19 @@ export default function Login() {
 
     function submitLogin(event) {
 
+
         async function fetchData() {
             const loginResponse = await fetch(LOGIN, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: '{"username":"' + email + '","password":"' + password + '"}'
+                body: JSON.stringify({ username: email, password: password })
             })
             const token = await loginResponse.json();
             setToken(token.token);
+
+
 
             console.log(token);
             if (loginResponse.ok) {
@@ -60,8 +65,13 @@ export default function Login() {
                 });
 
                 localStorage.setItem('UserToken', token.token);
-
             }
+
+            if (!loginResponse.ok) {
+                alert("Parece que tu correo o contraseña son incorrectos, por favor introduce credenciales válidos")
+            }
+
+
         }
         fetchData();
         event.preventDefault();
@@ -86,7 +96,6 @@ export default function Login() {
             })
             const data = await registerResponse.json();
             console.log(data);
-            console.log("lgooin");
 
             if (registerResponse.ok) {
                 setEmailReg('');
@@ -95,6 +104,10 @@ export default function Login() {
                 navigate('/login', {
                     replace: true
                 });
+            }
+
+            if (!registerResponse.ok) {
+                alert("Parece que tu correo o contraseña son incorrectos, por favor introduce credenciales válidos")
             }
         }
         fetchData();
@@ -118,6 +131,7 @@ export default function Login() {
                             <input /* ref={ref} */ type='password' className='input' value={password}
                                 onChange={(e) => setPassword(e.target.value)} />
                         </div>
+                        {checkLogin && (<span>Introduce un correo o contraseña válidos</span>)}
                         <button className='btn' type="submit" disabled={!validateFormLog()}>¡A leer!</button>
                     </form>
                 </div>
@@ -139,6 +153,7 @@ export default function Login() {
                             <input /* ref={ref} */ type='password' className='input' value={passwordReg}
                                 onChange={(e) => setPasswordReg(e.target.value)} />
                         </div>
+
                         <button className='btn' type="submit" disabled={!validateFormReg()}>¡Comienza tu aventura!</button>
                     </form>
                 </div>
