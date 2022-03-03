@@ -123,9 +123,8 @@ export default function ReadsDetailFav() {
 
             if (commentResponse.ok) {
 
-                /* navigate('/userprofile', {
-
-                }); */
+                setNewComment("");
+                setCommentScore("");
             }
         }
         fetchData();
@@ -269,6 +268,7 @@ export default function ReadsDetailFav() {
                         <textarea required maxLength="50" type='text' className='input' value={newComment} onChange={(e) => setNewComment(e.target.value)} />
                         <select required className="readsCreate-div-form-selector" onChange={(e) => setCommentScore(e.target.value)}>
                             <option value="">Valora el relato</option>
+                            <option value={0}>Sin valoración</option>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
                             <option value={3}>3</option>

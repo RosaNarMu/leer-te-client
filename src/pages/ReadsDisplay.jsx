@@ -14,7 +14,7 @@ export default function ReadsDisplay() {
     const [readsDisplay, setReadsDisplay] = useState([])
 
     const [currentPage, setCurrentPage] = useState(1); //current page
-    const [postPerPage, setPostPerPage] = useState(10);//post per page
+    const [postPerPage, setPostPerPage] = useState(12);//post per page
 
     const { user, setUser } = useContext(UseContextGeneral);
 
@@ -45,7 +45,7 @@ export default function ReadsDisplay() {
     };
 
     function handleRadioFantasy(e) {
-        setSearchParams({ filter: 'fantasy' })
+        setSearchParams({ filter: 'fantasia' })
     };
 
     function handleRadioHorror(e) {
@@ -57,15 +57,15 @@ export default function ReadsDisplay() {
     };
 
     function handleRadioSciFy(e) {
-        setSearchParams({ filter: 'sciFy' })
+        setSearchParams({ filter: 'ciencia ficcion' })
     };
 
     function handleRadioMistery(e) {
-        setSearchParams({ filter: 'mistery' })
+        setSearchParams({ filter: 'misterio' })
     };
 
     function handleRadioNoFic(e) {
-        setSearchParams({ filter: 'noFiction' })
+        setSearchParams({ filter: 'no ficcion' })
     };
 
     const filter = searchParams.get('filter') || '';
@@ -118,8 +118,8 @@ export default function ReadsDisplay() {
 
 
 
-                        <label className="container" key="fantasy">Fantasía
-                            <input type="radio" name="genre" /* checked="checked" */ value={filter} onChange={handleRadioFantasy} />
+                        <label className="container" key="fantasia">Fantasía
+                            <input type="radio" name="genre" /* checked="checked" */ value="fantasia" onChange={handleRadioFantasy} />
                             <span className="checkmark"></span>
                         </label>
 
@@ -133,18 +133,18 @@ export default function ReadsDisplay() {
                             <span className="checkmark"></span>
                         </label>
 
-                        <label className="container" key="sciFy">Ciencia Ficción
-                            <input type="radio" name="genre" /* checked="checked" */ value="sciFy" onChange={handleRadioSciFy} />
+                        <label className="container" key="ciencia ficcion">Ciencia Ficción
+                            <input type="radio" name="genre" /* checked="checked" */ value="ciencia ficcion" onChange={handleRadioSciFy} />
                             <span className="checkmark"></span>
                         </label>
 
-                        <label className="container" key="mistery">Misterio
-                            <input type="radio" name="genre" /* checked="checked" */ value="mistery" onChange={handleRadioMistery} />
+                        <label className="container" key="misterio">Misterio
+                            <input type="radio" name="genre" /* checked="checked" */ value="misterio" onChange={handleRadioMistery} />
                             <span className="checkmark"></span>
                         </label>
 
-                        <label className="container" key="noFiction">No ficción
-                            <input type="radio" name="genre" /* checked="checked" */ value="noFiction" onChange={handleRadioNoFic} />
+                        <label className="container" key="no ficcion">No ficción
+                            <input type="radio" name="genre" /* checked="checked" */ value="no ficcion" onChange={handleRadioNoFic} />
                             <span className="checkmark"></span>
                         </label>
 

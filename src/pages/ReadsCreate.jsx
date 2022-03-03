@@ -89,12 +89,12 @@ export default function ReadsCreate() {
 
                     <select required className="readsCreate-div-form-selector" onChange={(e) => setGenre(e.target.value)}>
                         <option value="">Elige un género</option>
-                        <option value="fantasy">Fantasía</option>
+                        <option value="fantasia">Fantasía</option>
                         <option value="horror">Terror</option>
                         <option value="romance">Romance</option>
-                        <option value="sciFy">Ciencia Ficción</option>
-                        <option value="mistery">Misterio</option>
-                        <option value="noFiction">No ficción</option>
+                        <option value="ciencia ficción">Ciencia Ficción</option>
+                        <option value="misterio">Misterio</option>
+                        <option value="no ficción">No ficción</option>
                     </select>
                 </section>
 

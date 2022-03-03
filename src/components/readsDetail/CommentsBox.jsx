@@ -18,7 +18,7 @@ export default function CommentsBox({ idStory, }) {
                 headers: headers
             })
             const data = await response.json();
-
+            console.log(data);
             setComment(data);
 
         }
@@ -55,9 +55,15 @@ export default function CommentsBox({ idStory, }) {
     return (
         <>
             {
-                comment && comment.map(({ id, User, content, UserIdLogin, UserIdComment }, index) => (
+                comment && comment.map(({ id, User, content, UserIdLogin, UserIdComment, score }, index) => (
                     < div key={id} className='commentsBox-main' >
-                        <span className='commentsBox-main-username'>{`${User} dice:`}</span>
+                        {score >= 1 ? (
+                            <>
+                                <span className='commentsBox-main-username'>{`${User} dice:`}</span>
+                                <span className='commentsBox-main-username'>{`Puntuación: ${score}`}</span>
+                            </>) :
+                            (<span className='commentsBox-main-username'>{`${User} dice:`}</span>)
+                        }
                         <span className='commentsBox-main-comment'>"{content}"</span>
 
                         {/*  {console.log(UserIdLogin)}
@@ -65,7 +71,7 @@ export default function CommentsBox({ idStory, }) {
 
                         {UserIdLogin == UserIdComment && (
 
-                            < button onClick={(e) => deleteComment(e, id)}> Elimina tu comentario</button>
+                            < button className='btn' onClick={(e) => deleteComment(e, id)}> Elimina tu comentario</button>
                         )}
 
                     </div >
