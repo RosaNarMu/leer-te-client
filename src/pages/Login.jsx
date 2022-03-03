@@ -106,9 +106,7 @@ export default function Login() {
                 });
             }
 
-            if (!registerResponse.ok) {
-                alert("Parece que tu correo o contraseña son incorrectos, por favor introduce credenciales válidos")
-            }
+
         }
         fetchData();
         event.preventDefault();

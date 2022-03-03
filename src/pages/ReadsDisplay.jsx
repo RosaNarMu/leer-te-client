@@ -6,11 +6,15 @@ import { useFetch } from "../hook/useFetch";
 import ScrollUp from "../components/Ui/ScrollUp";
 import { STORY_URL } from "../config/config";
 import UseContextGeneral from "../UseContext";
+import { Pagination } from "../components/readsDisplay/Pagination";
 
 
 export default function ReadsDisplay() {
 
     const [readsDisplay, setReadsDisplay] = useState([])
+
+    const [currentPage, setCurrentPage] = useState(1); //current page
+    const [postPerPage, setPostPerPage] = useState(10);//post per page
 
     const { user, setUser } = useContext(UseContextGeneral);
 
@@ -28,10 +32,12 @@ export default function ReadsDisplay() {
 
     useFetch(STORY_URL + 'data', setReadsDisplay);
 
+
+
     const [searchParams, setSearchParams] = useSearchParams();
 
     function emptyFunction(params) {
-        console.log('cambio de radio');
+
     };
 
     function handleFilter(e) {
@@ -39,11 +45,11 @@ export default function ReadsDisplay() {
     };
 
     function handleRadioFantasy(e) {
-        setSearchParams({ filter: 'fantasia' })
+        setSearchParams({ filter: 'fantasy' })
     };
 
     function handleRadioHorror(e) {
-        setSearchParams({ filter: 'terror' })
+        setSearchParams({ filter: 'horror' })
     };
 
     function handleRadioRomance(e) {
@@ -51,18 +57,52 @@ export default function ReadsDisplay() {
     };
 
     function handleRadioSciFy(e) {
-        setSearchParams({ filter: 'ciencia ficcion' })
+        setSearchParams({ filter: 'sciFy' })
     };
 
     function handleRadioMistery(e) {
-        setSearchParams({ filter: 'misterio' })
+        setSearchParams({ filter: 'mistery' })
     };
 
     function handleRadioNoFic(e) {
-        setSearchParams({ filter: 'no ficcion' })
+        setSearchParams({ filter: 'noFiction' })
     };
 
     const filter = searchParams.get('filter') || '';
+
+
+    let result = readsDisplay.filter((reading) => {
+        if (!filter) {
+            return true;
+        }
+
+        const genre = reading.genre.toLowerCase();
+
+        const title = reading.title.toLowerCase();
+
+
+
+
+        const filteredTitle = title.includes(filter.toLocaleLowerCase());
+
+        const filteredGenre = genre.includes(filter.toLowerCase());
+
+        if (filteredTitle) {
+            return filteredTitle
+        } else if (filteredGenre) {
+            return filteredGenre
+        }
+
+    })
+    console.log(result.length);
+
+    const indexOfLastPost = currentPage * postPerPage;
+    const indexOfFirstPost = indexOfLastPost - postPerPage;
+    const currentPosts = result.slice(indexOfFirstPost, indexOfLastPost); //select the post that go in the current page
+
+    let totalPosts = result.length;
+
+
 
     return (
         <>
@@ -75,6 +115,8 @@ export default function ReadsDisplay() {
                 <div className='reads-display-radio-main'>
                     <span className='reads-display-radio-title'>¡Elige tu género favorito!</span>
                     <form onSubmit={emptyFunction}>
+
+
 
                         <label className="container" key="fantasy">Fantasía
                             <input type="radio" name="genre" /* checked="checked" */ value={filter} onChange={handleRadioFantasy} />
@@ -110,49 +152,25 @@ export default function ReadsDisplay() {
 
                 </div>
 
+
                 <div className='reads-display-cards'>
-                    {readsDisplay.filter((reading) => {
-                        if (!filter) {
-                            return true;
-                        }
-
-                        const genre = reading.genre.toLowerCase();
-
-                        const title = reading.title.toLowerCase();
-
-                        /* if (genre.length > 5) {
-                            return genre.includes(filter.toLowerCase());
-                        } else {
-                            return title.includes(filter.toLowerCase());
-                        } */
-
-                        /* return genre.includes(filter.toLowerCase()); */
+                    {
 
 
-                        const filteredTitle = title.includes(filter.toLocaleLowerCase());
-
-                        const filteredGenre = genre.includes(filter.toLowerCase());
-
-                        if (filteredTitle) {
-                            return filteredTitle
-                        } else if (filteredGenre) {
-                            return filteredGenre
-                        }
+                        currentPosts.map(({ id, title, User, genre }, index) => {
 
 
+                            return <Card id={id} title={title} User={User} genre={genre} user={user}></Card>
 
 
-                    })
-
-                        /* readsDisplay && readsDisplay */.map(({ id, title, User, genre }, index) => (
-                        <Card id={id} title={title} User={User} genre={genre} user={user}></Card>
-
-                    ))}
+                        })}
                 </div>
+
 
                 <ScrollUp></ScrollUp>
 
             </main>
+            <Pagination postsPerPage={postPerPage} totalPosts={totalPosts} setCurrentPage={setCurrentPage}></Pagination>
 
 
             {/* <h2>Display</h2>
