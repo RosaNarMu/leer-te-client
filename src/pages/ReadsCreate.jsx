@@ -16,40 +16,47 @@ export default function ReadsCreate() {
     const [genre, setGenre] = useState("");
     const [content, setContent] = useState("");
     const [published, setPublished] = useState(Boolean);
+    const [coverImage, setCoverImage] = useState([]);
 
     const token = localStorage.getItem('UserToken');
+
+    const handleFiles = (e) => {
+        const fileObj = e.target.files;
+
+        setCoverImage(fileObj
+        )
+
+        e.target.value = "";
+    }
 
 
     function validateFormLog() {
         return title.length > 0 && genre.length > 0 && content.length > 0 && published != null;
     }
 
-    /*  function handlePublished(e) {
-         if (e === "true") {
-             console.log(published);
-             return setPublished(true)
-         } if (e === "false") {
-             console.log(published);
-             return setPublished(false)
-         }
- 
-     } */
 
     function submitStory(event) {
 
         async function fetchData() {
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('content', content);
+            formData.append('genre', genre);
+            formData.append('published', published);
+            formData.append('coverImage', coverImage);
             const storyResponse = await fetch("http://localhost/leer-te-server/public/index.php/story/add", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+
                     'Authorization': 'Bearer ' + token
                 },
-                body: JSON.stringify({ title: title, content: content, genre: genre, published: published })
-                /* '{"title":"' + title + '","content":"' + content + '","genre":"' + genre + '" ,"published":"' + published + '"}' */
+                body: formData
+                /* JSON.stringify({ title: title, content: content, genre: genre, published: published, coverImage: coverImage }) */
+
             })
             const data = await storyResponse.json();
             console.log(data);
-            console.log("lgooin");
 
             if (storyResponse.ok) {
 
@@ -64,7 +71,8 @@ export default function ReadsCreate() {
 
 
 
-
+    console.log(coverImage);
+    console.log(typeof (title));
 
     return (
         <section className='readsCreate-div-wrapper'>
@@ -96,6 +104,8 @@ export default function ReadsCreate() {
                         <option value="misterio">Misterio</option>
                         <option value="no ficción">No ficción</option>
                     </select>
+
+                    <input type="file" onChange={handleFiles} />
                 </section>
 
                 <textarea maxLength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'
