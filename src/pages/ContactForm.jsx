@@ -8,19 +8,23 @@ export default function ContactForm() {
         <div className='contactForm-div-wrapper'>
             <h2>Contact Form</h2>
 
-            <form /* onSubmit={sendEmail()} */ className='contactForm-div-form'>
+            <form action="https://formsubmit.co/1903e10e80b624cbf7da9e8b91aec8cd" method="POST" className='contactForm-div-form'>
+                <input type="hidden" name="_subject" value="Mensaje desde Leer-té" />
+                <input type="hidden" name="_autoresponse" value="¡Gracias por contactar con nosotros! Recibirás una respuesta en cuanto sea posible." />
+                <input type="hidden" name="_template" value="box" />
+                <input type="hidden" name="_next" value="http://localhost:3000/" />
 
                 <div>
                     <label >Nombre</label>
-                    <input /* ref={ref} */ type='file' className='input' />
+                    <input name="name" type='text' className='input' required />
                 </div>
                 <div>
                     <label >Email</label>
-                    <input /* ref={ref} */ type='email' className='input' />
+                    <input name="email" type='email' className='input' required />
                 </div>
                 <div className='contactForm-div-textarea'>
                     <span >Mensaje</span>
-                    <textarea /* ref={ref} */ type='text' className='input' />
+                    <input name='message' type='text' className='input' required />
 
                 </div>
                 <button className='btn' type="submit" >¡Habla con nosotros!</button>
