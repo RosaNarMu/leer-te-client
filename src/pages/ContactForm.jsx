@@ -1,23 +1,26 @@
 
 
 export default function ContactForm() {
+
+
+
     return (
         <div className='contactForm-div-wrapper'>
             <h2>Contact Form</h2>
 
-            <form /* onSubmit={login} */ className='contactForm-div-form'>
+            <form /* onSubmit={sendEmail()} */ className='contactForm-div-form'>
 
                 <div>
                     <label >Nombre</label>
-                    <input /* ref={ref} */ type='text' className='input' />
+                    <input /* ref={ref} */ type='file' className='input' />
                 </div>
                 <div>
                     <label >Email</label>
-                    <input /* ref={ref} */ type='text' className='input' />
+                    <input /* ref={ref} */ type='email' className='input' />
                 </div>
                 <div className='contactForm-div-textarea'>
                     <span >Mensaje</span>
-                    <textarea /* ref={ref} */ type='password' className='input' />
+                    <textarea /* ref={ref} */ type='text' className='input' />
 
                 </div>
                 <button className='btn' type="submit" >¡Habla con nosotros!</button>
