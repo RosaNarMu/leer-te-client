@@ -24,10 +24,10 @@ export default function Home() {
 
                         to="/display"
                     >
-                        <button className='home-div-button btn'> ¡Explora!<i class="fab fa-readme button-icon"></i></button>
+                        <button className='home-div-button btn'> ¡Explora!<i className="fab fa-readme button-icon"></i></button>
 
                     </NavLink>
-                    <i class="fab fa-readme background-icon fa-10x"></i>
+                    <i className="fab fa-readme background-icon fa-10x"></i>
                 </div>
                 <div className='home-div-title'>
                     <h2>¿Qué te apetece hoy?</h2>
@@ -42,7 +42,7 @@ export default function Home() {
                             className=''
                             to="/create"
                         >
-                            <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt button-icon"></i></button>
+                            <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
                         </NavLink>
 
                     ) : (
@@ -50,7 +50,7 @@ export default function Home() {
                             className=''
                             to="/login"
                         >
-                            <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt button-icon"></i></button>
+                            <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
                         </NavLink>
                     )}
 
@@ -59,10 +59,10 @@ export default function Home() {
 
                     {user ? (to = "/create") : (to = '/login')}
                 >
-                    <button className='home-div-button btn'> ¡Crea! <i class="fas fa-feather-alt"></i></button>
+                    <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt"></i></button>
                 </NavLink> */}
 
-                    <i class="fas fa-feather-alt background-icon fa-10x"></i>
+                    <i className="fas fa-feather-alt background-icon fa-10x"></i>
                 </div>
 
             </main >

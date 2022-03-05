@@ -207,13 +207,10 @@ export default function ReadsDetailFav() {
             })
             const data = await commentResponse.json();
             console.log(data);
-            /*console.log("lgooin"); */
 
             if (commentResponse.ok) {
 
-                /* navigate('/userprofile', {
 
-                }); */
             }
         }
         fetchData();
@@ -255,6 +252,16 @@ export default function ReadsDetailFav() {
                 <section className='readsDisplay-div-right'>
 
                     <span>{readingSelectedDisplay.content}</span>
+
+                    {console.log(typeof (readingSelectedDisplay.coverImage))}
+                    {console.log(readingSelectedDisplay.coverImage)}
+
+                    <img
+                        src={readingSelectedDisplay.coverImage}
+
+                        className='slider-img'
+                    />
+                    <span>{readingSelectedDisplay.coverImage}</span>
 
                 </section>
 

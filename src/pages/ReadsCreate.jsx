@@ -16,18 +16,22 @@ export default function ReadsCreate() {
     const [genre, setGenre] = useState("");
     const [content, setContent] = useState("");
     const [published, setPublished] = useState(Boolean);
-    const [coverImage, setCoverImage] = useState([]);
+    const [coverImage, setCoverImage] = useState("");
+
+
+    const [selectedFile, setSelectedFile] = useState({});
+    const [isFilePicked, setIsFilePicked] = useState(false);
+
+    const changeHandler = (event) => {
+        /* setSelectedFile(String(event.target.files[0])); */
+        setSelectedFile(event.target.files[0]);
+        setIsFilePicked(true);
+    };
+
+
 
     const token = localStorage.getItem('UserToken');
 
-    const handleFiles = (e) => {
-        const fileObj = e.target.files;
-
-        setCoverImage(fileObj
-        )
-
-        e.target.value = "";
-    }
 
 
     function validateFormLog() {
@@ -45,6 +49,7 @@ export default function ReadsCreate() {
             formData.append('genre', genre);
             formData.append('published', published);
             formData.append('coverImage', coverImage);
+            /*  formData.append('coverImage', selectedFile); */
             const storyResponse = await fetch("http://localhost/leer-te-server/public/index.php/story/add", {
                 method: 'POST',
                 headers: {
@@ -71,8 +76,10 @@ export default function ReadsCreate() {
 
 
 
+    /* console.log(selectedFile);
+    console.log(typeof (selectedFile)); */
+
     console.log(coverImage);
-    console.log(typeof (title));
 
     return (
         <section className='readsCreate-div-wrapper'>
@@ -105,7 +112,25 @@ export default function ReadsCreate() {
                         <option value="no ficción">No ficción</option>
                     </select>
 
-                    <input type="file" onChange={handleFiles} />
+                    {/* <input type="file" onChange={handleFiles} /> */}
+
+                    <input type="file" name="file" onChange={changeHandler} accept=".png" />
+                    {isFilePicked ? (
+                        <div>
+                            <p>Filename: {selectedFile.name}</p>
+                            <p>Filetype: {selectedFile.type}</p>
+                            <p>Size in bytes: {selectedFile.size}</p>
+                            {/* <p>
+                                lastModifiedDate:{' '}
+                                {selectedFile.lastModifiedDate.toLocaleDateString()}
+                            </p> */}
+                        </div>
+                    ) : (
+                        <p>Select a file to show details</p>
+                    )}
+
+                    <input type='text' onChange={(e) => setCoverImage(e.target.value)} value={coverImage} />
+
                 </section>
 
                 <textarea maxLength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'

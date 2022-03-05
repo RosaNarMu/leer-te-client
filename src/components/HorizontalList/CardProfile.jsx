@@ -56,7 +56,7 @@ export default function CardProfile({ id, title, author, genre, listName }) {
                     {listName.includes('Publicaciones') && (
                         <>
                             <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación" >
-                                <i class="fas fa-trash-alt" ></i>
+                                <i className="fas fa-trash-alt" ></i>
                             </button>
 
                             <NavLink
@@ -74,7 +74,7 @@ export default function CardProfile({ id, title, author, genre, listName }) {
 
                         <>
                             <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación">
-                                <i class="fas fa-trash-alt"></i>
+                                <i className="fas fa-trash-alt"></i>
                             </button>
 
                             <NavLink
