@@ -21,7 +21,7 @@ export default function HorizontalList({ listName, user }) {
                 headers: headers
             })
             const data = await response.json();
-            setBookList(data.slice(-4));
+            setBookList(data.slice(-8));
 
         }
 

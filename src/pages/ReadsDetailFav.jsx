@@ -258,7 +258,7 @@ export default function ReadsDetailFav() {
                     {console.log(readingSelectedDisplay.coverImage)}
 
                     <img
-                        src={readingSelectedDisplay.coverImage}
+                        src={'data:image/png;base64,' + readingSelectedDisplay.coverImage}
 
                         className='slider-img'
                     />

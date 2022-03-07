@@ -3,7 +3,7 @@
     /* justify-content: space-between; */
 
     padding-left: 15%;
-    padding-right: 15%;
+    padding-right: 10%;
 
     .home-div-title{
         /* z-index: 0; */
@@ -19,9 +19,9 @@
   border-image: linear-gradient($primary
   , $dark-accent) 1;
 
-        h2 {
+        /* h2 {
             margin: 1.5rem;
-        }
+        } */
         
     }
 
@@ -29,14 +29,14 @@
 }
 
 .home-div-left, .home-div-right{
-background-color: whitesmoke;
+background-color: lighten($primary, 20%);
 width: 50vw;
 /* height: 30vh; */
 display: flex;
 justify-content: center;
 align-items: center;
 z-index: 0;
-transition: opacity  0.5s ease-in-out;
+/* transition: opacity  0.5s ease-in-out; */
 
 }
 
@@ -47,12 +47,12 @@ transition: opacity  0.5s ease-in-out;
       } 
 
 .background-icon{
-    opacity: 0;
+  /*   opacity: 0; */
     z-index: -1;
     position: absolute;
     font-size: 250px;
 
-    transition: opacity  0.5s ease-in-out;
+    /* transition: opacity  0.5s ease-in-out; */
     color: $dark-accent;
    
 }
@@ -61,16 +61,25 @@ transition: opacity  0.5s ease-in-out;
 .home-div-left:hover,  .home-div-right:hover {
     
     background-color: lighten($primary, 20%);
-    transition: opacity  0.5s ease-in-out;
+/*     transition: opacity  0.5s ease-in-out; */
 
-    .background-icon{
+   /*  .background-icon{
          
          opacity: 1;
         transition: opacity  0.5s ease-in-out;
        
         
-    }
+    } */
     
+  }
+
+  .carousel-wrapper {
+    width: 100%;
+  }
+  
+  .rec-carousel-item:focus {
+    outline: none;
+    box-shadow: inset 0 0 1px 0px violet;
   }
 
  

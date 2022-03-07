@@ -23,7 +23,6 @@ export default function ReadsCreate() {
     const [isFilePicked, setIsFilePicked] = useState(false);
 
     const changeHandler = (event) => {
-        /* setSelectedFile(String(event.target.files[0])); */
         setSelectedFile(event.target.files[0]);
         setIsFilePicked(true);
     };
@@ -48,17 +47,18 @@ export default function ReadsCreate() {
             formData.append('content', content);
             formData.append('genre', genre);
             formData.append('published', published);
-            formData.append('coverImage', coverImage);
-            /*  formData.append('coverImage', selectedFile); */
+            /* formData.append('coverImage', coverImage); */
+            formData.append('coverImage', selectedFile);
+
+
             const storyResponse = await fetch("http://localhost/leer-te-server/public/index.php/story/add", {
                 method: 'POST',
                 headers: {
-
+                    /*  'Content-Type': 'multipart/form-data', */
                     'Authorization': 'Bearer ' + token
                 },
                 body: formData
                 /* JSON.stringify({ title: title, content: content, genre: genre, published: published, coverImage: coverImage }) */
-
             })
             const data = await storyResponse.json();
             console.log(data);
@@ -76,10 +76,10 @@ export default function ReadsCreate() {
 
 
 
-    /* console.log(selectedFile);
-    console.log(typeof (selectedFile)); */
+    console.log(selectedFile);
+    console.log(typeof (selectedFile));
 
-    console.log(coverImage);
+    console.log(title);
 
     return (
         <section className='readsCreate-div-wrapper'>
@@ -113,7 +113,6 @@ export default function ReadsCreate() {
                     </select>
 
                     {/* <input type="file" onChange={handleFiles} /> */}
-
                     <input type="file" name="file" onChange={changeHandler} accept=".png" />
                     {isFilePicked ? (
                         <div>
@@ -129,7 +128,7 @@ export default function ReadsCreate() {
                         <p>Select a file to show details</p>
                     )}
 
-                    <input type='text' onChange={(e) => setCoverImage(e.target.value)} value={coverImage} />
+
 
                 </section>
 
