@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+
+
 }
 
 .readsDisplay-div-main {
@@ -9,6 +11,8 @@
     /* height: 70vh; */
     flex-wrap: wrap;
     padding: 2rem;
+    padding-left: 15%;
+    padding-right: 15%;
 
     .readsDisplay-div-left,  .readsDisplay-div-right {
         background-color: $off-white;
@@ -40,7 +44,7 @@
 
 .readsDisplay-div-right{
     background-color: $off-white;
-    width: 70vw;
+    width: 30vw;
     padding: 3rem;
     flex-wrap: wrap;
     font-size: larger;

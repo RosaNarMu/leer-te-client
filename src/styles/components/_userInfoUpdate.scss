@@ -6,7 +6,13 @@
     align-items: center;
 
     
-    padding-top: 1.5rem;
+    padding-top: 3rem;
+
+    h2{
+        padding-bottom: 3rem;
+    }
+
+    
 
     
 }
@@ -14,6 +20,8 @@
 .userInfoUpdate-div-form{
     display: flex;
     height: 50vh;
+
+    
     .userInfoUpdate-div-left-form, .userInfoUpdate-div-right-form{
 
         background-color: whitesmoke;
@@ -30,6 +38,8 @@
             margin: 1.5rem;
         }
         
+        padding-left: 10%;
+    padding-right: 10%;
     }
 }
 
@@ -55,6 +65,8 @@
    span {
        font-size: x-large;
    }
+   padding-left: 15%;
+   padding-right: 15%;
 }
 
 @media only screen and (max-width: 1010px) {

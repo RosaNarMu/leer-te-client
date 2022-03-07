@@ -65,6 +65,8 @@ export default function Home() {
                     <i className="fas fa-feather-alt background-icon fa-10x"></i>
                 </div>
 
+
+
             </main >
             <section>
                 <HorizontalList listName={listName} user={user}></HorizontalList>

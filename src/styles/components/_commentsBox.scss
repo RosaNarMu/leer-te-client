@@ -5,9 +5,12 @@
     flex-direction: column;
     padding: 1.5rem;
     margin: 1rem;
-    width: 80vw;
+    width: 70vw;
 
     transition: all, 0.5s; 
+
+    padding-left: 15%;
+    padding-right: 15%;
 
 
 
@@ -24,4 +27,5 @@
 
 .commentsBox-main:hover{
     background-color: lavender;
+
 }

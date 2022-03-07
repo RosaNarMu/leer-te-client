@@ -4,6 +4,7 @@ import CommentsBox from '../components/readsDetail/CommentsBox'
 import { useFetch } from '../hook/useFetch';
 import { useUrl, useUrlFav } from '../hook/useUrlFav';
 import UseContextGeneral from "../UseContext";
+import ScrollUp from "../components/Ui/ScrollUp";
 
 
 export default function ReadsDetailFav() {
@@ -269,42 +270,42 @@ export default function ReadsDetailFav() {
             </section>
 
             <section className='readsDisplay-div-bottom'>
+
+
                 {user && (
-                    <form onSubmit={submitComment} className='readsDisplay-div-comment-input'>
-                        <span >¡Opina!</span>
-                        <textarea required maxLength="50" type='text' className='input' value={newComment} onChange={(e) => setNewComment(e.target.value)} />
-                        <select required className="readsCreate-div-form-selector" onChange={(e) => setCommentScore(e.target.value)}>
-                            <option value="">Valora el relato</option>
-                            <option value={0}>Sin valoración</option>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                            <option value={5}>5</option>
-                        </select>
-                        <button className='btn' type="submit" >Enviar comentario</button>
-                    </form>
+                    <>
+                        <form onSubmit={submitComment} className='readsDisplay-div-comment-input'>
+                            <span >¡Opina!</span>
+                            <textarea required maxLength="50" type='text' className='input' value={newComment} onChange={(e) => setNewComment(e.target.value)} />
+                            <select required className="readsCreate-div-form-selector" onChange={(e) => setCommentScore(e.target.value)}>
+                                <option value="">Valora el relato</option>
+                                <option value={0}>Sin valoración</option>
+                                <option value={1}>1</option>
+                                <option value={2}>2</option>
+                                <option value={3}>3</option>
+                                <option value={4}>4</option>
+                                <option value={5}>5</option>
+                            </select>
+                            <button className='btn' type="submit" >Enviar comentario</button>
+                        </form>
+
+
+                        <hr></hr>
+
+
+                        <CommentsBox key={readingSelectedDisplay.id} idStory={readingSelectedDisplay.id} ></CommentsBox>
+                    </>
                 )}
 
                 {!user && (
-                    <span >Ingresa en tu cuenta para valorar el relato</span>
+                    <span >Ingresa en tu cuenta para ver los comentarios</span>
                 )}
 
-                <hr></hr>
-                {
-
-                    <CommentsBox key={readingSelectedDisplay.id} idStory={readingSelectedDisplay.id} ></CommentsBox>
-                   /*  comments && comments.map(({ commentId, userComenter, body }, index) => (
-
-                        <CommentsBox key={commentId} id={commentId} user={userComenter} comment={body}></CommentsBox>
-
-
-                    )) */}
 
 
             </section>
 
-
+            <ScrollUp></ScrollUp>
         </main>
     )
 }
