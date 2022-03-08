@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { useState, useContext } from "react";
 import UseContextGeneral from "../UseContext";
 import { LOGIN, REGISTER } from "../config/config";
+import jwt_decode from "jwt-decode";
 
 export default function Login() {
 
@@ -55,9 +56,14 @@ export default function Login() {
             const token = await loginResponse.json();
             setToken(token.token);
 
+            console.log(token); /* Array [ "ROLE_ADMIN", "ROLE_USER" ] */
 
 
-            console.log(token);
+            let decoded = jwt_decode(token.token);
+            console.log(decoded.roles);
+            const isAdmin = decoded.roles.includes('ROLE_ADMIN');
+            console.log(isAdmin);
+
             if (loginResponse.ok) {
                 authenticate();
                 navigate('/', {
