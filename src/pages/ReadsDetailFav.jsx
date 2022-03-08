@@ -242,9 +242,9 @@ export default function ReadsDetailFav() {
                             <button className='btn' onClick={(e) => deleteFavorite(e)}>Elimina de favoritos</button>
                         )}
 
-                    {!user && (
+                    {/* {!user && (
                         <span >Ingresa en tu cuenta para añadir este relato a tus favoritos</span>
-                    )}
+                    )} */}
 
 
 
@@ -298,7 +298,7 @@ export default function ReadsDetailFav() {
                 )}
 
                 {!user && (
-                    <span >Ingresa en tu cuenta para ver los comentarios</span>
+                    <span >Ingresa en tu cuenta para poder ver los comentarios y añadir el relato a favoritos</span>
                 )}
 
 
