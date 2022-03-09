@@ -74,7 +74,7 @@ export default function Login() {
                 localStorage.setItem('UserToken', token.token);
 
                 if (isAdmin) {
-                    /* localStorage.setItem('admin', true); */
+                    localStorage.setItem('admin', true);
                     setAdmin(true);
                 }
             }

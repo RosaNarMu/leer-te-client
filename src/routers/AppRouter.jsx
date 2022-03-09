@@ -23,9 +23,9 @@ import UseContextGeneral from "../UseContext";
 
 export default function AppRouter() {
 
-    const { user, setUser, logout, admin } = useContext(UseContextGeneral);
+    const { user, setUser, logout } = useContext(UseContextGeneral);
 
-
+    const admin = localStorage.getItem('admin');
 
 
     useEffect(() => {
