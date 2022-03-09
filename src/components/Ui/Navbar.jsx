@@ -6,7 +6,7 @@ import UseContextGeneral from '../../UseContext';
 export const Navbar = ({ logout }) => {
     const navigate = useNavigate();
 
-    const { user, setUser, admin } = useContext(UseContextGeneral);
+    const { user, setUser } = useContext(UseContextGeneral);
 
     function exit() {
 
@@ -15,8 +15,11 @@ export const Navbar = ({ logout }) => {
             replace: true
         });
         window.localStorage.removeItem('UserToken');
-
+        window.localStorage.removeItem('admin');
+        window.localStorage.removeItem('Authenticated');
     }
+
+    const admin = localStorage.getItem('admin');
 
 
     const [toggleMenu, setToggleMenu] = useState(false)
