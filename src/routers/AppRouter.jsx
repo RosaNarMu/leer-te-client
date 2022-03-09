@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { BrowserRouter, Route, Routes, useNavigate, Link, Navigate } from "react-router-dom";
 import Footer from "../components/Ui/Footer";
 import { Navbar } from "../components/Ui/Navbar";
+import Admin from "../pages/Admin";
 
 import ContactForm from "../pages/ContactForm";
 import FAQ from "../pages/FAQ";
@@ -22,7 +23,7 @@ import UseContextGeneral from "../UseContext";
 
 export default function AppRouter() {
 
-    const { user, setUser, logout } = useContext(UseContextGeneral);
+    const { user, setUser, logout, admin } = useContext(UseContextGeneral);
 
 
 
@@ -30,10 +31,13 @@ export default function AppRouter() {
     useEffect(() => {
         const u = localStorage.getItem('user');
         u && JSON.parse(u) ? setUser(true) : setUser(false);
+
+
     }, [])
 
     useEffect(() => {
         localStorage.setItem("user", user);
+
     }, [user]);
 
     return (
@@ -67,6 +71,9 @@ export default function AppRouter() {
                     </>
                 )}
 
+                {admin && (
+                    <Route path="admin" element={<Admin />} />
+                )}
 
 
 

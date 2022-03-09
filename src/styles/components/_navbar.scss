@@ -1,7 +1,7 @@
 .navbar-main {
     display: flex;
     
-    /* justify-content: space-between; */
+    justify-content: space-between;
     background-color: $primary;
     align-items: center;
     /* height: 100px; */
@@ -20,7 +20,7 @@
     
     .navbar-center, .navbar-end{
         display: flex;
-       /*  justify-content: space-around; */
+        justify-content: space-around;
         flex-wrap: wrap;
         gap: 16px;
         
@@ -28,7 +28,7 @@
     .navbar-center{
         flex-grow: 1;
         justify-content: start;
-        margin-left: 47%;
+        margin-left: 40%;
     }
     
 }
@@ -40,8 +40,10 @@
     right: 10px;
     top: 7px;
    
-    color:$dark-accent;
     
+    
+    background:$dark-accent;
+	
     background: none;
 	color: inherit;
 	border: none;
@@ -58,13 +60,12 @@
     .navbar-main{
        
         .navbar-center{
-            /* flex-grow: 1; */
+            
             margin-left: 0%;
             
         }
     }
 
-    
     .list {
         flex-direction: column;
         height: auto;
@@ -81,6 +82,7 @@
     }
     .toggle {
         display: block;
+        
     }
 
     

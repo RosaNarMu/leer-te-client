@@ -6,7 +6,7 @@ import UseContextGeneral from '../../UseContext';
 export const Navbar = ({ logout }) => {
     const navigate = useNavigate();
 
-    const { user, setUser } = useContext(UseContextGeneral);
+    const { user, setUser, admin } = useContext(UseContextGeneral);
 
     function exit() {
 
@@ -71,6 +71,18 @@ export const Navbar = ({ logout }) => {
 
 
                             <ul className='navbar-center list'>
+
+
+                                {admin && (
+                                    <li className="items">
+                                        <NavLink
+                                            className=''
+                                            to="/admin"
+                                        >
+                                            <button className='btn'>Admin</button>
+                                        </NavLink>
+                                    </li>
+                                )}
                                 <li className="items">
                                     <NavLink
                                         className=''
@@ -79,7 +91,6 @@ export const Navbar = ({ logout }) => {
                                         <button className='btn'>¡A leer!</button>
                                     </NavLink>
                                 </li>
-
 
 
 
