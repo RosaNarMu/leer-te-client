@@ -11,7 +11,7 @@ export default function Home() {
 
     const breakPoints = [
 
-        { width: 1200, itemsToShow: 1 }
+        { width: 1800, itemsToShow: 1 }
     ];
 
 
@@ -38,48 +38,45 @@ export default function Home() {
                         </Item>
 
 
-                        <Item >
-                            <div className='home-div-left'>
+                        <Item className='home-div-left'>
 
+                            <NavLink
 
+                                to="/display"
+                            >
+                                <button className='home-div-button btn'> ¡Explora!<i className="fab fa-readme button-icon"></i></button>
 
-                                <NavLink
+                            </NavLink>
+                            <i className="fab fa-readme background-icon fa-10x"></i>
 
-                                    to="/display"
-                                >
-                                    <button className='home-div-button btn'> ¡Explora!<i className="fab fa-readme button-icon"></i></button>
-
-                                </NavLink>
-                                <i className="fab fa-readme background-icon fa-10x"></i>
-                            </div>
 
                         </Item>
 
-                        <Item>
-                            <div className='home-div-right'>
-
-                                {user ? (
-
-                                    <NavLink
-                                        className=''
-                                        to="/create"
-                                    >
-                                        <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
-                                    </NavLink>
-
-                                ) : (
-                                    <NavLink
-                                        className=''
-                                        to="/login"
-                                    >
-                                        <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
-                                    </NavLink>
-                                )}
+                        <Item className='home-div-right'>
 
 
+                            {user ? (
 
-                                <i className="fas fa-feather-alt background-icon fa-10x"></i>
-                            </div>
+                                <NavLink
+                                    className=''
+                                    to="/create"
+                                >
+                                    <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
+                                </NavLink>
+
+                            ) : (
+                                <NavLink
+                                    className=''
+                                    to="/login"
+                                >
+                                    <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
+                                </NavLink>
+                            )}
+
+
+
+                            <i className="fas fa-feather-alt background-icon fa-10x"></i>
+
                         </Item>
 
                     </Carousel>

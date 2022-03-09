@@ -1,7 +1,7 @@
 .navbar-main {
     display: flex;
     
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background-color: $primary;
     align-items: center;
     /* height: 100px; */
@@ -20,7 +20,7 @@
     
     .navbar-center, .navbar-end{
         display: flex;
-        justify-content: space-around;
+       /*  justify-content: space-around; */
         flex-wrap: wrap;
         gap: 16px;
         
@@ -55,6 +55,16 @@
 
 @media screen and (max-width: 1090px){
    
+    .navbar-main{
+       
+        .navbar-center{
+            /* flex-grow: 1; */
+            margin-left: 0%;
+            
+        }
+    }
+
+    
     .list {
         flex-direction: column;
         height: auto;
@@ -72,4 +82,6 @@
     .toggle {
         display: block;
     }
+
+    
 }
