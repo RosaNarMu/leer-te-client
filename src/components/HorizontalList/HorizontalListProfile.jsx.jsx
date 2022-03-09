@@ -12,17 +12,18 @@ export default function HorizontalListProfile({ listName, list }) {
     return (
         <section className='horizontal-display-main'>
 
-
-
             <div className='horizontal-display-title'>{listName}</div>
-            {
+
+            <div className='horizontal-display-cards'>
+                {
 
 
-                list && list.map(({ id, StoryTitle, StoryAuthor, StoryGenre }, index) => (
+                    list && list.map(({ id, StoryTitle, StoryAuthor, StoryGenre }, index) => (
 
-                    <CardProfile id={id} title={StoryTitle} author={StoryAuthor} genre={StoryGenre} listName={listName}></CardProfile>
+                        <CardProfile id={id} title={StoryTitle} author={StoryAuthor} genre={StoryGenre} listName={listName}></CardProfile>
 
-                ))}
+                    ))}
+            </div>
         </section>
     )
 }

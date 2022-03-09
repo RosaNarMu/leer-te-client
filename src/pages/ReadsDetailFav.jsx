@@ -5,6 +5,7 @@ import { useFetch } from '../hook/useFetch';
 import { useUrl, useUrlFav } from '../hook/useUrlFav';
 import UseContextGeneral from "../UseContext";
 import ScrollUp from "../components/Ui/ScrollUp";
+import { NavLink } from 'react-router-dom';
 
 
 export default function ReadsDetailFav() {
@@ -298,7 +299,15 @@ export default function ReadsDetailFav() {
                 )}
 
                 {!user && (
-                    <span >Ingresa en tu cuenta para poder ver los comentarios y añadir el relato a favoritos</span>
+                    <>
+                        <span className='readsCreate-div-noUser'>Ingresa en tu cuenta para poder ver los comentarios y añadir el relato a favoritos</span>
+                        <NavLink
+                            className=''
+                            to="/login"
+                        >
+                            <button className='btn'>Accede a tu cuenta</button>
+                        </NavLink>
+                    </>
                 )}
 
 

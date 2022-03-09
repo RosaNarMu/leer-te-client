@@ -1,20 +1,37 @@
 .horizontal-display-main{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
+   
     background-color: lighten($primary, 20%);
-    flex-wrap: wrap;
     padding-left: 15%;
     padding-right: 15%;
+    padding-top:1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .horizontal-display-title{
     background-color: $cool-grey;
     padding: 1.5rem;
+    margin-bottom: 1.5rem;
     border-radius: 5px;
     transition: all, 0.5s;
+    width: fit-content;
 
+}
+
+.horizontal-display-cards{
+    background-color: lighten($primary, 20%);
+    
+    /* align-items: center;
+    padding: 2rem;
+    flex-wrap: wrap; */
+   display: flex;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    
+    justify-content: initial;
+  
+  
+    
+    gap: 1rem;
 }
 
 .horizontal-display-title:hover{
