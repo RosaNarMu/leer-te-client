@@ -75,17 +75,6 @@ export const Navbar = ({ logout }) => {
 
                             <ul className='navbar-center list'>
 
-
-                                {admin && (
-                                    <li className="items">
-                                        <NavLink
-                                            className=''
-                                            to="/admin"
-                                        >
-                                            <button className='btn'>Admin</button>
-                                        </NavLink>
-                                    </li>
-                                )}
                                 <li className="items">
                                     <NavLink
                                         className=''
@@ -113,7 +102,7 @@ export const Navbar = ({ logout }) => {
                                         className=''
                                         to="/contact"
                                     >
-                                        <button className='btn'>Contacto</button>
+                                        <button className='btn'>Contacta</button>
                                     </NavLink>
                                 </li>
 
@@ -129,6 +118,17 @@ export const Navbar = ({ logout }) => {
                             </ul>
 
                             <ul className='navbar-end list'>
+
+                                {admin && (
+                                    <li className="items">
+                                        <NavLink
+                                            className=''
+                                            to="/admin"
+                                        >
+                                            <button className='btn'>Admin</button>
+                                        </NavLink>
+                                    </li>
+                                )}
                                 {!user && (
                                     <li className="items">
                                         <NavLink

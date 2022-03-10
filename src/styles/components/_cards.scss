@@ -1,4 +1,3 @@
-
 .cards-wrapper {
     display: grid;
     justify-content: center;
@@ -9,11 +8,10 @@
     margin: 0 auto;
     width: max-content;
     
+    
   }
   
   .card {
-    /* font-family: 'Heebo'; */
-    
     background-color: $off-white;
     height: 17em;
     width: 15em;
@@ -71,6 +69,10 @@
     transition: all, 0.5s;
   }
   
+  .disable-text{
+    text-decoration: none;
+  }
+
   .card:hover .tags .tag {
     background: $primary;
     

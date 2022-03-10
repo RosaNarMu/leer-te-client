@@ -14,16 +14,17 @@
     .home-div-title{
         /* z-index: 0; */
        /*  position: absolute; */
-        text-align: center;
-        flex-wrap: wrap;
+      text-align: center;
+      flex-wrap: wrap;
         /* overflow:visible; */
-       justify-content: center;
+      justify-content: center;
         /* width: 30%; */
-        padding: 2rem;
-        border-style: solid;
-  border-width: 10px;
-  border-image: linear-gradient($primary
-  , $dark-accent) 1;
+      padding: 2rem;
+      border-style: solid;
+      border-width: 10px;
+      border-image: linear-gradient($primary, $dark-accent) 1;
+      background-color: rgba(0, 0, 0, 0.315);
+      color: $off-white;
 
         /* h2 {
             margin: 1.5rem;
@@ -47,21 +48,30 @@ z-index: 0;
 }
 
 
-.button-icon{
-    color: $dark-accent;
-    margin-left:1rem;
-      } 
+
 
 .background-icon{
+
+  text-decoration: none;
   /*   opacity: 0; */
-    z-index: -1;
-    position: absolute;
-    font-size: 250px;
+  z-index: -1;
+    /* position: absolute; */
+  font-size: 100px;
 
     /* transition: opacity  0.5s ease-in-out; */
-    color: $dark-accent;
+  color: $dark-accent;
 
-    transition:all 1s ease;
+  transition:all 1s ease;
+  color: #333;
+
+  
+
+  .fab{
+    color: $primary;
+    
+  }
+
+    
    
 }
 

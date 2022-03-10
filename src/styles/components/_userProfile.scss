@@ -6,9 +6,11 @@
 
     span{
         border-style: none;
-            border-radius: 5px;
-            background-color: $cool-grey;
-            padding: 1rem;
+        border-radius: 5px;
+        background-color: $cool-grey;
+        padding: 1rem;
+        transition: all, 0.5s;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.356);
     }
 
 
@@ -17,9 +19,12 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         font-size: large;
         margin: 1.5rem;
+
+        padding-left: 15%;
+    padding-right: 15%;
     }
 
     .userProfile-div-listWrap{
@@ -28,6 +33,12 @@
         flex-direction: column;
         gap: 1.5rem;
     }
+}
+
+span:hover{
+    
+    background-color: $primary;
+    
 }
 
 @media only screen and (max-width: 500px) {

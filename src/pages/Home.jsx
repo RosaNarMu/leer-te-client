@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import HorizontalList from '../components/HorizontalList/HorizontalList'
 import UseContextGeneral from '../UseContext';
 import Carousel from 'react-elastic-carousel';
-import Item from './../components/carousel/Item';
+import Item from './../components/Carousel/Item';
 import ScrollUp from "../components/Ui/ScrollUp";
 
 
@@ -11,10 +11,8 @@ import ScrollUp from "../components/Ui/ScrollUp";
 export default function Home() {
 
     const breakPoints = [
-
         { width: 1800, itemsToShow: 1 }
     ];
-
 
 
     const listName = '¡Novedades!';
@@ -43,12 +41,12 @@ export default function Home() {
 
                             <NavLink
 
-                                to="/display"
+                                to="/display" className="background-icon"
                             >
-                                <button className='home-div-button btn'> ¡Explora!<i className="fab fa-readme button-icon"></i></button>
 
+
+                                <h2 > <i className="fab fa-readme "></i>Explora</h2>
                             </NavLink>
-                            <i className="fab fa-readme background-icon fa-10x"></i>
 
 
                         </Item>
@@ -59,29 +57,25 @@ export default function Home() {
                             {user ? (
 
                                 <NavLink
-                                    className=''
+                                    className="background-icon"
                                     to="/create"
                                 >
-                                    <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
+                                    <h2 > <i className="fab fa-readme "></i>Crea</h2>
                                 </NavLink>
 
                             ) : (
                                 <NavLink
-                                    className=''
+                                    className="background-icon"
                                     to="/login"
                                 >
-                                    <button className='home-div-button btn'> ¡Crea! <i className="fas fa-feather-alt button-icon"></i></button>
+                                    <h2 > <i className="fab fa-readme "></i>Crea</h2>
                                 </NavLink>
                             )}
-
-
-
-                            <i className="fas fa-feather-alt background-icon fa-10x"></i>
 
                         </Item>
 
                     </Carousel>
-                </div>
+                </div >
 
             </main >
 

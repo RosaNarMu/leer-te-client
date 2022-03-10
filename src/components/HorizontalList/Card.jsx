@@ -2,48 +2,36 @@ import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
 export default function Card({ id, title, User, genre, user }) {
     return (
-
-        <div className="card-grid-space"
-            key={id}
+        <NavLink
+            className='disable-text'
+            to={`/display/detailFav/${id}`}
         >
-            <a className="card" >
-                <div>
-                    <h1>{title}</h1>
-                    <h3>{User}</h3>
+            <div
+                key={id}
+            >
+                <a className="card" >
+                    <div>
+                        <h1>{title}</h1>
+                        <h3>{User}</h3>
 
 
-                    <div className="tags">
-                        <div className="tag">Género: {genre}</div>
-                    </div>
-                    {/* {user ? (
+                        <div className="tags">
+                            <div className="tag">Género: {genre}</div>
+                        </div>
 
-                        <NavLink
-                            className=''
-                            to="/socialpayment"
-                        >
-                            <button className='btn'> Accede con pago social</button>
-                        </NavLink>
 
-                    ) : (
-                        <NavLink
-                            className=''
-                            to="/login"
-                        >
-                            <button className='btn'> Accede a tu cuenta </button>
-                        </NavLink>
-                    )} */}
-
-                    <NavLink
+                        {/*   <NavLink
                         className=''
                         to={`/display/detailFav/${id}`}
                     >
                         <button className='btn'> Accede a la lectura</button>
-                    </NavLink>
+                    </NavLink> */}
 
 
-                </div>
-            </a>
-        </div>
+                    </div>
+                </a>
+            </div>
+        </NavLink>
 
     )
 }
