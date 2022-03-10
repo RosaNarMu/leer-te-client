@@ -33,7 +33,7 @@ export default function ReadsCreate() {
 
 
 
-    function validateFormLog() {
+    function validateFormCreate() {
         return title.length > 0 && genre.length > 0 && content.length > 0 && published != null;
     }
 
@@ -134,7 +134,8 @@ export default function ReadsCreate() {
 
                 <textarea maxLength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'
                     value={content} onChange={(e) => setContent(e.target.value)} />
-                <button className='btn' type="submit" disabled={!validateFormLog()} >Enviar</button>
+                {!validateFormCreate() && (<span className="reminder-form-message">Recuerda rellenar todos los campos para enviar tu historia</span>)}
+                <button className='btn' type="submit" disabled={!validateFormCreate()} >Enviar</button>
 
             </form>
         </section>

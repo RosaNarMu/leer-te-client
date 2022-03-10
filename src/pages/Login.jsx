@@ -4,6 +4,7 @@ import UseContextGeneral from "../UseContext";
 import { LOGIN, REGISTER } from "../config/config";
 import jwt_decode from "jwt-decode";
 
+
 export default function Login() {
 
     const { authenticate, setAdmin } = useContext(UseContextGeneral);
@@ -28,7 +29,7 @@ export default function Login() {
 
     const { token, setToken } = useContext(UseContextGeneral);
 
-    let checkLogin = false;
+    const [checkLogin, setCheckLogin] = useState(false);
 
     function validateFormLog() {
         return email.length > 0 && password.length > 0;
@@ -58,11 +59,18 @@ export default function Login() {
 
             console.log(token);
 
+            if (!loginResponse.ok) {
+                setCheckLogin(true);
+            }
 
             let decoded = jwt_decode(token.token);
             console.log(decoded.roles);/* Array [ "ROLE_ADMIN", "ROLE_USER" ] */
             const isAdmin = decoded.roles.includes('ROLE_ADMIN');
             console.log('es Admin' + isAdmin); /* true */
+
+
+
+
 
             if (loginResponse.ok) {
                 authenticate();
@@ -79,9 +87,6 @@ export default function Login() {
                 }
             }
 
-            if (!loginResponse.ok) {
-                alert("Parece que tu correo o contraseña son incorrectos, por favor introduce credenciales válidos")
-            }
 
 
         }
@@ -141,9 +146,12 @@ export default function Login() {
                             <input /* ref={ref} */ type='password' className='input' value={password}
                                 onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        {checkLogin && (<span>Introduce un correo o contraseña válidos</span>)}
+
+
                         <button className='btn' type="submit" disabled={!validateFormLog()}>¡A leer!</button>
                     </form>
+
+                    {checkLogin && (<span className="invalid-form-message">Parece que tu correo o contraseña no son válidos</span>)}
                 </div>
                 <div className='login-div-right-register'>
                     <form onSubmit={submitRegister} className='login-div-right-register-form'>
@@ -166,6 +174,8 @@ export default function Login() {
 
                         <button className='btn' type="submit" disabled={!validateFormReg()}>¡Comienza tu aventura!</button>
                     </form>
+
+                    {!validateFormReg() && (<span className="reminder-form-message">Recuerda rellenar todos los campos para completar el registro</span>)}
                 </div>
 
 

@@ -2,8 +2,6 @@
 
 export default function ContactForm() {
 
-
-
     return (
         <div className='contactForm-div-wrapper'>
             <h2>Contact Form</h2>

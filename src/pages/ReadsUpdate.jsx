@@ -29,7 +29,7 @@ export default function ReadsUpdate() {
 
 
 
-    function validateFormLog() {
+    function validateFormUpdate() {
         return newTitle.length > 0 && newGenre.length > 0 && newContent.length > 0 && newPublished != null;
     }
 
@@ -129,7 +129,8 @@ export default function ReadsUpdate() {
 
                 <textarea maxLength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'
                     value={newContent} onChange={(e) => setNewContent(e.target.value)} />
-                <button className='btn' type="submit" disabled={!validateFormLog()} >Enviar</button>
+                {!validateFormUpdate() && (<span className="reminder-form-message">Recuerda rellenar todos los campos para enviar tu historia</span>)}
+                <button className='btn' type="submit" disabled={!validateFormUpdate()} >Enviar</button>
 
             </form>
         </section>
