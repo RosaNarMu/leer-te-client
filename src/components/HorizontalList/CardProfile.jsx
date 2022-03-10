@@ -1,5 +1,6 @@
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
 
+const token = localStorage.getItem('UserToken');
 
 function deleteStory(e, idStory) {
 
@@ -7,7 +8,8 @@ function deleteStory(e, idStory) {
         const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/story/delete/${idStory}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
             }
         })
         const data = await commentResponse.json();

@@ -47,8 +47,6 @@ export const Navbar = ({ logout }) => {
 
     }, [])
 
-    console.log(screenWidth);
-
 
     return (
         <>

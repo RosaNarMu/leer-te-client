@@ -124,13 +124,6 @@ export default function UserProfile() {
     }, []);
 
 
-
-    const firstList = profileInfoDisplay.favorites;
-
-    const secondList = profileInfoDisplay.publications;
-    const thirdList = profileInfoDisplay.drafts;
-
-
     return (
         <section className='userProfile-div-wrapper'>
 

@@ -3,9 +3,10 @@ import StoryTable from '../components/Admin/StoryTable';
 import UserTable from '../components/Admin/UserTable';
 import CommentTable from '../components/Admin/CommentTable';
 
+
 export default function Admin() {
 
-
+    const firstTitle = 'Relatos'
 
     const commentTh = ['Id', 'Usuario', 'Relato', 'Puntuación', 'Contenido'];
 
