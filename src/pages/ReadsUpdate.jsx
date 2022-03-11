@@ -22,10 +22,21 @@ export default function ReadsUpdate() {
     const [newGenre, setNewGenre] = useState("");
     const [newPublished, setNewPublished] = useState("");
 
+    const [newFile, setNewFile] = useState({});
+    const [isFilePicked, setIsFilePicked] = useState(false);
+
     const { detailId } = useParams();
 
     const numberDetailId = parseInt(detailId);
 
+    const isActive = true;
+
+
+
+    const changeHandler = (event) => {
+        setNewFile(event.target.files[0]);
+        setIsFilePicked(true);
+    };
 
 
 
@@ -48,12 +59,13 @@ export default function ReadsUpdate() {
             })
             const data = await response.json();
 
-
+            console.log(data);
 
             setNewTitle(data.title);
             setNewGenre(data.genre);
             setNewContent(data.content);
             setNewPublished(data.published);
+            setNewFile(data.coverImage);
 
 
         }
@@ -61,16 +73,28 @@ export default function ReadsUpdate() {
         fetchData();
     }, []);
 
+
     function editStory(event) {
 
         async function fetchData() {
+
+            const formData = new FormData();
+            formData.append('title', newTitle);
+            formData.append('content', newContent);
+            formData.append('genre', newGenre);
+            formData.append('published', newPublished);
+            /* formData.append('coverImage', coverImage); */
+            formData.append('coverImage', newFile);
+            formData.append('isActive', isActive);
+
             const storyResponse = await fetch(`http://localhost/leer-te-server/public/index.php/story/edit/${numberDetailId}`, {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    /* 'Content-Type': 'application/json', */
+                    /* 'Content-Type': 'multipart/form-data', */
                     'Authorization': 'Bearer ' + token
                 },
-                body: JSON.stringify({ title: newTitle, content: newContent, genre: newGenre, published: newPublished })
+                body: formData
 
             })
             const data = await storyResponse.json();
@@ -88,7 +112,7 @@ export default function ReadsUpdate() {
     }
 
 
-
+    console.log(newFile);
 
 
     return (
@@ -125,9 +149,29 @@ export default function ReadsUpdate() {
                         <option value="misterio">Misterio</option>
                         <option value="no ficcion">No ficción</option>
                     </select>
+
+                    <input type="file" name="file" onChange={changeHandler} accept=".png" />
+
+                    {newFile && newFile.length && (
+
+                        <div>
+                            <label >Imagen anterior: </label>
+                            <img
+                                src={'data:image/png;base64,' + newFile}
+
+                                className=''
+                            />
+                        </div>
+                    )}
+
+
+
+
+
+
                 </section>
 
-                <textarea maxLength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'
+                <textarea maxLength="2060" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'
                     value={newContent} onChange={(e) => setNewContent(e.target.value)} />
                 {!validateFormUpdate() && (<span className="reminder-form-message">Recuerda rellenar todos los campos para enviar tu historia</span>)}
                 <button className='btn' type="submit" disabled={!validateFormUpdate()} >Enviar</button>
