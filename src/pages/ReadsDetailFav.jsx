@@ -258,12 +258,12 @@ export default function ReadsDetailFav() {
                     {console.log(typeof (readingSelectedDisplay.coverImage))}
                     {console.log(readingSelectedDisplay.coverImage)}
 
-                    <img
+                    {/*  <img
                         src={'data:image/png;base64,' + readingSelectedDisplay.coverImage}
 
                         className='slider-img'
-                    />
-                    <span>{readingSelectedDisplay.coverImage}</span>
+                    /> */}
+                    {/* <span>{readingSelectedDisplay.coverImage}</span> */}
 
                 </section>
 

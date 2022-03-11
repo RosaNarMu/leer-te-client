@@ -22,6 +22,8 @@ export default function ReadsCreate() {
     const [selectedFile, setSelectedFile] = useState({});
     const [isFilePicked, setIsFilePicked] = useState(false);
 
+    const isActive = true;
+
     const changeHandler = (event) => {
         setSelectedFile(event.target.files[0]);
         setIsFilePicked(true);
@@ -49,6 +51,7 @@ export default function ReadsCreate() {
             formData.append('published', published);
             /* formData.append('coverImage', coverImage); */
             formData.append('coverImage', selectedFile);
+            formData.append('isActive', isActive);
 
 
             const storyResponse = await fetch("http://localhost/leer-te-server/public/index.php/story/add", {
@@ -92,7 +95,7 @@ export default function ReadsCreate() {
                 <section className='readsCreate-div-inputs'>
                     <div>
                         <label >Título</label>
-                        <input required type='text' className='input' value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <input required type='text' maxLength="50" className='input' value={title} onChange={(e) => setTitle(e.target.value)} />
 
                     </div>
 
@@ -132,7 +135,7 @@ export default function ReadsCreate() {
 
                 </section>
 
-                <textarea maxLength="300" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'
+                <textarea maxLength="2060" type='text' className='input' placeholder='Recuerda que la longitud máxima es de 300 palabras'
                     value={content} onChange={(e) => setContent(e.target.value)} />
                 {!validateFormCreate() && (<span className="reminder-form-message">Recuerda rellenar todos los campos para enviar tu historia</span>)}
                 <button className='btn' type="submit" disabled={!validateFormCreate()} >Enviar</button>

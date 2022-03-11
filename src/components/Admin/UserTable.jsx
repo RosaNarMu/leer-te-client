@@ -24,6 +24,31 @@ export default function AdminTable() {
         fetchData();
     }, []);
 
+
+    function deleteUser(e, idUser) {
+
+        async function fetchData() {
+            const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/admin/deleteUser/${idUser}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            const data = await commentResponse.json();
+            console.log(data);
+            /*console.log("lgooin"); */
+
+            if (commentResponse.ok) {
+
+                /* navigate('/userprofile', {
+    
+                }); */
+            }
+        }
+        fetchData();
+        e.preventDefault();
+    }
     return (
         <table>
             <thead>
@@ -35,11 +60,18 @@ export default function AdminTable() {
                 </tr>
             </thead>
             <tbody>
+                {userAdmin && userAdmin.map(({ id, nickName, email }) => (
+                    <tr>
+                        <td>{id}</td>
+                        <td>{nickName}</td>
+                        <td>{email}</td>
+                        <td> <button onClick={(e) => deleteUser(e, id)} className='btn delete-btn' title="Elimina la publicación">
+                            <i className="fas fa-trash-alt"></i>
+                        </button></td>
+                    </tr>
+                ))}
                 <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
+
                 </tr>
             </tbody>
         </table >
