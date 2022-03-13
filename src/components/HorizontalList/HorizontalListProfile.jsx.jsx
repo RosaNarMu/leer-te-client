@@ -18,9 +18,9 @@ export default function HorizontalListProfile({ listName, list }) {
                 {
 
 
-                    list && list.map(({ id, StoryTitle, StoryAuthor, StoryGenre }, index) => (
+                    list && list.map(({ id, StoryTitle, StoryAuthor, StoryGenre, StoryCoverImage }, index) => (
 
-                        <CardProfile id={id} title={StoryTitle} author={StoryAuthor} genre={StoryGenre} listName={listName}></CardProfile>
+                        <CardProfile id={id} title={StoryTitle} author={StoryAuthor} genre={StoryGenre} coverImage={StoryCoverImage} listName={listName}></CardProfile>
 
                     ))}
             </div>

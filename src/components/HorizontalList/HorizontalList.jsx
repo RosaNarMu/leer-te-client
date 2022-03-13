@@ -21,7 +21,7 @@ export default function HorizontalList({ listName, user }) {
                 headers: headers
             })
             const data = await response.json();
-            setBookList(data.slice(-10));
+            setBookList(data.slice(-8));
 
         }
 
@@ -46,24 +46,9 @@ export default function HorizontalList({ listName, user }) {
             <div className='horizontal-display-cards'>
                 {
 
-                    bookList && bookList.map(({ id, title, User, genre }, index) => (
-                        <Card id={id} title={title} User={User} genre={genre} user={user}></Card>
-                        /* <div className="card-grid-space"
-                            key={id}
-                        >
-                            <a className="card" >
-                                <div>
-                                    <h1>{title}</h1>
-                                    <h3>{author}</h3>
-    
-    
-                                    <div className="tags">
-                                        <div className="tag">Género: {genre}</div>
-                                    </div>
-                                    <button className='btn'> Accede mediante pago social</button>
-                                </div>
-                            </a>
-                        </div> */
+                    bookList && bookList.map(({ id, title, User, genre, coverImage }, index) => (
+                        <Card id={id} title={title} User={User} genre={genre} user={user} coverImage={coverImage}></Card>
+
                     ))}
             </div>
         </section>

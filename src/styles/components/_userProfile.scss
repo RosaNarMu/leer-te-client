@@ -32,6 +32,17 @@
         flex-direction: column;
         gap: 1.5rem;
     }
+
+    .card{
+        width: 200px;
+        min-height: 400px;
+    }
+    &:hover {
+        .card-info{
+            height: 200px;
+        }
+    }
+
     
 }
 

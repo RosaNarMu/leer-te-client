@@ -157,10 +157,10 @@ export default function ReadsDisplay() {
                     {
 
 
-                        currentPosts.map(({ id, title, User, genre }, index) => {
+                        currentPosts.map(({ id, title, User, genre, coverImage }, index) => {
 
 
-                            return <Card id={id} title={title} User={User} genre={genre} user={user}></Card>
+                            return <Card id={id} title={title} User={User} genre={genre} user={user} coverImage={coverImage}></Card>
 
 
                         })}
