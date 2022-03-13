@@ -1,6 +1,6 @@
 .invalid-form-message{
-    color: red;
-    background-color:$cool-grey;
+    /* color: red; */
+    background-color:$primary;
     padding: 0.5rem;
     border-radius: 50px;
     margin-bottom: 1rem;
@@ -9,15 +9,11 @@
 }
 
 .reminder-form-message{
-    background-color:$cool-grey;
+    background-color:$primary;
     padding: 0.5rem;
     border-radius: 50px;
     margin-bottom: 1rem;
     text-align: center;
     transition: all, 0.5s;
 
-}
-
-.reminder-form-message:hover,.invalid-form-message:hover{
-    background-color: $primary;
 }

@@ -20,7 +20,7 @@ export default function UserProfile() {
 
     /*  const user = localStorage.Authenticated; */
 
-    const favorites = 'Tus Favoritos';
+    const favorites = 'Tus favoritos';
 
     const publications = 'Publicaciones';
     const drafts = 'Borradores';

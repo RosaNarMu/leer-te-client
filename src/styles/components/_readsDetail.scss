@@ -79,16 +79,14 @@
     flex-direction: row;
 
     span{
-      background-color: $cool-grey;
+    background-color: lighten($primary, 20%);
     padding: 1rem;
    
     border-radius: 5px;
     transition: all, 0.5s;  
     }
 
-    span:hover{
-         background-color: lavender;
-    }
+    
 
     textarea{
         width: 80vw;

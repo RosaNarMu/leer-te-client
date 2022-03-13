@@ -1,5 +1,5 @@
 .commentsBox-main{
-    background-color: $cool-grey;
+    background-color:lighten($primary, 20%);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -29,7 +29,3 @@
     }
 }
 
-.commentsBox-main:hover{
-    background-color: lavender;
-
-}
