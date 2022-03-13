@@ -32,7 +32,7 @@ export default function ReadsCreate() {
 
 
     const token = localStorage.getItem('UserToken');
-
+    console.log(token);
 
 
     function validateFormCreate() {
