@@ -58,7 +58,7 @@ export default function CardProfile({ id, title, genre, listName, coverImage }) 
 
                             </div>
                             <h1 className="card-title">{title}</h1>
-                            <button className='btn'> Accede a la lectura</button>
+                            {/*  <button className='btn'> Accede a la lectura</button> */}
                         </div>
                     </div>
                 </NavLink>
@@ -68,13 +68,16 @@ export default function CardProfile({ id, title, genre, listName, coverImage }) 
 
             {!listName.includes('Tus favoritos') && (
                 <div className="card" key={id}>
+                    <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación" >
+                        <i class="fa-solid fa-x"></i>
+                    </button>
                     {coverImage && (
                         <div className="card-img" style={{ backgroundImage: `url(data:image/png;base64,${coverImage})` }}></div>
                     )}
                     {!coverImage && (
                         <div className="card-img" style={{ backgroundImage: `url(https://img.freepik.com/foto-gratis/libros-primer-plano-copa-sobre-manta_23-2147767462.jpg)` }}></div>
                     )}
-                    <a href="" className="card-link">
+                    <a className="card-link">
                         {coverImage && (
                             <div className="card-img-hovered" style={{ backgroundImage: `url(data:image/png;base64,${coverImage})` }}></div>
                         )}
@@ -82,6 +85,7 @@ export default function CardProfile({ id, title, genre, listName, coverImage }) 
                             <div className="card-img-hovered" style={{ backgroundImage: `url(https://img.freepik.com/foto-gratis/libros-primer-plano-copa-sobre-manta_23-2147767462.jpg)` }}></div>
                         )}
                     </a>
+
                     <div className="card-info">
                         <div className="card-about">
                             <a className="card-tag tag-news">{genre}</a>
@@ -90,38 +94,33 @@ export default function CardProfile({ id, title, genre, listName, coverImage }) 
                         <h1 className="card-title">{title}</h1>
 
                         {listName.includes('Publicaciones') && (
-                            <>
-                                <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación" >
-                                    <i className="fas fa-trash-alt" ></i>
-                                </button>
-
-                                <NavLink
-                                    className=''
-                                    to={`/update/${id}`}
-                                >
-                                    <button className='btn'> Accede al editor </button>
-                                </NavLink>
 
 
-                            </>
+
+                            <NavLink
+                                className=''
+                                to={`/update/${id}`}
+                            >
+                                <button className='btn'> Accede al editor </button>
+                            </NavLink>
+
+
+
                         )}
 
                         {listName.includes('Borradores') && (
 
-                            <>
-                                <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación">
-                                    <i className="fas fa-trash-alt"></i>
-                                </button>
-
-                                <NavLink
-                                    className=''
-                                    to={`/update/${id}`}
-                                >
-                                    <button className='btn '> Accede al editor </button>
-                                </NavLink>
 
 
-                            </>
+                            <NavLink
+                                className=''
+                                to={`/update/${id}`}
+                            >
+                                <button className='btn '> Accede al editor </button>
+                            </NavLink>
+
+
+
 
                         )}
                     </div>

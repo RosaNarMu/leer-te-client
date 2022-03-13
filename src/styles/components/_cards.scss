@@ -93,9 +93,9 @@
   }
 
   &:hover {
-    cursor: pointer;
-    box-shadow: 0px 15px 35px rgba(227, 252, 239, 0.1),
-      0px 5px 15px rgba(0, 0, 0, 0.07);
+    
+    /* box-shadow: 0px 15px 35px rgba(227, 252, 239, 0.1),
+      0px 5px 15px rgba(0, 0, 0, 0.07); */
     transform: scale(1.025);
 
     .card-img-hovered {
@@ -133,6 +133,15 @@
 
 .disable-text{
   text-decoration: none;
+}
+
+.delete-btn{
+  margin:0;
+  position:absolute;
+  margin-top:0.5rem;
+  margin-left: 14rem;
+ 
+  z-index: 3;
 }
 
 

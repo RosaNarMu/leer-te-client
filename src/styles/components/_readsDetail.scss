@@ -11,8 +11,9 @@
     /* height: 70vh; */
     flex-wrap: wrap;
     padding: 2rem;
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
+    
 
     .readsDisplay-div-left,  .readsDisplay-div-right {
         background-color: $off-white;
@@ -25,8 +26,8 @@
         padding: 1.5rem;
 
 
-        border: 5px, solid, pink
-
+        border: 5px, solid, pink;
+        
     }
 }
 
@@ -44,10 +45,15 @@
 
 .readsDisplay-div-right{
     background-color: $off-white;
-    width: 30vw;
+    width: 50vw;
     padding: 3rem;
     flex-wrap: wrap;
     font-size: larger;
+
+    .slider-img{
+        margin-top: 2rem;
+        width:40%
+    }
 }
 
 .readsDisplay-div-bottom{
@@ -56,7 +62,7 @@
     /* flex-grow: 1; */
     background-color:$primary;
     /* bottom: 0px; */
-    /* height: 20%; */
+   min-height: 275px;
     text-align: center;
    justify-content: space-evenly;
    padding: 2em;
@@ -90,8 +96,17 @@
 
     textarea{
         width: 80vw;
-        margin: 1.5rem
+        margin: 1rem
     }
+
+    select, label{
+        border-style: none;
+        border-radius: 5px;
+        background-color: $cool-grey;
+        padding: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
     
 }
 

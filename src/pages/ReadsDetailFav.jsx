@@ -255,14 +255,13 @@ export default function ReadsDetailFav() {
 
                     <span>{readingSelectedDisplay.content}</span>
 
-                    {console.log(typeof (readingSelectedDisplay.coverImage))}
-                    {console.log(readingSelectedDisplay.coverImage)}
 
-                    {<img
+
+                    {readingSelectedDisplay.coverImage && (<img
                         src={'data:image/png;base64,' + readingSelectedDisplay.coverImage}
 
                         className='slider-img'
-                    />}
+                    />)}
 
 
                 </section>

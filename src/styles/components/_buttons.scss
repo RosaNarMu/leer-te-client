@@ -21,7 +21,7 @@
   border-radius: 25% /*15px 225px 255px 15px 15px 255px 225px 15px */;
   border-style: solid;
   border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+/*   box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px; */
   box-sizing: border-box;
   color: #41403e;
   cursor: pointer;
@@ -39,12 +39,12 @@
 }
 
 .btn:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  /* box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px; */
   transform: translate3d(0, 2px, 0);
 }
 
 .btn:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  /* box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px; */
   background-color: $cool-grey;
   border-color: $cool-grey;
 }

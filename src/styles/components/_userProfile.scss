@@ -9,7 +9,7 @@
         border-radius: 5px;
         background-color: $primary;
         padding: 1rem;
-        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.356);
+   /*      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.356); */
     }
 
 
@@ -35,9 +35,9 @@
 
     .card{
         width: 200px;
-        min-height: 400px;
+        min-height: 250px;
     }
-    &:hover {
+    .card:hover {
         .card-info{
             height: 200px;
         }
