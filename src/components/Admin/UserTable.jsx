@@ -1,4 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
+import { ADMIN_READ_USER, ADMIN_DELETE_USER } from "../../etc/config";
 
 export default function AdminTable() {
     const [userAdmin, setUserAdmin] = useState([]);
@@ -11,24 +12,22 @@ export default function AdminTable() {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             };
-            const response = await fetch("http://localhost/leer-te-server/public/index.php/admin/dataUser", {
+            const response = await fetch(ADMIN_READ_USER, {
                 method: 'GET',
                 headers: headers
             })
-
             const data = await response.json();
             setUserAdmin(data);
-            console.log(data);
         }
 
         fetchData();
-    }, []);
+    }, [token]);
 
 
     function deleteUser(e, idUser) {
 
         async function fetchData() {
-            const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/admin/deleteUser/${idUser}`, {
+            const commentResponse = await fetch(ADMIN_DELETE_USER + idUser, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,15 +35,6 @@ export default function AdminTable() {
                 }
             })
             const data = await commentResponse.json();
-            console.log(data);
-            /*console.log("lgooin"); */
-
-            if (commentResponse.ok) {
-
-                /* navigate('/userprofile', {
-    
-                }); */
-            }
         }
         fetchData();
         e.preventDefault();

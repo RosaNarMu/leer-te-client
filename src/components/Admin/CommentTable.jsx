@@ -1,4 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
+import { ADMIN_READ_COMMENT, ADMIN_DELETE_COMMENT } from "../../etc/config"
 
 export default function AdminTable() {
     const [commentAdmin, setCommentAdmin] = useState([]);
@@ -11,23 +12,22 @@ export default function AdminTable() {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             };
-            const response = await fetch("http://localhost/leer-te-server/public/index.php/admin/dataComment", {
+            const response = await fetch(ADMIN_READ_COMMENT, {
                 method: 'GET',
                 headers: headers
-            })
+            });
 
             const data = await response.json();
             setCommentAdmin(data);
-            console.log(data);
         }
 
         fetchData();
-    }, []);
+    }, [token]);
 
     function deleteComment(e, idComment) {
 
         async function fetchData() {
-            const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/admin/deleteComment/${idComment}`, {
+            const commentResponse = await fetch(ADMIN_DELETE_COMMENT + idComment, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,19 +35,10 @@ export default function AdminTable() {
                 }
             })
             const data = await commentResponse.json();
-            console.log(data);
-            /*console.log("lgooin"); */
-
-            if (commentResponse.ok) {
-
-                /* navigate('/userprofile', {
-    
-                }); */
-            }
         }
         fetchData();
         e.preventDefault();
-    }
+    };
 
     return (
         <table>

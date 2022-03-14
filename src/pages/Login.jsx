@@ -10,15 +10,6 @@ export default function Login() {
     const { authenticate, setAdmin } = useContext(UseContextGeneral);
 
     const navigate = useNavigate();
-    function login() {
-
-        /* authenticate();
-        navigate('/userprofile', {
-            replace: true
-        }); */
-
-
-    }
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +18,7 @@ export default function Login() {
     const [nickNameReg, setNickNameReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("")
 
-    const { token, setToken } = useContext(UseContextGeneral);
+    const { setToken } = useContext(UseContextGeneral);
 
     const [checkLogin, setCheckLogin] = useState(false);
 
@@ -35,12 +26,8 @@ export default function Login() {
         return email.length > 0 && password.length > 0;
     }
 
-
-
     function validateFormReg() {
-
         return emailReg.length > 0 && passwordReg.length > 0 && nickNameReg.length > 0;
-
     }
 
     function submitLogin(event) {
@@ -57,20 +44,13 @@ export default function Login() {
             const token = await loginResponse.json();
             setToken(token.token);
 
-            console.log(token);
-
             if (!loginResponse.ok) {
                 setCheckLogin(true);
             }
 
             let decoded = jwt_decode(token.token);
-            console.log(decoded.roles);/* Array [ "ROLE_ADMIN", "ROLE_USER" ] */
+
             const isAdmin = decoded.roles.includes('ROLE_ADMIN');
-            console.log('es Admin' + isAdmin); /* true */
-
-
-
-
 
             if (loginResponse.ok) {
                 authenticate();
@@ -86,19 +66,9 @@ export default function Login() {
                     setAdmin(true);
                 }
             }
-
-
-
         }
         fetchData();
         event.preventDefault();
-
-        /*  if (token.length > 1) {
-             authenticate();
-             navigate('/userprofile', {
-                 replace: true
-             });
-         } */
     }
 
     function submitRegister(event) {
@@ -109,7 +79,7 @@ export default function Login() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: '{"nickName":"' + nickNameReg + '","email":"' + emailReg + '","password":"' + passwordReg + '"}'
+                body: JSON.stringify({ nickName: nickNameReg, email: emailReg, password: passwordReg })
             })
             const data = await registerResponse.json();
             console.log(data);
@@ -122,8 +92,6 @@ export default function Login() {
                     replace: true
                 });
             }
-
-
         }
         fetchData();
         event.preventDefault();
@@ -138,16 +106,14 @@ export default function Login() {
                         <h2>Inicia sesión</h2>
                         <div>
                             <label >Email</label>
-                            <input /* ref={ref} */ type='email' className='input' value={email}
+                            <input type='email' className='input' value={email}
                                 onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div>
                             <label >Contraseña</label>
-                            <input /* ref={ref} */ type='password' className='input' value={password}
+                            <input type='password' className='input' value={password}
                                 onChange={(e) => setPassword(e.target.value)} />
                         </div>
-
-
                         <button className='btn' type="submit" disabled={!validateFormLog()}>¡A leer!</button>
                     </form>
 
@@ -158,17 +124,17 @@ export default function Login() {
                         <h2>Regístrate</h2>
                         <div>
                             <label >Email</label>
-                            <input /* ref={ref} */ type='email' className='input' value={emailReg}
+                            <input type='email' className='input' value={emailReg}
                                 onChange={(e) => setEmailReg(e.target.value)} />
                         </div>
                         <div>
                             <label >Nombre de usuario</label>
-                            <input /* ref={ref} */ type='text' className='input' value={nickNameReg}
+                            <input type='text' className='input' value={nickNameReg}
                                 onChange={(e) => setNickNameReg(e.target.value)} />
                         </div>
                         <div>
                             <label >Contraseña</label>
-                            <input /* ref={ref} */ type='password' className='input' value={passwordReg}
+                            <input type='password' className='input' value={passwordReg}
                                 onChange={(e) => setPasswordReg(e.target.value)} />
                         </div>
 
@@ -190,13 +156,3 @@ export default function Login() {
     )
 }
 
-{/* <form style={formStyle} onSubmit={handleSubmit} >
-    <div>
-        <label style={labelStyle} >{label}</label>
-        <input ref={ref} type={type} style={inputStyle} />
-      </div>
-    <Field ref={passwordRef} label="Password:" type="password" />
-    <div>
-        <button style={submitStyle} type="submit">Submit</button>
-    </div>
-</form> */}

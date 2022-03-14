@@ -1,11 +1,10 @@
-import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
-import { useContext, useState } from 'react';
+import { NavLink } from 'react-router-dom'
+import { useContext } from 'react';
 import HorizontalList from '../components/HorizontalList/HorizontalList'
 import UseContextGeneral from '../UseContext';
 import Carousel from 'react-elastic-carousel';
 import Item from './../components/Carousel/Item';
 import ScrollUp from "../components/Ui/ScrollUp";
-
 
 
 export default function Home() {
@@ -14,10 +13,9 @@ export default function Home() {
         { width: 1800, itemsToShow: 1 }
     ];
 
-
     const listName = '¡Novedades!';
 
-    const { user, setUser } = useContext(UseContextGeneral);
+    const { user } = useContext(UseContextGeneral);
 
     return (
         <>
@@ -33,21 +31,17 @@ export default function Home() {
                                 <h2>¿Leer?</h2>
                                 <h2>¿Escribir?</h2>
                             </div>
-
                         </Item>
 
 
                         <Item className='home-div-left'>
-
                             <NavLink
 
                                 to="/display" className="background-icon"
                             >
 
-
                                 <h2 > <i className="fab fa-readme "></i>Explora</h2>
                             </NavLink>
-
 
                         </Item>
 
