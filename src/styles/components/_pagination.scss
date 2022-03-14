@@ -1,24 +1,15 @@
 .pagination-container {
-
-
-display: flex;
-padding: 2%;
-align-items: center;
-
-width:100%;
-
-padding: 2%;
-
-padding-left: 40%;
-
-
+    display: flex;
+    padding: 2%;
+    align-items: center;
+    width:100%;
+    padding: 2%;
+    padding-left: 40%;
 }
 
 .pagination-number{
-
-flex-direction: row;
-display:flex;
-
-align-items: center;
-padding: 2px;
+    flex-direction: row;
+    display:flex;
+    align-items: center;
+    padding: 2px;
 }

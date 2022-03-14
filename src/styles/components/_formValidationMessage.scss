@@ -1,19 +1,8 @@
-.invalid-form-message{
-    /* color: red; */
+.invalid-form-message, .reminder-form-message{
     background-color:$primary;
     padding: 0.5rem;
     border-radius: 50px;
     margin-bottom: 1rem;
     text-align: center;
     transition: all, 0.5s;
-}
-
-.reminder-form-message{
-    background-color:$primary;
-    padding: 0.5rem;
-    border-radius: 50px;
-    margin-bottom: 1rem;
-    text-align: center;
-    transition: all, 0.5s;
-
 }

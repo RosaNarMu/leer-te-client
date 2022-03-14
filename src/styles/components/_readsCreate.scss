@@ -3,16 +3,14 @@
     flex-wrap: wrap;
     flex-direction: column;
     margin: 2rem;
-
     padding-left: 15%;
     padding-right: 15%;
-.readsCreate-div-navLink{
-    display: flex;
-    align-items: center;
-}
-}
 
-
+    .readsCreate-div-navLink{
+        display: flex;
+        align-items: center;
+    }
+}
 
 .readsCreate-div-form{
     display: flex;
@@ -45,9 +43,9 @@
             background-color: $primary;
             padding: 0.5rem;
             margin-bottom: 0.5rem;
-
             height: 50px;
         }
+
         input{
             width: 500px;
         }
@@ -56,18 +54,18 @@
             cursor:pointer;
         }
 
-    
-
         .previous-image{
             display: flex;
             align-items: flex-start;
             text-align: center;
             margin: 0.5em;
+
             label{
                 height: auto;
                 margin-right: 0.5em;
             }
         }
+        
         .previous-image-pic{
             width: 200px;
         }

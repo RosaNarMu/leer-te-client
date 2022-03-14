@@ -1,49 +1,33 @@
 .navbar-main {
     display: flex;
-    
     justify-content: space-between;
     background-color: $primary;
     align-items: center;
-    /* height: 100px; */
     padding: 16px;
     padding-left: 15%;
     padding-right: 15%;
-   /*  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.164); */
-    /* gap:16px; */
-
     border-bottom: 5px solid $dark-accent;
 
-    /* position: sticky; */
-
-
-    
-    
     .navbar-center, .navbar-end{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
         gap: 16px;
-        
     }
+
     .navbar-center{
         flex-grow: 1;
         justify-content: start;
         margin-left: 40%;
     }
-    
 }
-
 
 .toggle {
     display: none;
     position: absolute;
     right: 10px;
     top: 7px;
-   
-    
-    
-    background:$dark-accent;
-	
+    background:$dark-accent;	
     background: none;
 	color: inherit;
 	border: none;
@@ -58,11 +42,8 @@
 @media screen and (max-width: 1090px){
    
     .navbar-main{
-       
         .navbar-center{
-            
-            margin-left: 0%;
-            
+            margin-left: 0%; 
         }
     }
 
@@ -70,20 +51,18 @@
         flex-direction: column;
         height: auto;
     }
+
     .items:nth-child(1){
-      
         margin-top: 50px;
     }
+
     .items {
         width: 100%;
-        
         text-align: center;
         margin-right: 0px;
     }
+
     .toggle {
         display: block;
-        
     }
-
-    
 }

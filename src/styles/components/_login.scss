@@ -1,28 +1,23 @@
 .login-div-wrapper{
-display: flex;
-flex-direction: column;
-height: 80%;
-
-
+    display: flex;
+    flex-direction: column;
+    height: 80%;
 }
+
 .login-div-main{
     display: flex;
     height: 70vh;
-    
 
     .login-div-left-login, .login-div-right-register{
-
         background-color: whitesmoke;
         width: 100vw;
-        
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction:column;
         padding-left: 10%;
-        padding-right: 10%;
-        
-}
+        padding-right: 10%;       
+    }
 
 }
 
@@ -35,38 +30,31 @@ height: 80%;
 }
 
 .login-div-left-login:hover,  .login-div-right-register:hover {
-    
     background-color: lighten($primary, 20%);
-    
-  }
+}
 
-  .login-div-bottom{
-      display: flex;
-      /* flex-grow: 1; */
-      background-color: $primary;
-      /* bottom: 0px; */
-      /* height: 20%; */
-      text-align: center;
-     justify-content: space-evenly;
-     padding: 2em;
+.login-div-bottom{
+    display: flex;
+    background-color: $primary;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 2em;
+    padding-left: 15%;
+    padding-right: 15%;
 
       span{
-          color: grayscale($color: #3b3838);
-          font-size: 40px;
-          /* display: block;
-          justify-content: center; */
+        color: grayscale($color: #3b3838);
+        font-size: 40px;
       }
-
-      padding-left: 15%;
-      padding-right: 15%;
-  }
+   
+}
 
 
-  @media only screen and (max-width: 1010px) {
+@media only screen and (max-width: 1010px) {
     .login-div-main {
           flex-direction: column;
           height: unset;
           
       } 
       
-    }
+}

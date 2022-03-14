@@ -55,7 +55,7 @@ export const Navbar = ({ logout }) => {
                                     className=''
                                     to="/"
                                 >
-                                    <div className='logo-74x75'></div>
+                                    <div className='logo-100x100'></div>
 
                                 </NavLink>
 

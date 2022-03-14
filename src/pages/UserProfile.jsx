@@ -1,31 +1,16 @@
-import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState, useContext } from "react"
+import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from "react"
 import HorizontalListProfile from '../components/HorizontalList/HorizontalListProfile.jsx';
-import { useFetch } from '../hook/useFetch.jsx';
 import ScrollUp from '../components/Ui/ScrollUp.jsx';
-import UseContextGeneral from '../UseContext.js';
-import { USER_DATA } from '../etc/config.js';
+import { FAVORITE_DATA, STORY_DRAFTS, STORY_PUBLISHED, USER_DATA } from '../etc/config.js';
 
 
 export default function UserProfile() {
-    const navigate = useNavigate();
-    /* function exit() {
-
-        logout();
-        navigate('/login', {
-            replace: true
-        });
-
-    } */
-
-    /*  const user = localStorage.Authenticated; */
 
     const favorites = 'Tus favoritos';
 
     const publications = 'Publicaciones';
     const drafts = 'Borradores';
-
-    /* const { user, setToken } = useContext(UseContextGeneral); */
 
     const [profileInfoDisplay, setProfileInfoDisplay] = useState([]);
 
@@ -49,16 +34,13 @@ export default function UserProfile() {
                 headers: headers
             })
 
-
             const data = await response.json();
             setProfileInfoDisplay(data);
-
         }
 
         fetchData();
-    }, []);
+    }, [token]);
 
-    /* useFetch('http://localhost:3000/profile', setProfileInfoDisplay); */
 
     useEffect(() => {
         async function fetchData() {
@@ -66,20 +48,17 @@ export default function UserProfile() {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             };
-            const response = await fetch("http://localhost/leer-te-server/public/index.php/favorites/data", {
+            const response = await fetch(FAVORITE_DATA, {
                 method: 'GET',
                 headers: headers
             })
 
-            /* const token = await loginResponse.json();
-            setToken(token.token); */
             const data = await response.json();
             setFavoritesList(data);
-            console.log(data);
         }
 
         fetchData();
-    }, []);
+    }, [token]);
 
     useEffect(() => {
         async function fetchData() {
@@ -87,47 +66,42 @@ export default function UserProfile() {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             };
-            const response = await fetch("http://localhost/leer-te-server/public/index.php/story/publishedFromUser", {
+            const response = await fetch(STORY_PUBLISHED, {
                 method: 'GET',
                 headers: headers
             })
 
-            /* const token = await loginResponse.json();
-            setToken(token.token); */
             const data = await response.json();
             setPublishedList(data);
-            console.log(data);
+
         }
 
         fetchData();
-    }, []);
+    }, [token]);
 
     useEffect(() => {
         async function fetchData() {
+
             const headers = {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             };
-            const response = await fetch("http://localhost/leer-te-server/public/index.php/story/draftsFromUser", {
+
+            const response = await fetch(STORY_DRAFTS, {
                 method: 'GET',
                 headers: headers
             })
 
-            /* const token = await loginResponse.json();
-            setToken(token.token); */
             const data = await response.json();
             setDraftsList(data);
-            console.log(data);
         }
 
         fetchData();
-    }, []);
+    }, [token]);
 
 
     return (
         <section className='userProfile-div-wrapper'>
-
-            {/*  bookList && bookList.map(({ id, title, User, genre }, index) => ( */}
 
             <section className='userProfile-div-head'>
                 {
@@ -135,8 +109,6 @@ export default function UserProfile() {
                         <span key={id}>¡Bienvenido, {userLogin}!</span>
                     ))
                 }
-
-                {/* {profileInfoDisplay[0].userLogin && <span>¡Bienvenido, {profileInfoDisplay[0].userLogin && profileInfoDisplay[0].userLogin}!</span>} */}
 
                 <NavLink
                     className='link'
@@ -156,8 +128,8 @@ export default function UserProfile() {
 
             </section>
 
-
             <ScrollUp></ScrollUp>
+
         </section >
     )
 }

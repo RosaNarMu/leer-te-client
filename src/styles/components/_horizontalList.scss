@@ -1,5 +1,4 @@
 .horizontal-display-main{
-   
     background-color: lighten($primary, 20%);
     padding-left: 15%;
     padding-right: 15%;
@@ -11,7 +10,6 @@
 }
 
 .horizontal-display-title{
-  
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     font-size: x-large;
@@ -20,14 +18,8 @@
 
 .horizontal-display-cards{
     background-color: lighten($primary, 20%);
-    
-    /* align-items: center;
-    padding: 2rem;
-    flex-wrap: wrap; */
     display: flex;
     flex-wrap: wrap;
-    /* margin-right: 0px; */
-    
     justify-content: center;
     align-items: center;
 
@@ -35,21 +27,4 @@
         width: 200px;
         min-height: 380px;
     }
-  
-    
-
 }
-/* .favorite-card{
-    .card{
-        width: 200px;
-        min-height: 0px;
-        height: 250px;
-       
-       
-    }
-    &:hover {
-        .card-info{
-            height: 150px;
-        }
-    }
-} */

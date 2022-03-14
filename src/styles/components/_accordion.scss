@@ -1,5 +1,3 @@
-
-
 /* # The Rotating Marker # */
 details summary::-webkit-details-marker { display: none; }
 summary::before {
@@ -17,8 +15,6 @@ details[open] > summary:before {
   transition: 0.45s transform ease;
   
 }
-
-
 
 /* # The Sliding Summary # */
 details { overflow: hidden; }
@@ -44,41 +40,12 @@ details > *:not(summary) {
 details[open] > *:not(summary) { color: inherit; }
 
 
-/* # Style 3 # */
-/* details.style summary::before {
-  content: "›";
-  font-size: 2.5rem;
-  line-height: 1rem;
-  top: 1.3rem;
-  left: 0rem;
-  margin: -0.5rem -0.5rem 0 0.5rem;
-  transform-origin: bottom center;
-  transition: margin linear 0.05s;
-}
-details.style:hover > summary:before {
-  color: #FFF;
-}
-details[open].style > summary:before {
-  left: 0rem;
-  color: #CCC;
-  transform: rotate(90deg);
-  margin-left: 0.4rem;
-  transition: color ease 2s, transform ease 1s, margin ease 1s;
-}
-@supports (-webkit-touch-callout: none) {
-  details.style summary::before { top: 1.6rem; }
-  details[open].style > summary:before { top: 1.3rem; transition: all 0.8s; }
-}
- */
-
-
 /* # Just Some Pretty Styles # */
 
 p { margin: 0; padding-bottom: 10px; }
 p:last-child { padding: 0; }
 details {
-    width: 60vw;
-  /* max-width: 500px; */
+  width: 60vw;
   box-sizing: border-box;
   margin-top: 5px;
   background: $off-white;

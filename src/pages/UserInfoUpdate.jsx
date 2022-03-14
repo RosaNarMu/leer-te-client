@@ -1,30 +1,24 @@
-import { NavLink, Outlet, useNavigate, Navigate } from 'react-router';
-import { useState, useEffect, useContext } from "react";
+import { useNavigate } from 'react-router';
+import { useState, useContext } from "react";
 import UseContextGeneral from "../UseContext";
-
-
+import { USER_DELETE, USER_EDIT } from '../etc/config';
 
 export default function UserInfoUpdate() {
 
     const { logout } = useContext(UseContextGeneral);
 
-
     const navigate = useNavigate();
 
     const token = localStorage.getItem('UserToken');
 
-
     const [newEmail, setNewEmail] = useState("");
     const [newNickName, setNewNickName] = useState("");
     const [newPassword, setNewPassword] = useState("");
-    const [newGoodReads, setNewGoodReads] = useState("");
-
-
 
     function deleteUser(e) {
 
         async function fetchData() {
-            const response = await fetch(`http://localhost/leer-te-server/public/index.php/user/delete`, {
+            const response = await fetch(USER_DELETE, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +28,6 @@ export default function UserInfoUpdate() {
             const data = await response.json();
 
             if (response.ok) {
-                console.log("USERELIMINADO");
                 logout();
                 window.localStorage.removeItem('UserToken');
                 navigate('/', {
@@ -50,19 +43,16 @@ export default function UserInfoUpdate() {
     function editStory(event) {
 
         async function fetchData() {
-            const response = await fetch(`http://localhost/leer-te-server/public/index.php/user/edit`, {
+            const response = await fetch(USER_EDIT, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
-                body: JSON.stringify({ email: newEmail, nickName: newNickName, password: newPassword, GoodReads: newGoodReads })
+                body: JSON.stringify({ email: newEmail, nickName: newNickName, password: newPassword })
 
             })
             const data = await response.json();
-
-            console.log(data);
-
 
             if (response.ok) {
 
@@ -98,21 +88,15 @@ export default function UserInfoUpdate() {
                         </div>
                     </section>
                     <section className='userInfoUpdate-div-right-form'>
-                        <div>
-                            <label>GoodReads</label>
-                            <input value={newGoodReads} onChange={(e) => setNewGoodReads(e.target.value)} type='text' className='input' />
-                        </div>
+                        <button className='btn' onClick={deleteUser}>Eliminar usuario</button>
                     </section>
                 </section>
 
                 <section className='userInfoUpdate-bottom-form'>
-
                     <button className='btn' type="submit" >Enviar</button>
                 </section>
 
             </form>
-
-
 
             <div className='userInfoUpdate-div-bottom'>
                 <span>"La mayor aventura es la que nos espera. Hoy y mañana aún no se han dicho. Las posibilidades, los cambios son todos vuestros por hacer. El molde de su vida en sus manos está para romper." (El Hobbit, J.R.R. Tolkien)</span>

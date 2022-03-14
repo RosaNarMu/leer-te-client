@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router"
 import { useState } from "react";
+import { STORY_ADD } from "../etc/config";
 
 export default function ReadsCreate() {
 
@@ -8,7 +9,6 @@ export default function ReadsCreate() {
 
     function goToFaq() {
         navigateFaq('/faq', {
-
         });
     }
 
@@ -16,12 +16,8 @@ export default function ReadsCreate() {
     const [genre, setGenre] = useState("");
     const [content, setContent] = useState("");
     const [published, setPublished] = useState(Boolean);
-    const [coverImage, setCoverImage] = useState("");
-
-
     const [selectedFile, setSelectedFile] = useState({});
     const [isFilePicked, setIsFilePicked] = useState(false);
-
     const isActive = true;
 
     const changeHandler = (event) => {
@@ -29,16 +25,11 @@ export default function ReadsCreate() {
         setIsFilePicked(true);
     };
 
-
-
     const token = localStorage.getItem('UserToken');
-    console.log(token);
-
 
     function validateFormCreate() {
         return title.length > 0 && genre.length > 0 && content.length > 0 && published != null;
     }
-
 
     function submitStory(event) {
 
@@ -49,22 +40,18 @@ export default function ReadsCreate() {
             formData.append('content', content);
             formData.append('genre', genre);
             formData.append('published', published);
-            /* formData.append('coverImage', coverImage); */
             formData.append('coverImage', selectedFile);
             formData.append('isActive', isActive);
 
 
-            const storyResponse = await fetch("http://localhost/leer-te-server/public/index.php/story/add", {
+            const storyResponse = await fetch(STORY_ADD, {
                 method: 'POST',
                 headers: {
-                    /* 'Content-Type': 'multipart/form-data', */
                     'Authorization': 'Bearer ' + token
                 },
                 body: formData
-                /* JSON.stringify({ title: title, content: content, genre: genre, published: published, coverImage: coverImage }) */
             })
             const data = await storyResponse.json();
-            console.log(data);
 
             if (storyResponse.ok) {
 
@@ -78,12 +65,6 @@ export default function ReadsCreate() {
     }
 
 
-
-    console.log(selectedFile);
-    console.log(typeof (selectedFile));
-
-    console.log(title);
-
     return (
         <section className='readsCreate-div-wrapper'>
 
@@ -96,7 +77,6 @@ export default function ReadsCreate() {
                     <div>
                         <label >Título</label>
                         <input required type='text' maxLength="50" className='input' value={title} onChange={(e) => setTitle(e.target.value)} />
-
                     </div>
 
                     <select required className="readsCreate-div-form-selector" onChange={(e) => setPublished(e.target.value)}>
@@ -115,7 +95,6 @@ export default function ReadsCreate() {
                         <option value="no ficción">No ficción</option>
                     </select>
 
-                    {/* <input type="file" onChange={handleFiles} /> */}
                     <input type="file" name="file" onChange={changeHandler} accept=".png" />
                     {isFilePicked ? (
                         <div>
@@ -125,16 +104,10 @@ export default function ReadsCreate() {
                             {selectedFile.size > "7000000" && (
                                 <p>Tu imagen debe de pesar 7mb o menos</p>
                             )}
-                            {/* <p>
-                                lastModifiedDate:{' '}
-                                {selectedFile.lastModifiedDate.toLocaleDateString()}
-                            </p> */}
                         </div>
                     ) : (
                         <p>Select a file to show details</p>
                     )}
-
-
 
                 </section>
 

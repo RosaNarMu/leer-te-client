@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router"
 import { useState, useEffect } from "react";
+import { STORY_DETAIL, STORY_UPDATE } from "../etc/config";
 
 export default function ReadsUpdate() {
 
@@ -11,7 +12,6 @@ export default function ReadsUpdate() {
 
         });
     }
-
 
     const token = localStorage.getItem('UserToken');
 
@@ -31,21 +31,14 @@ export default function ReadsUpdate() {
 
     const isActive = true;
 
-
-
     const changeHandler = (event) => {
         setNewFile(event.target.files[0]);
         setIsFilePicked(true);
     };
 
-
-
     function validateFormUpdate() {
         return newTitle.length > 0 && newGenre.length > 0 && newContent.length > 0 && newPublished != null;
     }
-
-
-
 
     useEffect(() => {
         async function fetchData() {
@@ -53,13 +46,11 @@ export default function ReadsUpdate() {
                 'Content-Type': 'application/json'
             };
 
-            const response = await fetch(`http://localhost/leer-te-server/public/index.php/story/detail/${numberDetailId}`, {
+            const response = await fetch(STORY_DETAIL + numberDetailId, {
                 method: 'GET',
                 headers: headers
             })
             const data = await response.json();
-
-            console.log(data);
 
             setNewTitle(data.title);
             setNewGenre(data.genre);
@@ -67,11 +58,10 @@ export default function ReadsUpdate() {
             setNewPublished(data.published);
             setNewFile(data.coverImage);
 
-
         }
 
         fetchData();
-    }, []);
+    }, [numberDetailId]);
 
 
     function editStory(event) {
@@ -83,15 +73,12 @@ export default function ReadsUpdate() {
             formData.append('content', newContent);
             formData.append('genre', newGenre);
             formData.append('published', newPublished);
-            /* formData.append('coverImage', coverImage); */
             formData.append('coverImage', newFile);
             formData.append('isActive', isActive);
 
-            const storyResponse = await fetch(`http://localhost/leer-te-server/public/index.php/story/edit/${numberDetailId}`, {
+            const storyResponse = await fetch(STORY_UPDATE + numberDetailId, {
                 method: 'POST',
                 headers: {
-                    /* 'Content-Type': 'application/json', */
-                    /* 'Content-Type': 'multipart/form-data', */
                     'Authorization': 'Bearer ' + token
                 },
                 body: formData
@@ -112,9 +99,6 @@ export default function ReadsUpdate() {
     }
 
 
-    console.log(newFile);
-
-
     return (
         <section className='readsCreate-div-wrapper'>
 
@@ -125,13 +109,11 @@ export default function ReadsUpdate() {
                 ¡Dale un vistazo a nuestro FAQ!
             </button>
             <form onSubmit={(e) => editStory(e)}
-                /* onClick={(e) => deleteComment(e, id)} */
                 className='readsCreate-div-form'>
                 <section className='readsCreate-div-inputs'>
                     <div>
                         <label >Título</label>
                         <input required type='text' className='input' value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
-
                     </div>
 
                     <select required className="readsCreate-div-form-selector" onChange={(e) => setNewPublished(e.target.value)}>
@@ -155,7 +137,7 @@ export default function ReadsUpdate() {
                             <label >Imagen anterior: </label>
                             <img
                                 src={'data:image/png;base64,' + newFile}
-
+                                alt={'Imagen de portada'}
                                 className='previous-image-pic'
                             />
                         </div>
@@ -169,21 +151,10 @@ export default function ReadsUpdate() {
                             {newFile.size > "7000000" && (
                                 <p>Tu imagen debe de pesar 7mb o menos</p>
                             )}
-                            {/* <p>
-                                lastModifiedDate:{' '}
-                                {selectedFile.lastModifiedDate.toLocaleDateString()}
-                            </p> */}
                         </div>
                     ) : (
                         <p className="input-info">Select a file to show details</p>
                     )}
-
-
-
-
-
-
-
 
                 </section>
 

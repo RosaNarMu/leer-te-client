@@ -11,22 +11,17 @@
     }
     
     .faq-div-bottom{
-        display: flex;
-      /* flex-grow: 1; */
+      display: flex;
       background-color: $primary;
-      /* bottom: 0px; */
-      /* height: 20%; */
       text-align: center;
-     justify-content: space-evenly;
-     padding: 3em;
-     width: 100vw;
+      justify-content: space-evenly;
+      padding: 3em;
+      width: 100vw;
+      padding-left: 15%;
+      padding-right: 15%;
 
      span {
          font-size: x-large;
      }
-
-
-     padding-left: 15%;
-   padding-right: 15%;
     }
 }
