@@ -1,6 +1,6 @@
-import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-export default function Card({ id, title, User, genre, user, coverImage }) {
+export default function Card({ id, title, User, genre, coverImage }) {
     return (
 
         <NavLink
@@ -14,7 +14,7 @@ export default function Card({ id, title, User, genre, user, coverImage }) {
                 {!coverImage && (
                     <div class="card-img" style={{ backgroundImage: `url(https://img.freepik.com/foto-gratis/libros-primer-plano-copa-sobre-manta_23-2147767462.jpg)` }}></div>
                 )}
-                <a href="" class="card-link">
+                <a class="card-link">
                     {coverImage && (
                         <div class="card-img-hovered" style={{ backgroundImage: `url(data:image/png;base64,${coverImage})` }}></div>
                     )}
@@ -32,28 +32,5 @@ export default function Card({ id, title, User, genre, user, coverImage }) {
                 </div>
             </div>
         </NavLink>
-
-        /*  <NavLink
-             className='disable-text'
-             to={`/display/detailFav/${id}`}
-         >
-             <div
-                 key={id}
-             >
-                 <a className="card" >
-                     <div>
-                         <h1>{title}</h1>
-                         <h3>{User}</h3>
- 
- 
-                         <div className="tags">
-                             <div className="tag">Género: {genre}</div>
-                         </div>
- 
-                     </div>
-                 </a>
-             </div>
-         </NavLink> */
-
     )
 }

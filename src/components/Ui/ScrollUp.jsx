@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-
-
+import { useState } from 'react';
 
 const ScrollUp = () => {
 
@@ -20,8 +18,6 @@ const ScrollUp = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
-            /* you can also use 'auto' behaviour
-               in place of 'smooth' */
         });
     };
 

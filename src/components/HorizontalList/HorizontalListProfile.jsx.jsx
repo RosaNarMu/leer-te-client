@@ -1,13 +1,6 @@
-import { useEffect, useState } from "react"
-import Card from "./Card";
 import CardProfile from "./CardProfile";
 
-
 export default function HorizontalListProfile({ listName, list }) {
-
-
-
-
 
     return (
         <section className='horizontal-display-main'>

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router'
 import { useEffect, useState } from "react"
 import CommentsBox from '../components/readsDetail/CommentsBox'
-import { useFetch } from '../hook/useFetch';
+
 import { useUrl, useUrlFav } from '../hook/useUrlFav';
 import { useUrlUnlocked } from '../hook/useUrlUnlocked';
 
@@ -27,7 +27,7 @@ export default function ReadsDetailUnlocked() {
 
 
     const comments = reading.comments;
-    /*  useFetch('http://localhost:3000/profile', setReadingSelectedDisplay) */
+
 
 
     /* useEffect(() => {

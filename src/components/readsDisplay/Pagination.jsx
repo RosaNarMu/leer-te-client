@@ -6,9 +6,7 @@ export const Pagination = ({ postsPerPage, totalPosts, setCurrentPage }) => {
         pageNumbers.push(i);
     }
 
-    const paginate = (pageNumbers) => setCurrentPage(pageNumbers)
-
-    console.log(totalPosts);
+    const paginate = (pageNumbers) => setCurrentPage(pageNumbers);
 
     return (
         <nav>

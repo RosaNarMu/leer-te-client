@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import { COMMENT_DETAIL, COMMENT_DELETE } from "../../etc/config";
 
 export default function CommentsBox({ idStory, }) {
-    const [comment, setComment] = useState([])
+    const [comment, setComment] = useState([]);
 
     const token = localStorage.getItem('UserToken');
 
@@ -13,23 +14,20 @@ export default function CommentsBox({ idStory, }) {
                 'Authorization': 'Bearer ' + token
             };
 
-            const response = await fetch(`http://localhost/leer-te-server/public/index.php/comment/detail/${idStory}`, {
+            const response = await fetch(COMMENT_DETAIL + idStory, {
                 method: 'GET',
                 headers: headers
             })
             const data = await response.json();
-            console.log(data);
             setComment(data);
-
         }
-
         fetchData();
-    }, []);
+    }, [idStory, token]);
 
     function deleteComment(e, id) {
 
         async function fetchData() {
-            const commentResponse = await fetch(`http://localhost/leer-te-server/public/index.php/comment/delete/${id}`, {
+            const commentResponse = await fetch(COMMENT_DELETE + id, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,26 +35,16 @@ export default function CommentsBox({ idStory, }) {
                 }
             })
             const data = await commentResponse.json();
-            /* console.log(data);
-            console.log("lgooin"); */
-
-            if (commentResponse.ok) {
-
-                /* navigate('/userprofile', {
-
-                }); */
-            }
         }
         fetchData();
         e.preventDefault();
     }
 
-    /* console.log(comment); */
 
     return (
         <>
             {
-                comment && comment.map(({ id, User, content, UserIdLogin, UserIdComment, score }, index) => (
+                comment && comment.map(({ id, User, content, UserIdLogin, UserIdComment, score }) => (
                     < div key={id} className='commentsBox-main' >
                         {score >= 1 ? (
                             <>
@@ -67,10 +55,7 @@ export default function CommentsBox({ idStory, }) {
                         }
                         <span className='commentsBox-main-comment'>"{content}"</span>
 
-                        {/*  {console.log(UserIdLogin)}
-                        {console.log(UserIdComment)} */}
-
-                        {UserIdLogin == UserIdComment && (
+                        {UserIdLogin === UserIdComment && (
 
                             < button className='btn' onClick={(e) => deleteComment(e, id)}> Elimina tu comentario</button>
                         )}

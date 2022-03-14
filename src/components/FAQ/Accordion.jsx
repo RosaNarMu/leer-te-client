@@ -1,5 +1,4 @@
 
-
 export default function Accordion({ title, content }) {
     return (
         <details className='size'>
