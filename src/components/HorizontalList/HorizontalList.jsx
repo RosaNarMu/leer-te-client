@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useFetch } from "../../hook/useFetch";
 import Card from "./Card";
-import { STORY_URL } from "../../config/config";
+import { STORY_URL } from "../../etc/config";
 
 
 export default function HorizontalList({ listName, user }) {

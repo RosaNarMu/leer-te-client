@@ -4,13 +4,22 @@
     padding: 4em;
     text-align: center;
     color: $off-white;
-/*     position:fixed;
-    bottom: 0px; */
     width: 100vw;
     
 
     display:flex;
+    
     justify-content: space-evenly;
+
+    .footer-left, .footer-right{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .footer-right{
+        gap: 2rem;
+    }
 
     .footer-span {
         text-decoration: none;

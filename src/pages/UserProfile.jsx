@@ -4,7 +4,7 @@ import HorizontalListProfile from '../components/HorizontalList/HorizontalListPr
 import { useFetch } from '../hook/useFetch.jsx';
 import ScrollUp from '../components/Ui/ScrollUp.jsx';
 import UseContextGeneral from '../UseContext.js';
-import { USER_DATA } from '../config/config.js';
+import { USER_DATA } from '../etc/config.js';
 
 
 export default function UserProfile() {

@@ -79,7 +79,7 @@ export default function UserInfoUpdate() {
     return (
         <section className='userInfoUpdate-div-wrapper'>
             <h2>¿Ha cambiado algo en tu perfil? ¡Actualiza la información aquí!</h2>
-
+            <button className='btn' onClick={deleteUser}>Eliminar usuario</button>
             <form onSubmit={editStory}  >
                 <section className='userInfoUpdate-div-form'>
 
@@ -112,7 +112,7 @@ export default function UserInfoUpdate() {
 
             </form>
 
-            <button className='btn' onClick={deleteUser}>Eliminar usuario</button>
+
 
             <div className='userInfoUpdate-div-bottom'>
                 <span>"La mayor aventura es la que nos espera. Hoy y mañana aún no se han dicho. Las posibilidades, los cambios son todos vuestros por hacer. El molde de su vida en sus manos está para romper." (El Hobbit, J.R.R. Tolkien)</span>

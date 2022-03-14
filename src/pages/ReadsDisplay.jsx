@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from "react"
 import { NavLink, Outlet, Link, useSearchParams } from 'react-router-dom'
 import { useFetch } from "../hook/useFetch";
 import ScrollUp from "../components/Ui/ScrollUp";
-import { STORY_URL } from "../config/config";
+import { STORY_URL } from "../etc/config";
 import UseContextGeneral from "../UseContext";
 import { Pagination } from "../components/readsDisplay/Pagination";
 
@@ -19,18 +19,18 @@ export default function ReadsDisplay() {
     const { user, setUser } = useContext(UseContextGeneral);
 
 
-    /*  useEffect(() => {
-         async function fetchData() {
-             const response = await fetch('http://localhost:3000/readings-published')
-             const data = await response.json();
-             setReadsDisplay(data);
-             console.log(data);
-         }
- 
-         fetchData();
-     }, []) */
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(STORY_URL + 'data')
+            const data = await response.json();
+            setReadsDisplay(data);
+            console.log(data);
+        }
 
-    useFetch(STORY_URL + 'data', setReadsDisplay);
+        fetchData();
+    }, [])
+
+
 
 
 
@@ -156,7 +156,6 @@ export default function ReadsDisplay() {
                 <div className='reads-display-cards'>
                     {
 
-
                         currentPosts.map(({ id, title, User, genre, coverImage }, index) => {
 
 
@@ -172,14 +171,6 @@ export default function ReadsDisplay() {
             </main>
             <Pagination postsPerPage={postPerPage} totalPosts={totalPosts} setCurrentPage={setCurrentPage}></Pagination>
 
-
-            {/* <h2>Display</h2>
-            <NavLink
-                className='link'
-                to="detail"
-            >
-                <button>Detalle</button>
-            </NavLink> */}
         </>
     )
 }

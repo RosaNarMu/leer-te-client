@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { useState, useContext } from "react";
 import UseContextGeneral from "../UseContext";
-import { LOGIN, REGISTER } from "../config/config";
+import { LOGIN, REGISTER } from "../etc/config";
 import jwt_decode from "jwt-decode";
 
 
