@@ -69,7 +69,7 @@ export default function AdminTable() {
                         <td>{User}</td>
                         <td>{genre}</td>
                         <td>{content}</td>
-                        <td> <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn' title="Elimina la publicación">
+                        <td> <button onClick={(e) => deleteStory(e, id)} className='btn delete-btn-table' title="Elimina la publicación">
                             <i className="fas fa-trash-alt"></i>
                         </button></td>
                     </tr>

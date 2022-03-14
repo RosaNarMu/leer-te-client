@@ -149,20 +149,36 @@ export default function ReadsUpdate() {
                         <option value="misterio">Misterio</option>
                         <option value="no ficcion">No ficción</option>
                     </select>
-
-                    <input type="file" name="file" onChange={changeHandler} accept=".png" />
-
                     {newFile && newFile.length && (
 
-                        <div>
+                        <div className='previous-image'>
                             <label >Imagen anterior: </label>
                             <img
                                 src={'data:image/png;base64,' + newFile}
 
-                                className=''
+                                className='previous-image-pic'
                             />
                         </div>
                     )}
+                    <input type="file" name="file" onChange={changeHandler} accept=".png" />
+                    {isFilePicked ? (
+                        <div className="input-info">
+                            <p>Filename: {newFile.name}</p>
+                            <p>Filetype: {newFile.type}</p>
+                            <p>Size in bytes: {newFile.size}</p>
+                            {newFile.size > "7000000" && (
+                                <p>Tu imagen debe de pesar 7mb o menos</p>
+                            )}
+                            {/* <p>
+                                lastModifiedDate:{' '}
+                                {selectedFile.lastModifiedDate.toLocaleDateString()}
+                            </p> */}
+                        </div>
+                    ) : (
+                        <p className="input-info">Select a file to show details</p>
+                    )}
+
+
 
 
 
