@@ -143,7 +143,7 @@ export default function ReadsUpdate() {
                     <select required className="readsCreate-div-form-selector" onChange={(e) => setNewGenre(e.target.value)}>
                         <option value={""}>Elige un género</option>
                         <option value="fantasia">Fantasía</option>
-                        <option value="horror">Terror</option>
+                        <option value="horror">Horror</option>
                         <option value="romance">Romance</option>
                         <option value="ciencia ficcion">Ciencia Ficción</option>
                         <option value="misterio">Misterio</option>

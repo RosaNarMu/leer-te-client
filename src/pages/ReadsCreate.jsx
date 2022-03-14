@@ -57,7 +57,7 @@ export default function ReadsCreate() {
             const storyResponse = await fetch("http://localhost/leer-te-server/public/index.php/story/add", {
                 method: 'POST',
                 headers: {
-                    /*  'Content-Type': 'multipart/form-data', */
+                    /* 'Content-Type': 'multipart/form-data', */
                     'Authorization': 'Bearer ' + token
                 },
                 body: formData
@@ -108,7 +108,7 @@ export default function ReadsCreate() {
                     <select required className="readsCreate-div-form-selector" onChange={(e) => setGenre(e.target.value)}>
                         <option value="">Elige un género</option>
                         <option value="fantasia">Fantasía</option>
-                        <option value="horror">Terror</option>
+                        <option value="horror">Horror</option>
                         <option value="romance">Romance</option>
                         <option value="ciencia ficción">Ciencia Ficción</option>
                         <option value="misterio">Misterio</option>
@@ -122,6 +122,9 @@ export default function ReadsCreate() {
                             <p>Filename: {selectedFile.name}</p>
                             <p>Filetype: {selectedFile.type}</p>
                             <p>Size in bytes: {selectedFile.size}</p>
+                            {selectedFile.size > "7000000" && (
+                                <p>Tu imagen debe de pesar 7mb o menos</p>
+                            )}
                             {/* <p>
                                 lastModifiedDate:{' '}
                                 {selectedFile.lastModifiedDate.toLocaleDateString()}
