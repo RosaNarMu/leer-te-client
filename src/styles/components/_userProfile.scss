@@ -9,9 +9,7 @@
         border-radius: 5px;
         background-color: $primary;
         padding: 1rem;
-   /*      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.356); */
     }
-
 
     .userProfile-div-head{
         display:flex;
@@ -21,9 +19,8 @@
         justify-content: space-between;
         font-size: large;
         margin: 1.5rem;
-
         padding-left: 15%;
-    padding-right: 15%;
+        padding-right: 15%;
     }
 
     .userProfile-div-listWrap{
@@ -37,19 +34,16 @@
         width: 200px;
         min-height: 250px;
     }
+
     .card:hover {
         .card-info{
             height: 200px;
         }
     }
-
-    
 }
-
-
 
 @media only screen and (max-width: 500px) {
     .userProfile-div-head {
-    gap: 1rem;
-}
+         gap: 1rem;
+    }
 }

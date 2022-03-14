@@ -48,25 +48,21 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
-
 }
 
 .userInfoUpdate-div-bottom{
     display: flex;
-    /* flex-grow: 1; */
     background-color: $primary;
-    /* bottom: 0px; */
-    /* height: 20%; */
     text-align: center;
-   justify-content: space-evenly;
-   padding: 3em;
-   width: 100vw;
+    justify-content: space-evenly;
+    padding: 3em;
+    width: 100vw;
+    padding-left: 15%;
+    padding-right: 15%;
 
    span {
-       font-size: x-large;
+        font-size: x-large;
    }
-   padding-left: 15%;
-   padding-right: 15%;
 }
 
 @media only screen and (max-width: 1010px) {
@@ -77,9 +73,7 @@
     }
 
     .userInfoUpdate-div-form {
-          flex-direction: column;
-          height: unset;
-          
+        flex-direction: column;
+        height: unset; 
       } 
-      
-    }
+}

@@ -1,18 +1,11 @@
 .pos-fixed {
-
     position: fixed;
     bottom: 30px;
     right: 30px;
-
     z-index: 1;
-    /* con esto se superpone debajo de las cosas si es en negativo y por encima si es en positivo */
-    /* controla la superposicion de los elementos */
-
-    
 }
 
 .pos-fixed a {
     text-decoration: none;
-    /* para quitar el subrayado feo de los enlaces */
     color: $dark-accent;
 }
