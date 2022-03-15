@@ -104,7 +104,7 @@ export default function ReadsDisplay() {
                             <span className="checkmark"></span>
                         </label>
 
-                        <label className="container" key="horror">Terror
+                        <label className="container" key="horror">Horror
                             <input type="radio" name="genre" value="horror" onChange={handleRadioHorror} />
                             <span className="checkmark"></span>
                         </label>
