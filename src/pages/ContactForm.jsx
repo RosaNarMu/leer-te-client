@@ -4,7 +4,7 @@ export default function ContactForm() {
 
     return (
         <div className='contactForm-div-wrapper'>
-            <h2>Contact Form</h2>
+            <h2>Contacta con nosotros</h2>
 
             <form action="https://formsubmit.co/1903e10e80b624cbf7da9e8b91aec8cd" method="POST" className='contactForm-div-form'>
                 <input type="hidden" name="_subject" value="Mensaje desde Leer-té" />
