@@ -185,7 +185,7 @@ export default function ReadsDetailFav() {
                     <>
                         <form onSubmit={submitComment} className='readsDisplay-div-comment-input'>
                             <span >¡Opina!</span>
-                            <textarea required maxLength="50" type='text' className='input' value={newComment} onChange={(e) => setNewComment(e.target.value)} />
+                            <textarea required maxLength="200" type='text' className='input' value={newComment} onChange={(e) => setNewComment(e.target.value)} />
                             <select required className="readsCreate-div-form-selector" onChange={(e) => setCommentScore(e.target.value)}>
                                 <option value="">Valora el relato</option>
                                 <option value={0}>Sin valoración</option>

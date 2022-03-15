@@ -55,6 +55,7 @@ export default function UserProfile() {
 
             const data = await response.json();
             setFavoritesList(data);
+            console.log(data);
         }
 
         fetchData();
