@@ -1,6 +1,6 @@
 # Leer-te client
 
-You can find the server for this project in 
+You can find the server for this project in https://github.com/RosaNarMu/leer-te-server
 
 Author: Rosa Narváez Muñoz, March 2022.
 
