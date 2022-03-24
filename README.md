@@ -45,3 +45,20 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+## Contributing
+
+This is my first project, and because of that any contributions you make are greatly appreciated.
+
+## Screenshots
+
+![This is an image](https://i.imgur.com/A9CNFqS.png)
+
+![This is an image](https://i.imgur.com/r7AJdXs.png)
+
+![This is an image](https://i.imgur.com/zEzlstJ.png)
+
+![This is an image](https://i.imgur.com/qAcoBOM.png)
+
+![This is an image](https://i.imgur.com/avO3QG5.png)
+
