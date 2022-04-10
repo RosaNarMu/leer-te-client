@@ -48,7 +48,7 @@ Your app is ready to be deployed!
 
 ## Contributing
 
-This is my first project, and because of that any contributions you make are greatly appreciated.
+Any contributions make are greatly appreciated.
 
 ## Screenshots
 
